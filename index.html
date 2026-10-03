@@ -1007,6 +1007,17 @@ html body :is(.ct,.dx-h){letter-spacing:.8px!important}
 html body input,html body textarea,html body select{font-size:16px;line-height:1.5}
 html body .card .nm,html body .cn,html body .ox-tt,html body .mx b{font-weight:600;line-height:1.5}
 html body .sl,html body .sec-h,html body .ip-hero h2,html body .ip-s>h3,html body .fx-cb h3,html body .pol h2,html body header>b{font-weight:700}
+
+/* ===== add-to-cart button: "added" state ===== */
+html body #addb{display:flex;align-items:center;justify-content:center;gap:8px}
+html body #addb .ab-i{flex:none;animation:abIn .28s cubic-bezier(.22,.8,.3,1) both}
+@keyframes abIn{from{opacity:0;scale:.4}to{opacity:1;scale:1}}
+html body #addb.added{background:linear-gradient(135deg,#10b981,#047857)!important;color:#fff!important;box-shadow:0 6px 16px rgba(4,120,87,.28);cursor:default}
+/* ===== cart delete confirmation ===== */
+.cd-ov{z-index:10000}
+.cd-ov .mg-md p{overflow-wrap:anywhere}
+.cd-ov .mg-mb button{min-height:46px}
+.cd-ov #cdok{background:linear-gradient(135deg,#ef4444,#b91c1c)!important;color:#fff!important}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -1114,8 +1125,8 @@ async function prod(slug){let p=P.find(x=>x.slug==slug);if(!p){try{await load()}
  $("app").innerHTML=`<div class="box pg"><div class="gframe"><div class="gal">${p.images.length?p.images.map(i=>`<img src="${e(i)}" alt="">`).join(""):`<div class="im">${e(nm(p))}</div>`}</div></div>${p.images.length>1?`<div class="nums" id="nums">${p.images.map((_,i)=>`<span class="${i?"":"on"}" onclick="goImg(${i})">${i+1}</span>`).join("")}</div>`:""}</div>
  <div class="box pi">${p.category?`<span class="cat">${e(p.category)}</span>`:""}<h1 class="pn">${e(nm(p))}</h1><div class="pp"><span class="now">${tk(p.price)}</span>${p.old_price?`<span class="old">${tk(p.old_price)}</span>`:""}${off?`<span class="off">${off}% ${t("save")}</span>`:""}</div><button type="button" class="shb" onclick="shOpen()" aria-label="${L("শেয়ার","Share")}">${SHI.share}<span>${L("শেয়ার করুন","Share")}</span></button></div>
  <div class="box po"><div id="sz">${ch("size",p.sizes)}</div><div id="cl">${ch("color",p.colors)}</div><div class="qrow"><div class="qa"><div class="lbl">${t("qty")}:</div><div class="qt"><button type="button" class="w" onclick="qty(-1)" aria-label="−">−</button><input id="qi" type="number" inputmode="numeric" min="1" value="1" oninput="sel.qty=Math.max(1,parseInt(this.value)||1);psum()" onblur="this.value=sel.qty"><button type="button" class="w" onclick="qty(1)" aria-label="+">+</button></div></div><div class="qs"><div class="qs-h"><b>${L("অর্ডার সামারি","Order summary")}</b><em id="ps_cnt"></em></div><div class="qs-r"><span>${L("পণ্যের মূল্য","Price")}<small id="ps_unit"></small></span><b id="ps_sub"></b></div><div class="qs-ar"><button type="button" data-v="60" onclick="psArea(60)">${L("ঢাকার ভেতরে","Inside Dhaka")}</button><button type="button" data-v="120" onclick="psArea(120)">${L("ঢাকার বাইরে","Outside Dhaka")}</button></div><div class="qs-r"><span>${L("ডেলিভারি চার্জ","Delivery")}</span><b id="ps_dc"></b></div><div class="qs-r qs-t"><span>${L("সর্বমোট","Total")}</span><b id="ps_tot"></b></div></div></div>
- ${p.in_stock?`<div class="acts"><button class="g" onclick="buy()">${t("buy")}</button><button class="o" onclick="addC()">${t("add")}</button></div>`:`<b style="color:#dc2626">${t("out")}</b>`}</div>
- ${specH(p)}${p.description?`<div class="box pd"><h3>${t("desc")}</h3><div class="tx">${e(p.description)}</div></div>`:""}`;const g=document.querySelector(".gal");if(g)g.addEventListener("scroll",galSync,{passive:true});psum()}
+ ${p.in_stock?`<div class="acts"><button class="g" onclick="buy()">${t("buy")}</button><button class="o" id="addb" type="button" onclick="addC()"><span class="ab-t">${t("add")}</span></button></div>`:`<b style="color:#dc2626">${t("out")}</b>`}</div>
+ ${specH(p)}${p.description?`<div class="box pd"><h3>${t("desc")}</h3><div class="tx">${e(p.description)}</div></div>`:""}`;const g=document.querySelector(".gal");if(g)g.addEventListener("scroll",galSync,{passive:true});psum();addSync()}
 function qty(d){sel.qty=Math.max(1,(sel.qty||1)+d);$("qi").value=sel.qty;psum()}
 function psum(){if(!sel||!sel.p)return;const q=sel.qty||1,p=+sel.p.price||0,d=window.AREA==120?120:60,S=(i,v)=>{const x=$(i);if(x)x.textContent=v};
  S("ps_cnt",bd(q)+" "+L("টি পণ্য","items"));S("ps_unit",tk(p)+" × "+bd(q));S("ps_sub",tk(p*q));S("ps_dc",tk(d));S("ps_tot",tk(p*q+d));
@@ -1123,9 +1134,15 @@ function psum(){if(!sel||!sel.p)return;const q=sel.qty||1,p=+sel.p.price||0,d=wi
 function psArea(v){window.AREA=v;psum()}
 function goImg(i){const g=document.querySelector(".gal");g.scrollTo({left:g.clientWidth*i+i*8,behavior:"smooth"})}
 function galSync(){const g=document.querySelector(".gal"),n=$("nums");if(!g||!n)return;const i=Math.round(g.scrollLeft/(g.clientWidth+8));[...n.children].forEach((c,k)=>c.classList.toggle("on",k==i))}
-function pick(k,el){sel[k]=el.textContent;[...el.parentElement.querySelectorAll(".chip")].forEach(c=>c.classList.toggle("on",c==el))}
+function pick(k,el){sel[k]=el.textContent;[...el.parentElement.querySelectorAll(".chip")].forEach(c=>c.classList.toggle("on",c==el));addSync()}
 const item=()=>({img:(sel.p.images||[])[0]||"",slug:sel.p.slug,name:sel.p.name_bn,size:sel.size||"",color:sel.color||"",qty:sel.qty,price:sel.p.price});
-async function addC(){if(await needAcc())return;const it=item(),k=c=>c.slug+"|"+c.size+"|"+c.color,x=cart.find(c=>k(c)==k(it));if(x)x.qty+=it.qty;else cart.push(it);saveC();toast("✓ "+t("added"))}
+const cKey=c=>c.slug+"|"+(c.size||"")+"|"+(c.color||"");
+function addSync(){const b=$("addb");if(!b||!sel||!sel.p)return;const on=cart.some(c=>cKey(c)==cKey(item())),t0=b.querySelector(".ab-t");
+ b.classList.toggle("added",on);b.setAttribute("aria-pressed",on?"true":"false");
+ if(t0)t0.textContent=on?t("added"):t("add");
+ const ic=b.querySelector(".ab-i");if(on&&!ic)b.insertAdjacentHTML("afterbegin",'<svg class="ab-i" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>');
+ if(!on&&ic)ic.remove()}
+async function addC(){const b=$("addb");if(b&&b.classList.contains("added"))return;if(await needAcc())return;const it=item(),x=cart.find(c=>cKey(c)==cKey(it));if(x)x.qty+=it.qty;else cart.push(it);saveC();addSync()}
 function toast(m){let d=document.createElement("div");d.className="toast";d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.classList.add("out"),1700);setTimeout(()=>d.remove(),2100)}
 async function buy(){if(await needAcc())return;direct=[item()];try{sessionStorage.dr=JSON.stringify(direct)}catch(_){}location.hash="#/checkout"}
 function cCards(r){if(!cart.length)return`<div class="empc"><div class="ei">🛒</div><b>${t("empty")}</b><a class="btn g" href="#/">${L("কেনাকাটা শুরু করুন","Start shopping")}</a></div>`;
@@ -1134,7 +1151,15 @@ function cCards(r){if(!cart.length)return`<div class="empc"><div class="ei">🛒
  return`<div class="ci"><a class="cim" href="#/product/${encodeURIComponent(c.slug)}">${im?`<img src="${e(im)}" alt="" loading="lazy" decoding="async">`:`<span>${e(fi(c.name))}</span>`}</a><div class="cb"><a class="cn" href="#/product/${encodeURIComponent(c.slug)}">${e(p?nm(p):c.name)}</a><div class="cm">${c.size?`<i>${e(c.size)}</i>`:""}${c.color?`<i>${e(c.color)}</i>`:""}</div><div class="cr"><div class="cq"><button type="button" onclick="cqty(${i},-1,'${r}')">−</button><b>${c.qty}</b><button type="button" onclick="cqty(${i},1,'${r}')">+</button></div><div class="cp">${tk(c.price*c.qty)}</div></div></div><div class="ca"><button type="button" class="ob" onclick="cord(${i})">${t("buy")}</button><button type="button" class="dl" onclick="cdel(${i},'${r}')" aria-label="Delete"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/></svg></button></div></div>`}).join("")}</div>${cart.length>1?`<div class="ctt"><span>${L("মোট","Total")} (${cart.length})</span><b>${tk(tot)}</b></div><a class="btn all" href="#/checkout" onclick="direct=null;try{sessionStorage.removeItem('dr')}catch(_){}">${L("সব প্রোডাক্ট অর্ডার করুন","Order all items")}</a>`:""}`}
 function cRe(r){r=="p"?pCart():cartV()}
 function cqty(i,d,r){cart[i].qty=Math.max(1,cart[i].qty+d);saveC();cRe(r)}
-function cdel(i,r){cart.splice(i,1);saveC();cRe(r)}
+function cdel(i,r){const c=cart[i];if(!c)return;document.querySelectorAll(".cd-ov").forEach(x=>x.remove());
+ const p=P.find(x=>x.slug==c.slug),m=document.createElement("div");m.className="mg-ov cd-ov";
+ m.innerHTML=`<div class="mg-md" role="alertdialog" aria-modal="true" aria-labelledby="cdt"><div class="mg-mi">🗑️</div><h3 id="cdt">${L("কার্ট থেকে সরাবেন?","Remove from cart?")}</h3><p><b>${e(p?nm(p):c.name)}</b>${L(" প্রোডাক্টটি আপনার কার্ট থেকে মুছে যাবে।<br>আপনি কি সত্যিই এটি ডিলিট করতে চান?"," will be removed from your cart.<br>Do you really want to delete it?")}</p><div class="mg-mb"><button type="button" class="w" id="cdno">${L("বাতিল","Cancel")}</button><button type="button" class="r" id="cdok">${L("ওকে","OK")}</button></div></div>`;
+ document.body.appendChild(m);document.body.style.overflow="hidden";
+ const close=()=>{m.remove();document.body.style.overflow="";document.removeEventListener("keydown",kd)},kd=ev=>{if(ev.key=="Escape")close()};
+ document.addEventListener("keydown",kd);
+ m.onclick=ev=>{if(ev.target==m)close()};$("cdno").onclick=close;
+ $("cdok").onclick=()=>{const j=cart.indexOf(c);if(j>-1)cart.splice(j,1);saveC();close();cRe(r)};
+ setTimeout(()=>{const b=$("cdok");if(b)b.focus({preventScroll:true})},30)}
 function cord(i){direct=[cart[i]];try{sessionStorage.dr=JSON.stringify(direct)}catch(_){}location.hash="#/checkout"}
 function cartV(){$("app").innerHTML=`<div class="cartw"><h3 class="cth">🛒 ${L("আমার কার্ট","My Cart")}</h3>${cCards("c")}</div>`}
 function checkout(){const it=direct||cart;if(!it.length){cartV();return}
