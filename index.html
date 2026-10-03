@@ -1619,7 +1619,7 @@ async function aProducts(){if(!await admOK())return admLogin();
 async function aRt(h){if(!await admOK())return admLogin();
  const p=h.split("/").slice(2).map(x=>{try{return decodeURIComponent(x)}catch(_){return x}}),k=p[0],sc=p[1],cn=p[2];
  $("app").innerHTML=adT("Manage Product","/admin/products")+'<div class="box">Loading...</div>';
- await Promise.all([ldC(),chkAll()]);
+ await Promise.all([load(),chkAll()]);
  if(k=="sections")return aSecList();if(k=="section")return aSecEdit(sc);if(k=="secnew")return aSecEdit("");
  if(sc&&!SEC.some(x=>x.k==sc))return location.replace("#/admin/products");
  AS=sc||null;ACF=null;
@@ -1684,11 +1684,25 @@ const secSqlW=()=>{if(SECOK&&window.ADM_TBL!==false)return "";const t=SECOK?["�
 async function aSecList(){
  if(SECOK&&!SECN){const r=await sb.from("sections").insert(DEFSEC.map((x,i)=>({k:x.k,bn:x.bn,en:x.en,ic:x.ic,db:x.db,de:x.de,c:x.c,kind:x.kind,pos:i})));if(!r.error)await load()}
  $("app").innerHTML=adT("🗂️ সেকশন ম্যানেজ","/admin")+secSqlW()+(SECOK?`<button type="button" class="g" style="width:100%;margin:0 0 12px;font-size:16px" onclick="location.hash='#/admin/secnew'">＋ নতুন সেকশন</button>`:"")+SEC.map((x,i)=>`<div class="box sct"><div class="sch" style="background:${x.c}"><span>${x.ic}</span><div><b>${e(x.bn)}</b><small>${e(x.en)}</small></div></div><div class="scm">${bn(secP(x.k).length)} টি প্রোডাক্ট · ${bn(secC(x.k).length)} টি ক্যাটাগরি</div>${SECOK?`<div class="pca"><button type="button" class="w" ${i?"":"disabled"} onclick="secMove('${x.k}',-1)" aria-label="উপরে">↑</button><button type="button" class="w" ${i<SEC.length-1?"":"disabled"} onclick="secMove('${x.k}',1)" aria-label="নিচে">↓</button><button type="button" class="mgb" onclick="location.hash='#/admin/section/${enc(x.k)}'">✏️ এডিট</button><button type="button" class="r" onclick="secDel('${x.k}')">🗑</button></div>`:""}</div>`).join("")}
-async function secMove(k,d){const i=SEC.findIndex(x=>x.k==k),j=i+d;if(j<0||j>=SEC.length)return;const a=SEC.slice();[a[i],a[j]]=[a[j],a[i]];const rs=await Promise.all(a.map((x,n)=>sb.from("sections").update({pos:n}).eq("k",x.k)));const er=rs.find(r=>r.error);if(er)return alert(er.error.message);await load();aSecList()}
-async function secDel(k){const x=SEC.find(y=>y.k==k);if(!x)return;if(k=="fashion")return alert("ফ্যাশন ডিফল্ট সেকশন, এটি ডিলিট করা যাবে না। চাইলে এডিট করতে পারবেন।");
+const secMsg=x=>{const m=(x&&x.message)||"";return /row-level security|permission denied|policy/i.test(m)?"অনুমতি নেই: আপনার এডমিন অ্যাকাউন্ট ডাটাবেসে নিবন্ধিত নয়। সেকশন পেজের SQL কোডটি Supabase-এ একবার Run করুন।":(m||"কাজটি সম্পন্ন হয়নি")};
+const secOk=(r,rows)=>{if(r.error){alert(secMsg(r.error));return false}if(rows&&(!r.data||!r.data.length)){alert("পরিবর্তন সেভ হয়নি — ডাটাবেস অনুমতি দিচ্ছে না। সেকশন পেজের SQL কোডটি Supabase-এ একবার Run করুন, তারপর আবার চেষ্টা করুন।");return false}return true};
+const secBg=()=>load().then(()=>{if((location.hash.slice(1)||"/")=="/admin/sections")aSecList()}).catch(()=>{});
+async function secMove(k,d){const i=SEC.findIndex(x=>x.k==k),j=i+d;if(j<0||j>=SEC.length)return;
+ const old=SEC.slice(),a=SEC.slice();[a[i],a[j]]=[a[j],a[i]];SEC=a;mxCache();aSecList();
+ let rs;try{rs=await Promise.all(a.map((x,n)=>sb.from("sections").update({pos:n}).eq("k",x.k).select("k")))}catch(err){rs=[{error:err}]}
+ const bad=rs.find(r=>r.error||!r.data||!r.data.length);
+ if(bad){SEC=old;mxCache();aSecList();secOk(bad,true);secBg()}}
+function secDel(k){const x=SEC.find(y=>y.k==k);if(!x)return;if(k=="fashion")return alert("ফ্যাশন ডিফল্ট সেকশন, এটি ডিলিট করা যাবে না। চাইলে এডিট করতে পারবেন।");
  const n=secP(k).length;if(n)return alert("এই সেকশনে "+bn(n)+" টি প্রোডাক্ট আছে। আগে প্রোডাক্টগুলো ডিলিট করুন বা অন্য সেকশনে সরান।");
- if(!confirm("\""+x.bn+"\" সেকশন ডিলিট করবেন? এর ক্যাটাগরিগুলোও মুছে যাবে।"))return;
- if(SCH)await sb.from("categories").delete().eq("section",k);const r=await sb.from("sections").delete().eq("k",k);if(r.error)return alert(r.error.message);await load();toast("✓ সেকশন ডিলিট হয়েছে");aSecList()}
+ const m=document.createElement("div");m.className="mg-ov";
+ m.innerHTML=`<div class="mg-md" role="dialog" aria-modal="true"><div class="mg-mi">${e(x.ic)}</div><h3>সেকশন ডিলিট করবেন?</h3><p><b>${e(x.bn)}</b> সেকশন ও এর সব ক্যাটাগরি ওয়েবসাইট থেকে স্থায়ীভাবে মুছে যাবে।</p><div class="mg-mb"><button type="button" class="w" id="sdno">বাতিল</button><button type="button" class="r" id="sdyes">ওকে, ডিলিট করুন</button></div></div>`;
+ document.body.appendChild(m);m.onclick=ev=>{if(ev.target==m)m.remove()};$("sdno").onclick=()=>m.remove();
+ $("sdyes").onclick=async()=>{const y=$("sdyes");y.disabled=true;$("sdno").disabled=true;y.textContent="ডিলিট হচ্ছে...";
+  let r;try{r=await sb.from("sections").delete().eq("k",k).select("k")}catch(err){r={error:err}}
+  m.remove();if(!secOk(r,true))return;
+  SEC=SEC.filter(z=>z.k!=k);C=C.filter(c=>(c.section||"fashion")!=k);mxCache();aSecList();toast("✓ সেকশন ওয়েবসাইট থেকে ডিলিট হয়েছে");
+  try{if(SCH)await sb.from("categories").delete().eq("section",k)}catch(_){}
+  secBg()}}
 let SCC=SWS[0];
 function aSecEdit(k){const x=k?SEC.find(y=>y.k==k):{bn:"",en:"",ic:"🛍️",db:"",de:"",c:SWS[0],kind:"fashion"};
  if(k&&!x)return location.replace("#/admin/sections");SCC=x.c;
@@ -1705,8 +1719,12 @@ function secPv(){$("spi").textContent=$("sic").value||"🛍️";$("spb").textCon
 function secCol(b,c){SCC=c;$("spv").style.background=c;document.querySelectorAll(".swr button").forEach(z=>z.classList.toggle("on",z==b))}
 async function secSave(k){if(!SECOK)return alert("আগে উপরের SQL কোডটি Supabase-এ Run করুন");const v=id=>$(id).value.trim(),bnm=v("sbn");if(!bnm)return alert("সেকশনের নাম (বাংলা) দিন");
  const row={bn:bnm,en:v("sen")||bnm,ic:v("sic")||"🛍️",db:v("sdb"),de:v("sde"),c:SCC,kind:$("skd").value},b=$("ssv");b.disabled=true;
- let r;if(k)r=await sb.from("sections").update(row).eq("k",k);else{const sl=(v("sen")||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"sec";row.k=sl+"-"+Date.now().toString(36);row.pos=SEC.length;r=await sb.from("sections").insert(row)}
- b.disabled=false;if(r.error)return alert(r.error.message);await load();toast("✓ সেকশন সেভ হয়েছে");abk("/admin/sections")}
+ try{let r;
+  if(k){r=await sb.from("sections").update(row).eq("k",k).select("k");if(!secOk(r,true))return;SEC=SEC.map(x=>x.k==k?Object.assign({},x,row):x)}
+  else{const sl=(v("sen")||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"sec";row.k=sl+"-"+Date.now().toString(36);row.pos=SEC.length;r=await sb.from("sections").insert(row).select("k");if(!secOk(r,true))return;SEC=SEC.concat([{k:row.k,bn:row.bn,en:row.en,ic:row.ic,db:row.db,de:row.de,c:row.c,kind:row.kind}])}
+  mxCache();toast("✓ সেকশন সেভ হয়েছে");load().catch(()=>{});abk("/admin/sections")}
+ catch(err){alert(secMsg(err))}
+ finally{const b2=$("ssv");if(b2)b2.disabled=false}}
 /* ADMIN: MANAGE PRODUCT (সব সেকশনে একই) */
 const STKFIX="alter table products add column if not exists stock integer;";
 let STK=null,MP=null,MI=[];
