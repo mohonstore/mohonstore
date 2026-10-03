@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mohon Store · Admin</title><meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<style>
+:root{--ink:#0e1726;--mut:#667085;--line:#e6e8ec;--soft:#f6f5f1;--gold:#b08a3e;--bad:#c0392b}
+*{box-sizing:border-box}body{margin:0;font-family:"Hind Siliguri",system-ui,sans-serif;color:var(--ink);background:var(--soft);line-height:1.5}
+header{background:var(--ink);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px}header b{font-family:"Noto Serif Bengali",serif;font-size:18px}header i{font-style:normal;color:var(--gold)}header a,header button{margin-left:auto;color:#c9d0dc;font-size:14px;background:none;border:0;cursor:pointer;font-family:inherit}
+main{max-width:860px;margin:auto;padding:16px 14px 60px}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:14px}.tabs button{padding:9px 18px;border:1px solid var(--line);border-radius:99px;background:#fff;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap}.tabs .on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+input,select,textarea{width:100%;padding:10px 12px;margin:4px 0 10px;border:1px solid #d0d5dd;border-radius:10px;font:inherit;background:#fff}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+label{font-weight:600;font-size:14px}.bt{border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer;background:var(--ink);color:#fff}.bt.g{background:var(--gold)}.bt.w{background:var(--soft);color:var(--ink)}.bt.r{background:#fdeceb;color:var(--bad)}.bt.s{padding:6px 12px;font-size:14px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row.sp{justify-content:space-between}.f1{flex:1;min-width:0}
+.th{width:54px;height:54px;border-radius:10px;object-fit:cover;background:var(--soft);flex:none}
+.badge{display:inline-block;padding:1px 10px;border-radius:99px;background:var(--soft);font-size:13px;font-weight:600}
+summary{cursor:pointer;list-style:none}small,.mu{color:var(--mut)}.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ims{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.ims div{position:relative}.ims button{position:absolute;right:-6px;top:-6px;width:22px;height:22px;border-radius:50%;border:0;background:var(--bad);color:#fff;cursor:pointer}
+#t{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s;z-index:99}#t.on{opacity:1;transform:translate(-50%,0)}
+</style></head><body>
+<header><b>Mohon <i>Admin</i></b><span id="hb"></span></header><main id="app"></main><div id="t"></div>
+<script>
+const sb=supabase.createClient("https://yqdrdgqmmjidffggbomw.supabase.co","sb_publishable_FSqjVxLUGgmQalyx-K8IRw_5W0HuR3h");
+const $=s=>document.querySelector(s),app=$("#app");
+const e=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const tk=n=>"৳"+Number(n||0).toLocaleString("en-IN"),r=h=>app.innerHTML=h;
+const toast=m=>{const t=$("#t");t.textContent=m;t.className="on";clearTimeout(t.h);t.h=setTimeout(()=>t.className="",2400)};
+const ST={pending:"Pending",confirmed:"Confirmed",shipped:"Shipped",delivered:"Delivered",cancelled:"Cancelled"};
+let S=[],C=[],P=[],tab="o",ed=null,imgs=[],of="all";
+
+async function init(){const s=(await sb.auth.getSession()).data.session;if(!s){$("#hb").innerHTML="";return login()}
+const a=await sb.from("admins").select("user_id").eq("user_id",s.user.id).maybeSingle();
+$("#hb").innerHTML='<button onclick="out()">লগআউট</button>';
+if(!a.data)return r(`<div class="box">এই অ্যাকাউন্ট অ্যাডমিন নয়। ধাপ ৫-এর SQL ঠিক ইমেইলে চালানো হয়েছে কিনা দেখুন।</div>`);
+await load();show()}
+function login(){r(`<div class="box" style="max-width:400px;margin:30px auto"><h2 style="margin:0 0 12px;font-family:'Noto Serif Bengali',serif">Admin Login</h2><input id="ae" type="email" placeholder="Email"><input id="ap" type="password" placeholder="Password"><button class="bt" onclick="doLogin()">Login</button></div>`)}
+async function doLogin(){const x=await sb.auth.signInWithPassword({email:$("#ae").value.trim(),password:$("#ap").value});if(x.error)return toast("ইমেইল বা পাসওয়ার্ড ভুল");init()}
+async function out(){await sb.auth.signOut();init()}
+async function load(){const[a,b,c]=await Promise.all([sb.from("sections").select("*").order("pos"),sb.from("categories").select("*").order("created_at"),sb.from("products").select("*").order("created_at",{ascending:false})]);S=a.data||[];C=b.data||[];P=c.data||[]}
+function show(){const T=[["o","অর্ডার"],["p","প্রোডাক্ট"],["c","ক্যাটাগরি"],["v","রিভিউ"]];
+r(`<div class="tabs">${T.map(t=>`<button class="${t[0]==tab?"on":""}" onclick="tab='${t[0]}';ed=null;show()">${t[1]}</button>`).join("")}</div><div id="w">লোড হচ্ছে...</div>`);({o:orders,p:ed?pform:plist,c:cats,v:revs})[tab]()}
+
+async function orders(){const x=await sb.from("orders").select("*").order("created_at",{ascending:false});if(x.error)return $("#w").textContent=x.error.message;
+const all=x.data||[],l=of=="all"?all:all.filter(o=>o.status==of);
+$("#w").innerHTML=`<div class="tabs">${["all",...Object.keys(ST)].map(k=>`<button class="${k==of?"on":""}" onclick="of='${k}';orders()">${k=="all"?"সব":ST[k]} ${k=="all"?all.length:all.filter(o=>o.status==k).length}</button>`).join("")}</div>`+
+(l.map(o=>`<details class="box"><summary class="row sp"><span><b>${e(o.order_no)}</b> ${e(o.customer_name)}<br><small>${new Date(o.created_at).toLocaleString("bn-BD")} · ${tk(+o.subtotal+ +o.delivery_charge)}</small></span><span class="badge">${ST[o.status]||o.status}</span></summary>
+<p style="white-space:pre-line;margin:12px 0 6px">📞 ${e(o.mobile)}${o.email?"\n✉️ "+e(o.email):""}\n📍 ${e(o.address)}</p>
+<p class="mu" style="margin:0 0 8px">${e(o.area)} · ডেলিভারি ${tk(o.delivery_charge)} · TrxID: <b>${e(o.trx_id)}</b> · পাঠিয়েছে: ${e(o.sender_number)}</p>
+${(o.items||[]).map(c=>`<div class="row" style="margin:6px 0"><img class="th" src="${e(c.img)}" alt=""><span>${e(c.name)}<br><small>${[c.size,c.color].filter(Boolean).map(e).join(" · ")} × ${c.qty} · ${tk(c.price*c.qty)}</small></span></div>`).join("")}
+<select onchange="setSt('${o.id}',this.value)">${Object.keys(ST).map(k=>`<option value="${k}" ${k==o.status?"selected":""}>${ST[k]}</option>`).join("")}</select></details>`).join("")||'<div class="box mu">কোনো অর্ডার নেই</div>')}
+async function setSt(id,v){const x=await sb.from("orders").update({status:v}).eq("id",id);toast(x.error?x.error.message:"✓ স্ট্যাটাস বদলেছে")}
+
+function plist(){$("#w").innerHTML=`<button class="bt g" style="margin-bottom:12px" onclick="ed={};imgs=[];show()">+ নতুন প্রোডাক্ট</button>`+(P.map(p=>`<div class="box row"><img class="th" src="${e((p.images||[])[0]||"")}" alt=""><div class="f1"><b>${e(p.name_bn)}</b><br><small>${tk(p.price)} · ${e(p.category||"")} · ${p.in_stock===false?"স্টক শেষ":"স্টকে আছে"}</small></div><button class="bt w s" onclick="editP('${p.id}')">এডিট</button><button class="bt w s" onclick="togS('${p.id}',${p.in_stock===false})">${p.in_stock===false?"স্টকে আনুন":"স্টক শেষ"}</button><button class="bt r s" onclick="delP('${p.id}')">মুছুন</button></div>`).join("")||'<div class="box mu">এখনো কোনো প্রোডাক্ট নেই</div>')}
+function editP(id){ed=P.find(p=>p.id==id);imgs=[...(ed.images||[])];show()}
+async function togS(id,v){const x=await sb.from("products").update({in_stock:v}).eq("id",id);if(x.error)return toast(x.error.message);await load();plist()}
+async function delP(id){if(!confirm("প্রোডাক্টটি মুছবেন?"))return;const x=await sb.from("products").delete().eq("id",id);if(x.error)return toast(x.error.message);await load();plist();toast("মুছে ফেলা হয়েছে")}
+function fillC(){const s=$("#ps").value;$("#pc").innerHTML='<option value="">ক্যাটাগরি বাছুন</option>'+C.filter(c=>(c.section||"fashion")==s).map(c=>`<option ${c.name==(ed.category||"")?"selected":""}>${e(c.name)}</option>`).join("")}
+function pform(){const p=ed,sp=((p.specs||{}).items||[]).map(x=>x[0]+": "+x[1]).join("\n"),j=a=>e((a||[]).join(", "));
+$("#w").innerHTML=`<div class="box"><div class="row sp"><h3 style="margin:0">${p.id?"প্রোডাক্ট এডিট":"নতুন প্রোডাক্ট"}</h3><button class="bt w s" onclick="ed=null;show()">← ফিরুন</button></div><br>
+<label>নাম (বাংলা)</label><input id="pn" value="${e(p.name_bn)}"><label>নাম (English, ঐচ্ছিক)</label><input id="pe" value="${e(p.name_en)}">
+<div class="g2"><div><label>সেকশন</label><select id="ps" onchange="fillC()">${S.map(s=>`<option value="${e(s.k)}" ${s.k==(p.section||"fashion")?"selected":""}>${e(s.bn)}</option>`).join("")}</select></div><div><label>ক্যাটাগরি</label><select id="pc"></select></div>
+<div><label>দাম (৳)</label><input id="pp" type="number" value="${p.price??""}"></div><div><label>পুরনো দাম (ঐচ্ছিক)</label><input id="po" type="number" value="${p.old_price??""}"></div>
+<div><label>সাইজ (কমা দিয়ে)</label><input id="pz" value="${j(p.sizes)}"></div><div><label>রঙ (কমা দিয়ে)</label><input id="pl" value="${j(p.colors)}"></div></div>
+<label>স্টক সংখ্যা (ঐচ্ছিক)</label><input id="pk" type="number" value="${p.stock??""}">
+<label>বিবরণ</label><textarea id="pd" rows="4">${e(p.description)}</textarea>
+<label>স্পেসিফিকেশন (প্রতি লাইনে একটি, নাম: মান)</label><textarea id="px" rows="3">${e(sp)}</textarea>
+<label>ছবি (একাধিক পারবেন, প্রথমটি কভার)</label><div class="ims" id="im"></div><input type="file" accept="image/*" multiple onchange="upl(this)"><button class="bt g" id="sv" onclick="saveP()">সেভ করুন</button></div>`;fillC();ims()}
+function ims(){$("#im").innerHTML=imgs.map((u,i)=>`<div><img class="th" src="${e(u)}" alt=""><button onclick="imgs.splice(${i},1);ims()">×</button></div>`).join("")}
+async function upl(el){toast("আপলোড হচ্ছে...");for(const f of el.files){try{const bm=await createImageBitmap(f),k=Math.min(1,1000/Math.max(bm.width,bm.height)),c=document.createElement("canvas");c.width=bm.width*k;c.height=bm.height*k;c.getContext("2d").drawImage(bm,0,0,c.width,c.height);
+const b=await new Promise(z=>c.toBlob(z,"image/jpeg",.85)),n="p/"+Date.now()+"-"+Math.random().toString(36).slice(2,7)+".jpg",x=await sb.storage.from("products").upload(n,b,{contentType:"image/jpeg"});
+if(x.error){toast(x.error.message);continue}imgs.push(sb.storage.from("products").getPublicUrl(n).data.publicUrl)}catch(_){toast("ছবিটি পড়া যায়নি")}}ims();el.value="";toast("✓ ছবি যোগ হয়েছে")}
+async function saveP(){const v=i=>$("#"+i).value.trim(),l=i=>v(i).split(",").map(s=>s.trim()).filter(Boolean);
+if(!v("pn"))return toast("প্রোডাক্টের নাম দিন");if(!v("pc"))return toast("ক্যাটাগরি বাছুন (না থাকলে আগে ক্যাটাগরি ট্যাবে বানান)");if(!(+v("pp")>0))return toast("দাম দিন");
+const items=$("#px").value.split("\n").map(x=>x.trim()).filter(Boolean).map(x=>{const i=x.search(/[:：]/);return i>0?[x.slice(0,i).trim(),x.slice(i+1).trim()]:[x,"✓"]});
+const row={name_bn:v("pn"),name_en:v("pe"),section:v("ps"),category:v("pc"),price:+v("pp"),old_price:+v("po")||null,sizes:l("pz"),colors:l("pl"),stock:v("pk")===""?null:+v("pk"),description:$("#pd").value,images:imgs,specs:{items}};
+if(!ed.id)row.slug=((v("pe").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""))||"p")+"-"+Date.now().toString(36);
+$("#sv").disabled=true;const x=ed.id?await sb.from("products").update(row).eq("id",ed.id):await sb.from("products").insert(row);
+if(x.error){$("#sv").disabled=false;return toast(x.error.message)}await load();ed=null;show();toast("✓ প্রোডাক্ট সেভ হয়েছে")}
+
+function cats(){$("#w").innerHTML=`<div class="box"><label>নতুন ক্যাটাগরি</label><select id="cs">${S.map(s=>`<option value="${e(s.k)}">${e(s.bn)}</option>`).join("")}</select><input id="cn" placeholder="ক্যাটাগরির নাম (যেমন: টি-শার্ট)"><button class="bt g" onclick="addC()">যোগ করুন</button></div>`+
+S.map(s=>`<div class="box"><b>${e(s.ic||"")} ${e(s.bn)}</b>${C.filter(c=>(c.section||"fashion")==s.k).map(c=>`<div class="row sp" style="padding:6px 0;border-top:1px solid var(--line);margin-top:6px"><span>${e(c.name)}</span><button class="bt r s" onclick="delC('${c.id}')">মুছুন</button></div>`).join("")||'<div class="mu">এই সেকশনে এখনো কোনো ক্যাটাগরি নেই</div>'}</div>`).join("")}
+async function addC(){const n=$("#cn").value.trim();if(!n)return toast("নাম দিন");const x=await sb.from("categories").insert({name:n,section:$("#cs").value});if(x.error)return toast(/duplicate/i.test(x.error.message)?"এই ক্যাটাগরি আগেই আছে":x.error.message);await load();cats();toast("✓ ক্যাটাগরি যোগ হয়েছে")}
+async function delC(id){if(!confirm("ক্যাটাগরি মুছবেন? (প্রোডাক্ট মুছবে না)"))return;const x=await sb.from("categories").delete().eq("id",id);if(x.error)return toast(x.error.message);await load();cats()}
+
+async function revs(){const x=await sb.from("reviews").select("*,products(name_bn)").order("created_at",{ascending:false});if(x.error)return $("#w").textContent=x.error.message;
+$("#w").innerHTML=(x.data||[]).map(v=>`<div class="box"><div class="row sp"><b>${e(v.name||"কাস্টমার")} ${"★".repeat(v.rating||5)}</b><span class="badge">${v.approved?"প্রকাশিত":"অপেক্ষায়"}</span></div><small>${e((v.products||{}).name_bn||"")}</small><p>${e(v.comment)}</p><div class="row">${v.approved?"":`<button class="bt g s" onclick="rv('${v.id}',1)">অনুমোদন দিন</button>`}<button class="bt r s" onclick="rv('${v.id}',0)">মুছুন</button></div></div>`).join("")||'<div class="box mu">কোনো রিভিউ নেই</div>'}
+async function rv(id,ok){const x=ok?await sb.from("reviews").update({approved:true}).eq("id",id):await sb.from("reviews").delete().eq("id",id);if(x.error)return toast(x.error.message);revs()}
+init();
+</script></body></html>
