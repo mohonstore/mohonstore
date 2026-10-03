@@ -562,6 +562,96 @@ footer h4{color:#fff;margin:0 0 14px;font-size:15px;font-weight:700;padding-bott
 .sec-g::-webkit-scrollbar{display:none}
 .sec-g .sec-t{flex:0 0 76%;max-width:320px;scroll-snap-align:start}
 @media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+
+/* ===== clickable trust badges ===== */
+.trust a{background:#fff;border:1px solid #eceae4;border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:600;line-height:1.3;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
+.trust a:after{content:"\203A";margin-left:auto;padding-left:4px;color:#a47a2c;font-size:22px;line-height:1}
+.trust a:active{transform:scale(.98)}
+.trust a:focus-visible{outline:2px solid #c9a24d;outline-offset:2px}
+@media(hover:hover){.trust a:hover{border-color:#c9a24d;box-shadow:0 6px 16px rgba(15,37,87,.10)}}
+
+/* ===== info pages (delivery / payment / track) ===== */
+.ip{max-width:640px;margin:0 auto;padding-bottom:8px}
+.ip-hero{position:relative;background:linear-gradient(160deg,#0b1220 0%,#12285c 100%);color:#fff;border-radius:22px;padding:24px 22px 28px;margin:4px 0 22px;overflow:hidden;border:1px solid #1d2c52}
+.ip-hero:after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:linear-gradient(90deg,#e2c275,#c9a24d,#a47a2c)}
+.ip-hero h2{font-family:"Noto Serif Bengali",serif;font-size:25px;line-height:1.35;margin:14px 0 8px;color:#fff}
+.ip-hero p{margin:0;color:#b8c3da;font-size:14.5px;line-height:1.75;max-width:52ch}
+.ip-ic{width:48px;height:48px;border-radius:14px;background:rgba(226,194,117,.12);border:1px solid rgba(226,194,117,.45);color:#e2c275;display:flex;align-items:center;justify-content:center}
+.ip-ic svg{width:25px;height:25px}
+.ip-s{margin:0 0 26px}
+.ip-s>h3{font-family:"Noto Serif Bengali",serif;font-size:19px;line-height:1.4;color:var(--b);margin:0 0 6px}
+.ip-s>.lead{margin:0 0 12px;color:var(--mut);font-size:13.5px;line-height:1.7}
+.ip-s>h3+*:not(.lead){margin-top:10px}
+
+.ip-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ip-ch{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--sh);border-top:3px solid #c9a24d}
+.ip-ch small{display:block;color:var(--mut);font-weight:600;font-size:13px}
+.ip-ch b{display:block;font-size:30px;line-height:1.2;color:var(--b);margin:6px 0 4px;font-weight:800}
+.ip-ch em{display:block;font-style:normal;color:#4a5568;font-size:13px;line-height:1.5}
+
+.ip-st{list-style:none;margin:0;padding:0}
+.ip-st li{position:relative;padding:0 0 20px 54px;min-height:42px}
+.ip-st li:last-child{padding-bottom:0}
+.ip-st li:before{content:"";position:absolute;left:19px;top:42px;bottom:2px;width:2px;background:linear-gradient(#c9a24d,#e6eaf3)}
+.ip-st li:last-child:before{display:none}
+.ip-st li>i{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--b);color:#e2c275;font-style:normal;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #e2c275}
+.ip-st b{display:block;font-size:15.5px;line-height:1.4;margin-top:1px}
+.ip-st span{display:block;color:#4a5568;font-size:14px;line-height:1.7;margin-top:2px}
+
+.ip-ls{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);overflow:hidden}
+.ip-ls>div{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-top:1px solid var(--line)}
+.ip-ls>div:first-child{border-top:0}
+.ip-ls p{margin:0;font-size:14px;line-height:1.7;color:#2b3550}
+.ip-ck{flex:none;width:24px;height:24px;border-radius:50%;background:#f6efdc;color:#a47a2c;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ip-ck svg{width:14px;height:14px;stroke-width:3}
+.ip-rs>div.ip-r{justify-content:space-between;align-items:center}
+.ip-r span{font-size:14px;color:#2b3550}.ip-r b{color:var(--b);font-size:15px;text-align:right}
+
+.ip-q details{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:8px;padding:0 16px}
+.ip-q summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;font-weight:700;font-size:14.5px;line-height:1.5}
+.ip-q summary::-webkit-details-marker{display:none}
+.ip-q summary:after{content:"+";flex:none;color:#a47a2c;font-size:22px;line-height:1;font-weight:500}
+.ip-q details[open] summary:after{content:"\2013"}
+.ip-q details[open]{border-color:#e2c275}
+.ip-q summary:focus-visible{outline:2px solid #c9a24d;outline-offset:2px;border-radius:8px}
+.ip-q details p{margin:0 0 14px;color:#4a5568;font-size:14px;line-height:1.75}
+
+.ip-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.ip-cta a{flex:1;min-width:160px;text-align:center;padding:14px 16px;border-radius:14px;font-weight:800;font-size:14.5px;line-height:1.3}
+.ip-cta .p{background:linear-gradient(135deg,#e2c275,#c9a24d 55%,#a47a2c);color:#1a1305}
+.ip-cta .wa{background:#16a34a;color:#fff}
+.ip-cta a:active{transform:scale(.98)}
+.ip-cta a:focus-visible{outline:2px solid #12285c;outline-offset:2px}
+
+.ip-slip{background:#fff;border:1.5px dashed #c9a24d;border-radius:18px;padding:18px;box-shadow:var(--sh)}
+.ip-slip>small{display:block;color:var(--mut);font-weight:600;font-size:13px}
+.ip-num{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0 12px}
+.ip-num b{font-size:28px;letter-spacing:1.2px;color:var(--b);font-weight:800;line-height:1.2}
+.ip-cp{display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:12px;background:var(--b);color:#fff;font-weight:700;font-size:13.5px;flex:none}
+.ip-cp svg{width:16px;height:16px}
+.ip-cp.ok{background:#16a34a}
+.ip-pay{display:flex;gap:8px}
+.ip-pay span{padding:6px 16px;border-radius:99px;color:#fff;font-weight:800;font-size:13px}
+.ip-bk{background:#e2136e}.ip-ng{background:#f26522}
+.ip-slip>p{margin:12px 0 0;color:#4a5568;font-size:13.5px;line-height:1.7}
+
+.ip-f{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--sh);margin:0 0 20px}
+.ip-f label{display:block;font-weight:700;font-size:14px;margin:6px 0 0}
+.ip-f>small{display:block;color:var(--mut);font-weight:600;font-size:13px;margin-bottom:4px}
+.ip-f input{font-size:16px;padding:12px 14px;border-radius:12px;margin:6px 0 12px}
+.ip-f input:focus{outline:2px solid #c9a24d;outline-offset:0;border-color:#c9a24d}
+.ip-rc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.ip-rc .chip{margin:0;font-weight:700;color:var(--b);background:#fff}
+.ip-go{width:100%;padding:14px;border-radius:14px;font-weight:800;font-size:15.5px;background:linear-gradient(135deg,#e2c275,#c9a24d 55%,#a47a2c);color:#1a1305;margin-top:2px}
+.ip-go:disabled{opacity:.6;cursor:default}
+.ip-err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;border-radius:14px;padding:13px 15px;font-size:14px;line-height:1.65;margin:0 0 20px}
+.ip-ok{display:flex;align-items:center;gap:8px;max-width:560px;margin:0 auto 10px;font-weight:700;font-size:14.5px;color:#15803d}
+.ip-ok svg{width:20px;height:20px;stroke-width:3;flex:none}
+#trr .ox{margin-bottom:22px}
+.ip-stg{display:flex;flex-wrap:wrap;gap:8px}
+.ip-stg span{padding:8px 14px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:13.5px;font-weight:600;color:#2b3550}
+
+@media(max-width:380px){.ip-two{grid-template-columns:1fr}.ip-hero h2{font-size:22px}.ip-num b{font-size:24px}}
 </style></head><body>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -569,7 +659,7 @@ footer h4{color:#fff;margin:0 0 14px;font-size:15px;font-weight:700;padding-bott
 <footer>
 <div class="fx-cta"><div><h3>সাহায্য দরকার?</h3><p>অর্ডার, ডেলিভারি বা পণ্য নিয়ে যেকোনো প্রশ্নে আমরা পাশে আছি।</p></div><div class="fx-btn"><a class="fx-wa" href="https://wa.me/8801725233759" target="_blank" rel="noopener"><span class="fx-i" data-i="wa"></span>হোয়াটসঅ্যাপে মেসেজ</a><a href="tel:01725233759"><span class="fx-i" data-i="ph"></span>কল করুন</a></div></div>
 <div class="fx-grid">
-<div><h4>কেনাকাটা</h4><a class="fx-l" href="#/">হোম</a><a class="fx-l" href="#/section/fashion">ফ্যাশন</a><a class="fx-l" href="#/section/electronics">ইলেকট্রনিক্স</a><a class="fx-l" href="#/orders">অর্ডার ট্র্যাক করুন</a></div>
+<div><h4>কেনাকাটা</h4><a class="fx-l" href="#/">হোম</a><a class="fx-l" href="#/section/fashion">ফ্যাশন</a><a class="fx-l" href="#/section/electronics">ইলেকট্রনিক্স</a><a class="fx-l" href="#/track">অর্ডার ট্র্যাক করুন</a></div>
 <div><h4>কাস্টমার সেবা</h4><a class="fx-l" href="#/shipping">ডেলিভারি ও পেমেন্ট</a><a class="fx-l" href="#/returns">রিটার্ন ও রিফান্ড</a><a class="fx-l" href="#/help">হেল্প সেন্টার</a></div>
 <div><h4>আইনি তথ্য</h4><a class="fx-l" href="#/privacy">প্রাইভেসি পলিসি</a><a class="fx-l" href="#/terms">শর্তাবলি</a></div>
 <div class="fx-ct"><h4>যোগাযোগ</h4>
@@ -618,9 +708,9 @@ terms:["শর্তাবলি",[["সম্মতি","এই ওয়েব
 returns:["রিটার্ন ও রিফান্ড",[["পণ্য বুঝে নেওয়া","ডেলিভারির সময় পণ্য দেখে নিন। ভুল, ক্ষতিগ্রস্ত বা অর্ডারের সাথে না মেলা পণ্য পেলে অবিলম্বে আমাদের জানান।"],["রিটার্ন সময়","সমস্যার কথা ডেলিভারির ৪৮ ঘণ্টার মধ্যে অর্ডার নম্বরসহ জানাতে হবে। পণ্য অব্যবহৃত ও আসল প্যাকেজিংয়ে থাকতে হবে।"],["রিফান্ড","রিটার্ন গ্রহণের পর যাচাই করে পণ্যের দাম ফেরত বা বদলে দেওয়া হয়। অ্যাডভান্স ডেলিভারি চার্জ আমাদের ভুলে সমস্যা হলে ফেরতযোগ্য।"],["ইলেকট্রনিক্স ওয়ারেন্টি","ওয়ারেন্টি থাকা পণ্যের শর্ত প্রোডাক্ট পেজে দেওয়া থাকে।"]]],
 shipping:["ডেলিভারি ও পেমেন্ট",[["ডেলিভারি এলাকা","সারা বাংলাদেশে কুরিয়ারের মাধ্যমে ডেলিভারি করা হয়।"],["ডেলিভারি চার্জ","ঢাকার ভেতরে ৬০ টাকা, ঢাকার বাইরে ১২০ টাকা।"],["পেমেন্ট","অর্ডারের সময় অ্যাডভান্স ডেলিভারি চার্জ bKash বা Nagad-এ 01725233759 নাম্বারে Send Money করে ট্রানজেকশন ID দিতে হয়। পণ্যের বাকি দাম ডেলিভারির সময় পরিশোধ করুন।"],["অর্ডার ট্র্যাকিং","অর্ডার নম্বর ও মোবাইল নাম্বার দিয়ে যেকোনো সময় অর্ডারের অবস্থা দেখা যায়।"]]]};
 function polV(k){const p=POL[k];$("app").innerHTML=`<div class="pol box"><button class="bkb" onclick="goHome()">← ${L("হোম","Home")}</button><h2>${p[0]}</h2><small>সর্বশেষ হালনাগাদ: ${bd(new Date().getFullYear())}</small>${p[1].map(x=>`<h3>${x[0]}</h3><p>${x[1]}</p>`).join("")}<p>আরও জানতে <a href="#/help" style="text-decoration:underline">হেল্প সেন্টারে</a> যোগাযোগ করুন।</p></div>`}
-const trust=()=>{const T=[['<path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',"সারা বাংলাদেশে ডেলিভারি"],['<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',"bKash/Nagad-এ নিরাপদ পেমেন্ট"],['<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>',"লাইভ অর্ডার ট্র্যাকিং"],[HXI.help,"হোয়াটসঅ্যাপে সাপোর্ট"]];return`<div class="trust">${T.map(x=>`<div>${hxSvg(x[0])}<span>${x[1]}</span></div>`).join("")}</div>`};
-async function route(){const h=location.hash.slice(1)||"/";window.scrollTo(0,0);clearInterval(window.tm);document.body.classList.toggle("adm",h.startsWith("/admin"));{const f=document.querySelector("footer");if(f)f.style.display=(h=="/"||h==""||/^\/(section|search|privacy|terms|returns|shipping)/.test(h))?"":"none"}
- if(h=="/help"){helpV();return}if(/^\/(privacy|terms|returns|shipping)$/.test(h)){polV(h.slice(1));return}
+const trust=()=>{const T=[[IPI.truck,L("সারা বাংলাদেশে ডেলিভারি","Delivery across Bangladesh"),'href="#/delivery"'],[IPI.shield,L("bKash/Nagad-এ নিরাপদ পেমেন্ট","Secure payment via bKash/Nagad"),'href="#/payment"'],[IPI.search,L("লাইভ অর্ডার ট্র্যাকিং","Live order tracking"),'href="#/track"'],[HXI.wa,L("হোয়াটসঅ্যাপে সাপোর্ট","Support on WhatsApp"),'href="'+WAM()+'" target="_blank" rel="noopener"']];return`<div class="trust">${T.map(x=>`<a ${x[2]}>${hxSvg(x[0])}<span>${x[1]}</span></a>`).join("")}</div>`};
+async function route(){const h=location.hash.slice(1)||"/";window.scrollTo(0,0);clearInterval(window.tm);document.body.classList.toggle("adm",h.startsWith("/admin"));{const f=document.querySelector("footer");if(f)f.style.display=(h=="/"||h==""||/^\/(section|search|privacy|terms|returns|shipping|delivery|payment|track)/.test(h))?"":"none"}
+ if(h=="/delivery"){delV();return}if(h=="/payment"){payV();return}if(h=="/track"){trackV();return}if(h=="/help"){helpV();return}if(/^\/(privacy|terms|returns|shipping)$/.test(h)){polV(h.slice(1));return}
  if(!h.startsWith("/admin")){if(!P.length){const E=window.__E,o=E&&E.one&&E.oneH===h?await E.one:null;if(o&&o[0]){P=o;const sg=JSON.stringify(o[0]);load().then(()=>{if((location.hash.slice(1)||"/")===h&&JSON.stringify(P.find(x=>x.id==o[0].id))!==sg&&!busy())route()}).catch(()=>{})}else await load()}else swr(h,okShop)}
  if(h=="/")home();else if(h.startsWith("/product/"))prod(decodeURIComponent(h.slice(9)));else if(h.startsWith("/p/")){const q=decodeURIComponent(h.slice(3)).toLowerCase(),p=P.find(x=>pCode(x)==q)||P.find(x=>String(x.id).replace(/-/g,"").toLowerCase().startsWith(q));p?prod(p.slug):($("app").innerHTML="404")}
  else if(h=="/cart")cartV();else if(h=="/orders")ordersV();else if(h=="/profile")profV();else if(h=="/checkout"){if(!(await needAcc()))checkout()}else if(h=="/admin")admin();else if(h=="/admin/orders")aOrders();else if(h=="/admin/products")aProducts();else if(/^\/admin\/(add|cats|cat|catedit|addp|sections|section|secnew)(\/|$)/.test(h))aRt(h);else if(h.startsWith("/admin/product/"))aManage(decodeURIComponent(h.slice(15)));else if(h.startsWith("/search/"))searchV(decodeURIComponent(h.slice(8)));else if(h.startsWith("/section/"))secV(decodeURIComponent(h.slice(9)));else if(h.startsWith("/admin/order/"))aOrder(decodeURIComponent(h.slice(13)));else home()}
@@ -1200,5 +1290,98 @@ document.addEventListener("change",ev=>{if(ev.target.matches&&ev.target.matches(
 new MutationObserver(all).observe(document.getElementById("app"),{childList:true,subtree:true});
 window.addEventListener("resize",all);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);all()})();
 try{const c=JSON.parse(localStorage.mhn_cache||"null");if(c&&c.P&&c.P.length){P=c.P;C=c.C||[];if(c.S&&c.S.length)SEC=c.S;SECOK=!!c.SECOK;SECN=c.SECN||0}}catch(_){}
+/* ===== info pages: delivery / payment / track ===== */
+const IPI={truck:'<path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>',
+search:'<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>',
+check:'<path d="M20 6L9 17l-5-5"/>',
+lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>'};
+const ipI=k=>hxSvg(IPI[k]);
+const WAM=()=>"https://wa.me/"+WA+"?text="+encodeURIComponent(L("হ্যালো, Mohon Store-এ আমার একটু সাহায্য দরকার।","Hello, I need some help with Mohon Store."));
+const ipHead=()=>`<button class="bkb" onclick="goHome()">← ${L("হোম","Home")}</button>`;
+const ipHero=(ic,ti,su)=>`<div class="ip-hero"><span class="ip-ic">${ipI(ic)}</span><h2>${ti}</h2><p>${su}</p></div>`;
+const ipSec=(h,b,lead)=>`<section class="ip-s"><h3>${h}</h3>${lead?`<p class="lead">${lead}</p>`:""}${b}</section>`;
+const ipSteps=a=>`<ol class="ip-st">${a.map((x,i)=>`<li><i>${bd(i+1)}</i><b>${x[0]}</b><span>${x[1]}</span></li>`).join("")}</ol>`;
+const ipList=a=>`<div class="ip-ls">${a.map(x=>`<div><span class="ip-ck">${ipI("check")}</span><p>${x}</p></div>`).join("")}</div>`;
+const ipFaq=a=>`<div class="ip-q">${a.map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join("")}</div>`;
+const ipCta=(a,b)=>`<div class="ip-cta"><a class="p" href="${a[1]}">${a[0]}</a><a class="wa" href="${b||WAM()}" target="_blank" rel="noopener">${L("হোয়াটসঅ্যাপে জিজ্ঞাসা করুন","Ask on WhatsApp")}</a></div>`;
+
+/* --- delivery page --- */
+function delV(){
+ const card=(ti,tkn,eta)=>`<div class="ip-ch"><small>${ti}</small><b>${tk(tkn)}</b><em>${L("আনুমানিক","Approx.")} ${bd(eta[0])}–${bd(eta[1])} ${t("days")}</em></div>`;
+ $("app").innerHTML=`<div class="ip">${ipHead()}
+ ${ipHero("truck",L("সারা বাংলাদেশে ডেলিভারি","Delivery across Bangladesh"),L("দেশের যেকোনো প্রান্তে কুরিয়ারের মাধ্যমে আপনার ঠিকানায় পণ্য পৌঁছে দিই। অর্ডারের আগেই চার্জ ও সময় জেনে নিন।","We deliver to every part of the country by courier. Know the charge and the timing before you order."))}
+ ${ipSec(L("ডেলিভারি চার্জ ও সময়","Delivery charge and time"),`<div class="ip-two">${card(L("ঢাকার ভেতরে","Inside Dhaka"),60,ETA.in)}${card(L("ঢাকার বাইরে","Outside Dhaka"),120,ETA.out)}</div>`,L("সময় গণনা হয় অর্ডারের তারিখ থেকে। ডেলিভারি চার্জ অর্ডারের সময় অ্যাডভান্স দিতে হয়।","Time is counted from the order date. The delivery charge is paid in advance when you order."))}
+ ${ipSec(L("অর্ডার থেকে ডেলিভারি","From order to doorstep"),ipSteps([
+  [L("অর্ডার জমা","Place the order"),L("অর্ডার ফর্ম পূরণ করে অ্যাডভান্স ডেলিভারি চার্জ bKash বা Nagad-এ পাঠান এবং ট্রানজেকশন ID দিন।","Fill in the order form, send the advance delivery charge by bKash or Nagad and enter the transaction ID.")],
+  [L("কনফার্মেশন","Confirmation"),L("আমরা পেমেন্ট যাচাই করে আপনার অর্ডার কনফার্ম করি।","We verify the payment and confirm your order.")],
+  [L("কুরিয়ারে হস্তান্তর","Handed to the courier"),L("পণ্য প্যাক করে কুরিয়ারে পাঠানো হয়। অবস্থা অর্ডার ট্র্যাকিং পেজে দেখা যায়।","Your product is packed and handed to the courier. You can follow it on the order tracking page.")],
+  [L("ডেলিভারি","Delivery"),L("পণ্য দেখে নিয়ে বাকি দাম কুরিয়ার প্রতিনিধিকে পরিশোধ করুন।","Check the product and pay the remaining price to the courier on delivery.")]]))}
+ ${ipSec(L("ডেলিভারির সময় যা মনে রাখবেন","Good to know at delivery"),ipList([
+  L("অর্ডার ফর্মে সঠিক নাম, মোবাইল নাম্বার ও পুরো ঠিকানা দিন।","Give your correct name, mobile number and full address in the order form."),
+  L("ডেলিভারির সময় মোবাইল ফোন চালু রাখুন, কুরিয়ার প্রতিনিধি কল করতে পারেন।","Keep your phone on at delivery time; the courier may call you."),
+  L("পণ্য বুঝে নেওয়ার সময় দেখে নিন। ভুল বা ক্ষতিগ্রস্ত পণ্য পেলে সাথে সাথে জানান।","Check the product when you receive it. If it is wrong or damaged, tell us right away."),
+  L("সমস্যা হলে ডেলিভারির ৪৮ ঘণ্টার মধ্যে অর্ডার নম্বরসহ আমাদের জানান।","If there is a problem, contact us within 48 hours of delivery with your order number.")]))}
+ ${ipSec(L("সাধারণ প্রশ্ন","Common questions"),ipFaq([
+  [L("ডেলিভারি চার্জ কখন দিতে হয়?","When do I pay the delivery charge?"),L("অর্ডার করার সময়, bKash বা Nagad-এ অ্যাডভান্স দিতে হয়।","At the time of ordering, in advance, by bKash or Nagad.")],
+  [L("পণ্যের দাম কখন দেব?","When do I pay for the product?"),L("পণ্যের দাম ডেলিভারির সময়, পণ্য হাতে পেয়ে পরিশোধ করবেন (ক্যাশ অন ডেলিভারি)।","You pay the product price on delivery, once the product is in your hands (cash on delivery).")],
+  [L("অর্ডার কোথায় আছে কীভাবে জানব?","How do I know where my order is?"),L("অর্ডার ট্র্যাকিং পেজে অর্ডার নম্বর ও মোবাইল নাম্বার দিলেই বর্তমান অবস্থা দেখতে পাবেন।","Enter your order number and mobile number on the tracking page to see the current status.")],
+  [L("ভুল বা ক্ষতিগ্রস্ত পণ্য পেলে কী করব?","What if I get a wrong or damaged product?"),`${L("৪৮ ঘণ্টার মধ্যে অর্ডার নম্বরসহ আমাদের জানান।","Tell us within 48 hours with your order number.")} <a href="#/returns" style="text-decoration:underline">${L("রিটার্ন ও রিফান্ড নীতি","Return and refund policy")}</a>`]]))}
+ ${ipCta([L("অর্ডার ট্র্যাক করুন","Track your order"),"#/track"])}</div>`}
+
+/* --- payment page --- */
+function payV(){
+ const row=(k,v)=>`<div class="ip-r"><span>${k}</span><b>${v}</b></div>`;
+ $("app").innerHTML=`<div class="ip">${ipHead()}
+ ${ipHero("shield",L("bKash/Nagad-এ নিরাপদ পেমেন্ট","Secure payment via bKash/Nagad"),L("অর্ডার নিশ্চিত করতে শুধু ডেলিভারি চার্জ আগে দিন। পণ্যের দাম পণ্য হাতে পেয়ে পরিশোধ করবেন।","Pay only the delivery charge up front to confirm your order. Pay for the product when you receive it."))}
+ ${ipSec(L("পেমেন্ট নাম্বার","Payment number"),`<div class="ip-slip"><small>${L("bKash / Nagad (Personal) — Send Money","bKash / Nagad (Personal) — Send Money")}</small><div class="ip-num"><b id="ipn">${PAY}</b><button type="button" class="ip-cp" id="ipc" onclick="ipCopy()">${ipI("copy")}<span>${L("কপি","Copy")}</span></button></div><div class="ip-pay"><span class="ip-bk">bKash</span><span class="ip-ng">Nagad</span></div><p>${L("শুধু Send Money অপশন ব্যবহার করুন এবং অন্য কোনো নাম্বারে টাকা পাঠাবেন না।","Use the Send Money option only, and do not send money to any other number.")}</p></div>`)}
+ ${ipSec(L("আপনাকে কখন কত দিতে হবে","What you pay and when"),`<div class="ip-ls ip-rs">${row(L("অর্ডারের সময় (ঢাকার ভেতরে)","At ordering (inside Dhaka)"),tk(60))}${row(L("অর্ডারের সময় (ঢাকার বাইরে)","At ordering (outside Dhaka)"),tk(120))}${row(L("ডেলিভারির সময়","On delivery"),L("পণ্যের বাকি দাম","The product price"))}</div>`)}
+ ${ipSec(L("পেমেন্ট করবেন যেভাবে","How to pay"),ipSteps([
+  [L("অর্ডার ফর্ম পূরণ করুন","Fill in the order form"),L("পণ্য বেছে নিয়ে নাম, মোবাইল, ইমেইল ও ঠিকানা দিন।","Pick your product and enter your name, mobile, email and address.")],
+  [L("ডেলিভারি চার্জ পাঠান","Send the delivery charge"),L("bKash বা Nagad অ্যাপ থেকে উপরের নাম্বারে Send Money করুন।","Use the bKash or Nagad app to Send Money to the number above.")],
+  [L("পেমেন্টের তথ্য দিন","Enter the payment details"),L("ফর্মে ট্রানজেকশন ID এবং যে নাম্বার থেকে টাকা পাঠিয়েছেন সেটি লিখুন।","Enter the transaction ID and the number you sent the money from.")],
+  [L("কনফার্মেশন","Confirmation"),L("আমরা পেমেন্ট যাচাই করে অর্ডার কনফার্ম করি। এরপর ট্র্যাকিং পেজে অবস্থা দেখুন।","We verify the payment and confirm the order. Then follow it on the tracking page.")]]))}
+ ${ipSec(L("আপনার নিরাপত্তা","Your safety"),ipList([
+  L("পণ্যের পুরো দাম আগে দিতে হয় না। আগে শুধু ডেলিভারি চার্জ, বাকি টাকা ডেলিভারির সময়।","You never pay the full price up front. Only the delivery charge is paid first, the rest on delivery."),
+  L("প্রতিটি পেমেন্ট ট্রানজেকশন ID দিয়ে যাচাই করে অর্ডার কনফার্ম করা হয়।","Every payment is checked against its transaction ID before the order is confirmed."),
+  L("bKash বা Nagad-এর PIN ও OTP আমাদের কখনো দরকার হয় না। এগুলো কাউকে বলবেন না।","We never need your bKash or Nagad PIN or OTP. Do not share them with anyone."),
+  L("আমাদের ভুলে সমস্যা হলে অ্যাডভান্স ডেলিভারি চার্জ ফেরতযোগ্য।","If the problem is our fault, the advance delivery charge is refundable.")]))}
+ ${ipSec(L("সাধারণ প্রশ্ন","Common questions"),ipFaq([
+  [L("অ্যাডভান্স ডেলিভারি চার্জ কেন নেওয়া হয়?","Why is the delivery charge taken in advance?"),L("অর্ডার নিশ্চিত করতে এবং দ্রুত প্রসেস শুরু করতে ডেলিভারি চার্জ আগেই নেওয়া হয়।","It confirms the order and lets us start processing it quickly.")],
+  [L("ট্রানজেকশন ID কোথায় পাব?","Where do I find the transaction ID?"),L("পেমেন্ট সফল হলে bKash বা Nagad-এর কনফার্মেশন মেসেজে ও অ্যাপের ট্রানজেকশন হিস্ট্রিতে পাবেন।","After a successful payment it is in the bKash or Nagad confirmation message and in the transaction history of the app.")],
+  [L("ভুল নাম্বারে টাকা পাঠিয়ে ফেললে?","What if I sent money to a wrong number?"),L("দেরি না করে ট্রানজেকশন ID সহ হোয়াটসঅ্যাপে আমাদের জানান।","Tell us on WhatsApp straight away, with the transaction ID.")]]))}
+ ${ipCta([L("কেনাকাটা শুরু করুন","Start shopping"),"#/"])}</div>`}
+function ipCopy(){const b=$("ipc");try{navigator.clipboard.writeText(PAY).then(()=>{if(b){b.classList.add("ok");b.lastChild.textContent=L("কপি হয়েছে","Copied");setTimeout(()=>{if(b){b.classList.remove("ok");b.lastChild.textContent=L("কপি","Copy")}},2000)}})}catch(_){}}
+
+/* --- order tracking page --- */
+let TR=null,TRQ={no:"",m:""};
+function trackV(){odOpen=false;let sv=[];try{sv=JSON.parse(localStorage.mo||"[]")}catch(_){}
+ const rc=sv.slice(0,3).map(x=>`<button type="button" class="chip" data-no="${e(x.no)}" data-m="${e(x.m)}" onclick="trFill(this)">#${e(x.no)}</button>`).join("");
+ $("app").innerHTML=`<div class="ip">${ipHead()}
+ ${ipHero("search",L("লাইভ অর্ডার ট্র্যাকিং","Live order tracking"),L("অর্ডার নম্বর ও অর্ডারের সময় দেওয়া মোবাইল নাম্বার দিয়ে আপনার অর্ডারের বর্তমান অবস্থা দেখুন।","Enter your order number and the mobile number you used at checkout to see where your order is now."))}
+ <form class="ip-f" onsubmit="trGo();return false" novalidate>
+  ${rc?`<small>${L("আপনার সাম্প্রতিক অর্ডার","Your recent orders")}</small><div class="ip-rc">${rc}</div>`:""}
+  <label for="tno">${L("অর্ডার নম্বর","Order number")}</label><input id="tno" name="order_no" type="text" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="${L("যেমন MS12345","e.g. MS12345")}" value="${e(TRQ.no)}">
+  <label for="tmb">${L("মোবাইল নাম্বার","Mobile number")}</label><input id="tmb" name="mobile" type="tel" inputmode="tel" autocomplete="off" placeholder="01XXXXXXXXX" value="${e(TRQ.m)}">
+  <button class="ip-go" id="tgo" type="submit">${L("অর্ডার খুঁজুন","Track order")}</button>
+ </form>
+ <div id="trr" aria-live="polite"></div>
+ ${ipSec(L("অর্ডারের ধাপ","Order stages"),`<div class="ip-stg">${SN.map(k=>`<span>${OSI[k]} ${t("s_"+k)}</span>`).join("")}</div>`,L("অর্ডার নম্বর পাবেন অর্ডার করার পর কনফার্মেশন পেজে।","You get the order number on the confirmation page right after ordering."))}
+ ${ipCta([L("ডেলিভারি তথ্য দেখুন","See delivery info"),"#/delivery"])}</div>`;
+ if(TR&&$("trr"))trShow(TR)}
+function trFill(b){$("tno").value=b.dataset.no;$("tmb").value=b.dataset.m}
+function trShow(o){const r=$("trr");if(!r)return;r.innerHTML=`<p class="ip-ok">${ipI("check")}<span>${L("আপনার অর্ডার পাওয়া গেছে","Your order was found")}</span></p>`+oCard(o)}
+async function trGo(){const r=$("trr"),b=$("tgo");if(!r||!b)return;
+ const no=$("tno").value.trim().replace(/^#/,"").replace(/\s+/g,"").toUpperCase(),m=dig($("tmb").value);TRQ={no,m};
+ if(!no||!okM(m)){TR=null;r.innerHTML=`<div class="ip-err">${L("অর্ডার নম্বর এবং ১১ সংখ্যার সঠিক মোবাইল নাম্বার দিন।","Enter your order number and a valid 11-digit mobile number.")}</div>`;return}
+ b.disabled=true;b.textContent=L("খোঁজা হচ্ছে...","Searching...");
+ const x=await trk(no,m);if(!$("tgo"))return;b.disabled=false;b.textContent=L("অর্ডার খুঁজুন","Track order");
+ const o=Array.isArray(x.o)?x.o[0]:x.o;
+ if(x.err){TR=null;r.innerHTML=`<div class="ip-err">${t("terr")}: ${e(x.err)}</div>`}
+ else if(!o){TR=null;r.innerHTML=`<div class="ip-err">${t("nf")}</div>`}
+ else{TR=o;trShow(o);r.scrollIntoView({behavior:"smooth",block:"start"})}}
+window.addEventListener("popstate",()=>{if(location.hash=="#/track"&&odOpen)trackV()});
+
 window.onhashchange=route;chrome();route();
 </script></body></html>
