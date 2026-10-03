@@ -811,6 +811,43 @@ body.adm .ad-big:hover,body.adm .dx-q a:hover,body.adm .oc2:hover{box-shadow:inh
 .db-rm{min-width:0}.db-rm b,.db-rm small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.db-rm b{font-size:14px}.db-rm small{font-size:12px;color:var(--mut);margin-top:2px}
 .db-rr{text-align:right;flex:none}.db-rr b{display:block;font-size:14px;color:#081633}.db-rr em{display:inline-block;margin-top:3px;font-style:normal;font-size:11px;font-weight:700;color:#fff;padding:2px 8px;border-radius:99px}
 .db-main{display:grid;gap:10px}.db-main .ad-big{padding:14px 16px;gap:14px;border-radius:16px}.db-main .ad-big .ic{width:48px;height:48px;font-size:24px;border-radius:14px}.db-main .ad-big b{font-size:18px}.db-main .ad-big small{font-size:12.5px;margin-top:2px}.db-main .ad-big::after{font-size:28px}
+
+/* ===== premium product summary / checkout / location sheet ===== */
+.qrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;margin:0 0 14px}
+.qrow .qt{margin:0;gap:4px}.qrow .qt button{width:38px;height:38px;border-radius:12px;font-size:20px}.qrow .qt input{width:46px;height:38px;margin:0;padding:4px;border-radius:12px;font-weight:800}
+.qs{background:linear-gradient(180deg,#fff,#f6f8fd);border:1px solid #dbe3f5;border-radius:16px;padding:11px 12px;box-shadow:0 6px 18px rgba(15,37,87,.08);min-width:0}
+.qs-h{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed #cdd6ec}.qs-h b{font-size:12.5px;color:var(--bd,#081633)}.qs-h em{font-style:normal;font-size:11px;font-weight:700;background:#081633;color:#f0c978;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.qs-r{display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-size:12.5px;color:#46506b;padding:3px 0}.qs-r span{min-width:0}.qs-r small{display:block;font-size:10.5px;color:#8a93a8}.qs-r b{color:#081633;white-space:nowrap}
+.qs-ar{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:5px 0}.qs-ar button{padding:5px 2px;border-radius:9px;font-size:11px;font-weight:700;background:#eef1f8;color:#46506b;box-shadow:none}.qs-ar button.on{background:#081633;color:#f0c978}
+.qs-t{margin-top:5px;padding:8px 10px;border-radius:11px;background:linear-gradient(135deg,#081633,#173578);align-items:center}.qs-t span{color:#d9e2f7;font-weight:700}.qs-t b{color:#f0c978;font-size:17px}
+@media(max-width:340px){.qrow{grid-template-columns:1fr}}
+.ck{max-width:560px;margin:0 auto;padding-bottom:30px}.ck-bk{margin-bottom:8px}
+.ck-t{margin:2px 2px 14px}.ck-t h2{margin:0;font-size:22px;color:var(--bd,#081633);font-weight:800}.ck-t p{margin:4px 0 0;color:var(--mut,#667290);font-size:13.5px}
+.ck-c{background:#fff;border:1px solid #e3e9f6;border-radius:20px;padding:16px;margin-bottom:14px;box-shadow:0 8px 24px rgba(15,37,87,.07)}
+.ck-c h3{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:16px;color:var(--bd,#081633)}.ck-c h3 i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:800;background:linear-gradient(135deg,#d4a24c,#f0c978);color:#081633;flex:none}.ck-c h3 em{margin-left:auto;font-style:normal;font-size:11.5px;font-weight:700;background:#eef2fb;color:#46506b;padding:3px 10px;border-radius:99px}
+.ck-it{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eef1f8}.ck-it img,.ck-it>span{width:56px;height:56px;border-radius:12px;object-fit:cover;background:#dbe3f5;flex:none;display:grid;place-items:center;font-weight:800;color:#12285c}.ck-it div{flex:1;min-width:0}.ck-it b{display:block;font-size:14px;line-height:1.35}.ck-it small{display:block;font-size:12px;color:#7a849c;margin-top:2px}.ck-it strong{font-size:14px;color:#081633;white-space:nowrap}
+.ck-rw{display:flex;justify-content:space-between;gap:8px;padding:7px 0;font-size:14px;color:#46506b}.ck-rw b{color:#081633}.ck-tot{margin-top:6px;padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,#081633,#173578);align-items:center}.ck-tot span{color:#d9e2f7;font-weight:700}.ck-tot b{color:#f0c978;font-size:21px}
+.ck-f{margin-bottom:12px}.ck-f label{display:block;font-size:13px;font-weight:700;color:#2c3550;margin-bottom:5px}.ck-f label em{font-style:normal;font-weight:500;color:#8a93a8;font-size:12px}.ck .rq{color:#dc2626;font-style:normal}
+.ck .ck-f input,.ck .ck-f textarea{margin:0;border-radius:12px;border:1.5px solid #d7ddee;padding:12px;font-size:16px}.ck .ck-f textarea{min-height:84px;resize:vertical}.ck .ck-f input:focus,.ck .ck-f textarea:focus{outline:0;border-color:#d4a24c;box-shadow:0 0 0 4px rgba(212,162,76,.2)}
+.lc-b{display:flex!important;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;padding:12px!important;border-radius:12px!important;border:1.5px solid #d7ddee!important;background:#fff!important;color:#8a93a8!important;font-size:16px!important;font-weight:500!important;box-shadow:none!important;translate:none!important;filter:none!important}.lc-b span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lc-b.has{color:#081633!important;font-weight:700!important;border-color:#b9c5e4!important}.lc-b.dis{background:#f3f5fa!important;opacity:.7}.lc-b svg{flex:none;color:#667290}
+.ck-ar{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ck-ar button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 8px;border-radius:14px;background:#fff;color:#46506b;border:1.5px solid #d7ddee;box-shadow:none}.ck-ar button b{font-size:13.5px}.ck-ar button small{font-size:12.5px;color:#8a93a8}.ck-ar button.on{border-color:#d4a24c;background:#fffaf0;box-shadow:0 0 0 3px rgba(212,162,76,.2);color:#081633}.ck-ar button.on small{color:#b9822a;font-weight:700}
+.ck-ad{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:14px;background:#fff7e8;border:1px solid #f1dcae;margin-bottom:10px;font-weight:700;color:#7a5a16;font-size:14px}.ck-ad b{font-size:20px;color:#b9822a}
+.ck-hint{margin:0 0 12px;font-size:12.8px;line-height:1.7;color:#5a6580}
+.ck-pn{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;border:1.5px solid #e3e9f6;background:#f8faff;margin-bottom:10px}.ck-pn div{flex:1;min-width:0}.ck-pn small{display:block;font-size:11.5px;color:#7a849c}.ck-pn b{font-size:18px;letter-spacing:.5px;color:#081633}
+.ck-bd{flex:none;min-width:62px;text-align:center;padding:7px 8px;border-radius:10px;font-size:12.5px;font-weight:800;color:#fff}.ck-pn.bk .ck-bd{background:#e2136e}.ck-pn.ng .ck-bd{background:#f6821f}
+.ck-cp{flex:none;display:inline-flex!important;align-items:center;gap:5px;padding:8px 12px!important;border-radius:10px!important;background:#081633!important;color:#f0c978!important;font-size:12.5px!important;font-weight:700;box-shadow:none!important}.ck-cp svg{width:15px;height:15px}.ck-cp.ok{background:#059669!important;color:#fff!important}
+.ck-go{width:100%;display:flex!important;align-items:center;justify-content:space-between;padding:16px 20px!important;border-radius:16px!important;font-size:16px!important;font-weight:800!important;background:linear-gradient(135deg,#059669,#10b981)!important;box-shadow:0 10px 24px rgba(5,150,105,.32)!important}.ck-go b{background:rgba(255,255,255,.2);padding:4px 12px;border-radius:99px;font-size:15px}
+.ck-sec{text-align:center;color:#7a849c;font-size:12.5px;margin:12px 0 0}
+.lc-ov{position:fixed;inset:0;z-index:120;background:rgba(8,22,51,.55);display:flex;align-items:flex-end;justify-content:center;animation:fadeIn .2s}
+.lc-sh{width:100%;max-width:560px;max-height:84vh;max-height:84dvh;display:flex;flex-direction:column;background:#fff;border-radius:24px 24px 0 0;box-shadow:0 -12px 40px rgba(8,22,51,.3);animation:lcUp .28s cubic-bezier(.22,.8,.3,1);padding-bottom:env(safe-area-inset-bottom,0px)}
+@keyframes lcUp{from{translate:0 40px;opacity:0}}
+@media(min-width:700px){.lc-ov{align-items:center}.lc-sh{border-radius:24px;max-height:72vh}}
+.lc-hd{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 8px}.lc-hd b{font-size:17px;color:#081633}.lc-x{width:34px;height:34px;padding:0!important;border-radius:50%!important;background:#eef1f8!important;color:#46506b!important;box-shadow:none!important}
+.lc-s{display:flex;align-items:center;gap:8px;margin:6px 16px 4px;padding:0 12px;border:1.5px solid #d7ddee;border-radius:14px;background:#f8faff;color:#667290}.lc-s:focus-within{border-color:#d4a24c;box-shadow:0 0 0 4px rgba(212,162,76,.2)}.lc-s input{border:0!important;background:transparent!important;margin:0!important;padding:13px 0!important;font-size:16px!important;box-shadow:none!important;outline:0}
+.lc-n{padding:6px 20px 4px;font-size:12px;color:#8a93a8}
+.lc-l{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:4px 10px 14px;flex:1}
+.lc-i{display:flex!important;align-items:center;justify-content:space-between;width:100%;text-align:left;padding:13px 12px!important;border-radius:12px!important;background:transparent!important;color:#1b1f2a!important;font-size:15.5px!important;font-weight:600;box-shadow:none!important;translate:none!important;filter:none!important}.lc-i:active,.lc-i:hover{background:#eef2fb!important}.lc-i.on{background:#fffaf0!important;color:#b9822a!important;font-weight:800}.lc-c{color:#12285c!important;border:1.5px dashed #b9c5e4!important;margin-top:6px}
+.lc-e{text-align:center;color:#8a93a8;padding:26px 10px}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -917,10 +954,14 @@ async function prod(slug){let p=P.find(x=>x.slug==slug);if(!p){try{await load()}
  const off=p.old_price&&p.old_price>p.price?Math.round((p.old_price-p.price)/p.old_price*100):0;
  $("app").innerHTML=`<div class="box pg"><div class="gframe"><div class="gal">${p.images.length?p.images.map(i=>`<img src="${e(i)}" alt="">`).join(""):`<div class="im">${e(nm(p))}</div>`}</div></div>${p.images.length>1?`<div class="nums" id="nums">${p.images.map((_,i)=>`<span class="${i?"":"on"}" onclick="goImg(${i})">${i+1}</span>`).join("")}</div>`:""}</div>
  <div class="box pi">${p.category?`<span class="cat">${e(p.category)}</span>`:""}<h1 class="pn">${e(nm(p))}</h1><div class="pp"><span class="now">${tk(p.price)}</span>${p.old_price?`<span class="old">${tk(p.old_price)}</span>`:""}${off?`<span class="off">${off}% ${t("save")}</span>`:""}</div><button type="button" class="shb" onclick="shOpen()" aria-label="${L("শেয়ার","Share")}">${SHI.share}<span>${L("শেয়ার করুন","Share")}</span></button></div>
- <div class="box po"><div id="sz">${ch("size",p.sizes)}</div><div id="cl">${ch("color",p.colors)}</div><div class="lbl">${t("qty")}:</div><div class="qt"><button type="button" class="w" onclick="qty(-1)">−</button><input id="qi" type="number" inputmode="numeric" min="1" value="1" oninput="sel.qty=Math.max(1,parseInt(this.value)||1)" onblur="this.value=sel.qty"><button type="button" class="w" onclick="qty(1)">+</button></div>
+ <div class="box po"><div id="sz">${ch("size",p.sizes)}</div><div id="cl">${ch("color",p.colors)}</div><div class="lbl">${t("qty")}:</div><div class="qrow"><div class="qt"><button type="button" class="w" onclick="qty(-1)" aria-label="−">−</button><input id="qi" type="number" inputmode="numeric" min="1" value="1" oninput="sel.qty=Math.max(1,parseInt(this.value)||1);psum()" onblur="this.value=sel.qty"><button type="button" class="w" onclick="qty(1)" aria-label="+">+</button></div><div class="qs"><div class="qs-h"><b>${L("অর্ডার সামারি","Order summary")}</b><em id="ps_cnt"></em></div><div class="qs-r"><span>${L("পণ্যের মূল্য","Price")}<small id="ps_unit"></small></span><b id="ps_sub"></b></div><div class="qs-ar"><button type="button" data-v="60" onclick="psArea(60)">${L("ঢাকার ভেতরে","Inside Dhaka")}</button><button type="button" data-v="120" onclick="psArea(120)">${L("ঢাকার বাইরে","Outside Dhaka")}</button></div><div class="qs-r"><span>${L("ডেলিভারি চার্জ","Delivery")}</span><b id="ps_dc"></b></div><div class="qs-r qs-t"><span>${L("সর্বমোট","Total")}</span><b id="ps_tot"></b></div></div></div>
  ${p.in_stock?`<div class="acts"><button class="g" onclick="buy()">${t("buy")}</button><button class="o" onclick="addC()">${t("add")}</button></div>`:`<b style="color:#dc2626">${t("out")}</b>`}</div>
- ${specH(p)}${p.description?`<div class="box pd"><h3>${t("desc")}</h3><div class="tx">${e(p.description)}</div></div>`:""}`;const g=document.querySelector(".gal");if(g)g.addEventListener("scroll",galSync,{passive:true})}
-function qty(d){sel.qty=Math.max(1,(sel.qty||1)+d);$("qi").value=sel.qty}
+ ${specH(p)}${p.description?`<div class="box pd"><h3>${t("desc")}</h3><div class="tx">${e(p.description)}</div></div>`:""}`;const g=document.querySelector(".gal");if(g)g.addEventListener("scroll",galSync,{passive:true});psum()}
+function qty(d){sel.qty=Math.max(1,(sel.qty||1)+d);$("qi").value=sel.qty;psum()}
+function psum(){if(!sel||!sel.p)return;const q=sel.qty||1,p=+sel.p.price||0,d=window.AREA==120?120:60,S=(i,v)=>{const x=$(i);if(x)x.textContent=v};
+ S("ps_cnt",bd(q)+" "+L("টি পণ্য","items"));S("ps_unit",tk(p)+" × "+bd(q));S("ps_sub",tk(p*q));S("ps_dc",tk(d));S("ps_tot",tk(p*q+d));
+ document.querySelectorAll(".qs-ar button").forEach(b=>b.classList.toggle("on",+b.dataset.v==d))}
+function psArea(v){window.AREA=v;psum()}
 function goImg(i){const g=document.querySelector(".gal");g.scrollTo({left:g.clientWidth*i+i*8,behavior:"smooth"})}
 function galSync(){const g=document.querySelector(".gal"),n=$("nums");if(!g||!n)return;const i=Math.round(g.scrollLeft/(g.clientWidth+8));[...n.children].forEach((c,k)=>c.classList.toggle("on",k==i))}
 function pick(k,el){sel[k]=el.textContent;[...el.parentElement.querySelectorAll(".chip")].forEach(c=>c.classList.toggle("on",c==el))}
@@ -937,13 +978,133 @@ function cqty(i,d,r){cart[i].qty=Math.max(1,cart[i].qty+d);saveC();cRe(r)}
 function cdel(i,r){cart.splice(i,1);saveC();cRe(r)}
 function cord(i){direct=[cart[i]];try{sessionStorage.dr=JSON.stringify(direct)}catch(_){}location.hash="#/checkout"}
 function cartV(){$("app").innerHTML=`<div class="cartw"><h3 class="cth">🛒 ${L("আমার কার্ট","My Cart")}</h3>${cCards("c")}</div>`}
-function checkout(){const it=direct||cart;if(!it.length){cartV();return}const sub=it.reduce((s,c)=>s+c.price*c.qty,0);
- $("app").innerHTML=`<div class="box">${it.map(c=>`<div class="row"><span>${e(c.name)} (${e(c.size)} ${e(c.color)}) × ${c.qty}</span><span>${tk(c.price*c.qty)}</span></div>`).join("")}<div class="row"><span>${L("ডেলিভারি চার্জ","Delivery charge")}</span><b id="dc1">${tk(60)}</b></div><div class="row" style="font-size:18px;color:var(--b);border-bottom:0;margin-bottom:8px"><span><b>${L("মোট দাম","Total")}</b></span><b id="tt" data-s="${sub}" style="color:var(--g)">${tk(sub+60)}</b></div>
- <input id="n" name="name" autocomplete="name" placeholder="${t("name")}"><input id="m" name="f_mob_x" type="text" inputmode="tel" data-lpignore="true" autocapitalize="off" spellcheck="false" placeholder="${t("mob")}" autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" onblur="this.value=dig(this.value)"><input id="em" name="f_mail_x" type="text" inputmode="email" data-lpignore="true" autocapitalize="off" spellcheck="false" placeholder="${t("mail")}" autocomplete="off" readonly onfocus="this.removeAttribute('readonly')"><textarea id="ad" autocomplete="street-address" placeholder="${t("addr")}"></textarea><input id="dz" placeholder="${L("জেলা","District")}"><input id="up" placeholder="${L("উপজেলা","Upazila")}"><input id="gm" placeholder="${L("গ্রাম (ঐচ্ছিক)","Village (optional)")}"><input id="sh" placeholder="${L("শহর (ঐচ্ছিক)","Town / City (optional)")}">
- <select id="ar" onchange="dcu()"><option value="60">${t("in")}</option><option value="120">${t("ou")}</option></select>
- <p style="background:#eef3ff;padding:10px;border-radius:8px">${t("pay")}<br><b style="font-size:20px">${PAY}</b><br>${t("dc")}: <b id="dc">${tk(60)}</b></p>
- <input id="tx" placeholder="${t("trx")}"><input id="snm" name="f_snd_x" type="text" inputmode="tel" autocomplete="off" spellcheck="false" placeholder="${t("snd")}"><button class="g" onclick="place()">${t("place")}</button></div>`}
-const dcu=()=>{const d=+$("ar").value,T=$("tt");$("dc").textContent=tk(d);$("dc1").textContent=tk(d);T.textContent=tk(+T.dataset.s+d)};
+function checkout(){const it=direct||cart;if(!it.length){cartV();return}
+ const sub=it.reduce((s,c)=>s+c.price*c.qty,0),n=it.reduce((s,c)=>s+c.qty,0),A=window.AREA==120?120:60,
+ lc=(id,lb,ph,req)=>`<div class="ck-f"><label>${lb}${req?` <i class="rq">*</i>`:` <em>${L("(ঐচ্ছিক)","(optional)")}</em>`}</label><input type="hidden" id="${id}"><button type="button" class="lc-b dis" id="${id}b" data-ph="${ph}" onclick="lcOpen('${id}')"><span>${ph}</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button></div>`;
+ $("app").innerHTML=`<div class="ck"><button class="bkb ck-bk" onclick="goBack()">← ${L("পেছনে","Back")}</button>
+ <div class="ck-t"><h2>${L("অর্ডার সম্পন্ন করুন","Complete your order")}</h2><p>${L("কয়েকটি তথ্য দিলেই আপনার অর্ডার কনফার্ম হবে","Just a few details to confirm your order")}</p></div>
+ <section class="ck-c"><h3><i>1</i>${L("অর্ডার সামারি","Order summary")}<em>${bd(n)} ${L("টি পণ্য","items")}</em></h3>
+ ${it.map(c=>`<div class="ck-it">${c.img?`<img src="${e(c.img)}" alt="">`:`<span>${e(fi(c.name))}</span>`}<div><b>${e(c.name)}</b>${(c.size||c.color)?`<small>${[c.size,c.color].filter(Boolean).map(e).join(" · ")}</small>`:""}<small>${tk(c.price)} × ${bd(c.qty)}</small></div><strong>${tk(c.price*c.qty)}</strong></div>`).join("")}
+ <div class="ck-rw"><span>${L("পণ্যের মূল্য","Subtotal")}</span><b>${tk(sub)}</b></div>
+ <div class="ck-rw"><span>${L("ডেলিভারি চার্জ","Delivery charge")}</span><b id="dc1">${tk(A)}</b></div>
+ <div class="ck-rw ck-tot"><span>${L("সর্বমোট","Total")}</span><b id="tt" data-s="${sub}">${tk(sub+A)}</b></div></section>
+ <section class="ck-c"><h3><i>2</i>${L("আপনার তথ্য","Your details")}</h3>
+ <div class="ck-f"><label for="n">${t("name")} <i class="rq">*</i></label><input id="n" name="name" autocomplete="name" placeholder="${t("name")}"></div>
+ <div class="ck-f"><label for="m">${t("mob")} <i class="rq">*</i></label><input id="m" name="f_mob_x" type="text" inputmode="tel" data-lpignore="true" autocapitalize="off" spellcheck="false" placeholder="01XXXXXXXXX" autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" onblur="this.value=dig(this.value)"></div>
+ <div class="ck-f"><label for="em">${t("mail")} <i class="rq">*</i></label><input id="em" name="f_mail_x" type="text" inputmode="email" data-lpignore="true" autocapitalize="off" spellcheck="false" placeholder="example@gmail.com" autocomplete="off" readonly onfocus="this.removeAttribute('readonly')"></div></section>
+ <section class="ck-c"><h3><i>3</i>${L("ডেলিভারি ঠিকানা","Delivery address")}</h3>
+ ${lc("dz",L("জেলা","District"),L("জেলা নির্বাচন করুন","Select district"),1)}${lc("up",L("উপজেলা","Upazila"),L("উপজেলা নির্বাচন করুন","Select upazila"),1)}${lc("gm",L("গ্রাম","Village"),L("গ্রাম নির্বাচন করুন","Select village"),0)}${lc("sh",L("শহর","Town / City"),L("শহর নির্বাচন করুন","Select town"),0)}
+ <div class="ck-f"><label for="ad">${L("বিস্তারিত ঠিকানা","Full address")} <i class="rq">*</i></label><textarea id="ad" autocomplete="street-address" placeholder="${L("বাড়ি/রোড/এলাকার নাম, ল্যান্ডমার্ক","House / road / area, landmark")}"></textarea></div>
+ <div class="ck-f"><label>${L("ডেলিভারি এলাকা","Delivery zone")}</label><select id="ar" onchange="dcu()" hidden><option value="60">${t("in")}</option><option value="120">${t("ou")}</option></select>
+ <div class="ck-ar"><button type="button" data-v="60" onclick="arSet(60)"><b>${L("ঢাকার ভেতরে","Inside Dhaka")}</b><small>${tk(60)}</small></button><button type="button" data-v="120" onclick="arSet(120)"><b>${L("ঢাকার বাইরে","Outside Dhaka")}</b><small>${tk(120)}</small></button></div></div></section>
+ <section class="ck-c ck-pay"><h3><i>4</i>${L("পেমেন্ট","Payment")}</h3>
+ <div class="ck-ad"><span>${t("dc")}</span><b id="dc">${tk(A)}</b></div>
+ <p class="ck-hint">${L("নিচের যেকোনো একটি নাম্বারে Send Money (Personal) করুন, তারপর ট্রানজেকশন ID ও যে নাম্বার থেকে পাঠিয়েছেন সেটি দিন। পণ্যের দাম ডেলিভারির সময় দেবেন।","Send Money (Personal) to either number below, then enter the transaction ID and the number you sent from. Pay for the product on delivery.")}</p>
+ ${[["bKash","bk"],["Nagad","ng"]].map(k=>`<div class="ck-pn ${k[1]}"><span class="ck-bd">${k[0]}</span><div><small>Personal · Send Money</small><b>${PAY}</b></div><button type="button" class="ck-cp" onclick="cpNum(this)" aria-label="Copy">${ipI("copy")}<span>${L("কপি","Copy")}</span></button></div>`).join("")}
+ <div class="ck-f"><label for="tx">${t("trx")} <i class="rq">*</i></label><input id="tx" placeholder="${t("trx")}" autocomplete="off" autocapitalize="characters"></div>
+ <div class="ck-f"><label for="snm">${t("snd")} <i class="rq">*</i></label><input id="snm" name="f_snd_x" type="text" inputmode="tel" autocomplete="off" spellcheck="false" placeholder="01XXXXXXXXX"></div></section>
+ <button class="g ck-go" onclick="place()"><span>${t("place")}</span><b id="ckt"></b></button>
+ <p class="ck-sec">🔒 ${L("আপনার তথ্য সম্পূর্ণ নিরাপদ","Your information is safe with us")}</p></div>`;
+ $("ar").value=A;dcu();lcRefresh()}
+function arSet(v){$("ar").value=v;dcu()}
+async function cpNum(b){try{await navigator.clipboard.writeText(PAY)}catch(_){const a=document.createElement("textarea");a.value=PAY;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(_){}a.remove()}
+ const s=b.querySelector("span");b.classList.add("ok");s.textContent=L("কপি হয়েছে","Copied");clearTimeout(b._t);b._t=setTimeout(()=>{b.classList.remove("ok");s.textContent=L("কপি","Copy")},1800)}
+/* ===== Bangladesh location picker ===== */
+const BDL=`Dhaka|ঢাকা|ধামরাই,দোহার,কেরানীগঞ্জ,নবাবগঞ্জ,সাভার,আদাবর,উত্তরা,উত্তরখান,কদমতলী,কলাবাগান,কাফরুল,কামরাঙ্গীরচর,কোতোয়ালী,খিলগাঁও,খিলক্ষেত,গুলশান,গেন্ডারিয়া,চকবাজার,ডেমরা,তেজগাঁও,তুরাগ,দক্ষিণখান,দারুস সালাম,ধানমন্ডি,নিউমার্কেট,পল্টন,পল্লবী,বংশাল,বনানী,বাড্ডা,বিমানবন্দর,ভাটারা,মতিঝিল,মিরপুর,মুগদা,মোহাম্মদপুর,যাত্রাবাড়ী,রমনা,রামপুরা,লালবাগ,শাহ আলী,শাহবাগ,শ্যামপুর,সবুজবাগ,সূত্রাপুর,হাজারীবাগ,হাতিরঝিল,ক্যান্টনমেন্ট
+Gazipur|গাজীপুর|গাজীপুর সদর,কালিয়াকৈর,কালীগঞ্জ,কাপাসিয়া,শ্রীপুর,টঙ্গী
+Narayanganj|নারায়ণগঞ্জ|নারায়ণগঞ্জ সদর,আড়াইহাজার,বন্দর,রূপগঞ্জ,সোনারগাঁও,ফতুল্লা,সিদ্ধিরগঞ্জ
+Narsingdi|নরসিংদী|নরসিংদী সদর,বেলাব,মনোহরদী,পলাশ,রায়পুরা,শিবপুর
+Manikganj|মানিকগঞ্জ|মানিকগঞ্জ সদর,ঘিওর,দৌলতপুর,শিবালয়,সাটুরিয়া,হরিরামপুর,সিঙ্গাইর
+Munshiganj|মুন্সিগঞ্জ|মুন্সিগঞ্জ সদর,গজারিয়া,লৌহজং,শ্রীনগর,সিরাজদিখান,টঙ্গিবাড়ী
+Faridpur|ফরিদপুর|ফরিদপুর সদর,আলফাডাঙ্গা,ভাঙ্গা,বোয়ালমারী,চরভদ্রাসন,মধুখালী,নগরকান্দা,সদরপুর,সালথা
+Gopalganj|গোপালগঞ্জ|গোপালগঞ্জ সদর,কাশিয়ানী,কোটালীপাড়া,মুকসুদপুর,টুঙ্গিপাড়া
+Madaripur|মাদারীপুর|মাদারীপুর সদর,কালকিনি,রাজৈর,শিবচর,ডাসার
+Rajbari|রাজবাড়ী|রাজবাড়ী সদর,বালিয়াকান্দি,গোয়ালন্দ,কালুখালী,পাংশা
+Shariatpur|শরীয়তপুর|শরীয়তপুর সদর,ভেদরগঞ্জ,ডামুড্যা,গোসাইরহাট,জাজিরা,নড়িয়া,সখিপুর
+Kishoreganj|কিশোরগঞ্জ|কিশোরগঞ্জ সদর,অষ্টগ্রাম,বাজিতপুর,ভৈরব,হোসেনপুর,ইটনা,করিমগঞ্জ,কটিয়াদী,কুলিয়ারচর,মিঠামইন,নিকলী,পাকুন্দিয়া,তাড়াইল
+Tangail|টাঙ্গাইল|টাঙ্গাইল সদর,বাসাইল,ভুঞাপুর,দেলদুয়ার,ধনবাড়ী,ঘাটাইল,গোপালপুর,কালিহাতী,মধুপুর,মির্জাপুর,নাগরপুর,সখিপুর
+Chattogram|চট্টগ্রাম|আনোয়ারা,বাঁশখালী,বোয়ালখালী,চন্দনাইশ,ফটিকছড়ি,হাটহাজারী,লোহাগাড়া,মীরসরাই,পটিয়া,রাঙ্গুনিয়া,রাউজান,সন্দ্বীপ,সাতকানিয়া,সীতাকুণ্ড,কোতোয়ালী,পাঁচলাইশ,ডবলমুরিং,বন্দর,বায়েজিদ বোস্তামী,খুলশী,হালিশহর,চান্দগাঁও,পতেঙ্গা,কর্ণফুলী,আকবর শাহ,বাকলিয়া,ইপিজেড
+Cox's Bazar|কক্সবাজার|কক্সবাজার সদর,চকরিয়া,কুতুবদিয়া,মহেশখালী,পেকুয়া,রামু,টেকনাফ,উখিয়া,ঈদগাঁও
+Cumilla|কুমিল্লা|কুমিল্লা আদর্শ সদর,কুমিল্লা সদর দক্ষিণ,বরুড়া,ব্রাহ্মণপাড়া,বুড়িচং,চান্দিনা,চৌদ্দগ্রাম,দাউদকান্দি,দেবিদ্বার,হোমনা,লাকসাম,লালমাই,মনোহরগঞ্জ,মেঘনা,মুরাদনগর,নাঙ্গলকোট,তিতাস
+Feni|ফেনী|ফেনী সদর,ছাগলনাইয়া,দাগনভূঞা,ফুলগাজী,পরশুরাম,সোনাগাজী
+Brahmanbaria|ব্রাহ্মণবাড়িয়া|ব্রাহ্মণবাড়িয়া সদর,আশুগঞ্জ,আখাউড়া,বাঞ্ছারামপুর,বিজয়নগর,কসবা,নবীনগর,নাসিরনগর,সরাইল
+Rangamati|রাঙ্গামাটি|রাঙ্গামাটি সদর,বাঘাইছড়ি,বরকল,বিলাইছড়ি,জুরাছড়ি,কাপ্তাই,কাউখালী,লংগদু,নানিয়ারচর,রাজস্থলী
+Noakhali|নোয়াখালী|নোয়াখালী সদর (সুধারাম),বেগমগঞ্জ,চাটখিল,কোম্পানীগঞ্জ,হাতিয়া,কবিরহাট,সেনবাগ,সোনাইমুড়ী,সুবর্ণচর
+Chandpur|চাঁদপুর|চাঁদপুর সদর,ফরিদগঞ্জ,হাজীগঞ্জ,হাইমচর,কচুয়া,মতলব উত্তর,মতলব দক্ষিণ,শাহরাস্তি
+Lakshmipur|লক্ষ্মীপুর|লক্ষ্মীপুর সদর,কমলনগর,রায়পুর,রামগঞ্জ,রামগতি
+Bandarban|বান্দরবান|বান্দরবান সদর,আলীকদম,লামা,নাইক্ষ্যংছড়ি,রোয়াংছড়ি,রুমা,থানচি
+Khagrachhari|খাগড়াছড়ি|খাগড়াছড়ি সদর,দীঘিনালা,লক্ষ্মীছড়ি,মহালছড়ি,মানিকছড়ি,মাটিরাঙ্গা,পানছড়ি,রামগড়,গুইমারা
+Rajshahi|রাজশাহী|বাঘা,বাগমারা,চারঘাট,দুর্গাপুর,গোদাগাড়ী,মোহনপুর,পবা,পুঠিয়া,তানোর,বোয়ালিয়া,রাজপাড়া,মতিহার,শাহ মখদুম
+Chapainawabganj|চাঁপাইনবাবগঞ্জ|চাঁপাইনবাবগঞ্জ সদর,ভোলাহাট,গোমস্তাপুর,নাচোল,নিয়ামতপুর,শিবগঞ্জ
+Naogaon|নওগাঁ|নওগাঁ সদর,আত্রাই,বদলগাছী,ধামইরহাট,মহাদেবপুর,মান্দা,নিয়ামতপুর,পত্নীতলা,পোরশা,রাণীনগর,সাপাহার
+Natore|নাটোর|নাটোর সদর,বাগাতিপাড়া,বড়াইগ্রাম,গুরুদাসপুর,লালপুর,সিংড়া,নলডাঙ্গা
+Pabna|পাবনা|পাবনা সদর,আটঘরিয়া,বেড়া,ভাঙ্গুড়া,চাটমোহর,ফরিদপুর,ঈশ্বরদী,সাঁথিয়া,সুজানগর
+Bogura|বগুড়া|বগুড়া সদর,আদমদিঘী,ধুনট,দুপচাঁচিয়া,গাবতলী,কাহালু,নন্দীগ্রাম,শাজাহানপুর,শেরপুর,শিবগঞ্জ,সোনাতলা
+Joypurhat|জয়পুরহাট|জয়পুরহাট সদর,আক্কেলপুর,কালাই,ক্ষেতলাল,পাঁচবিবি
+Sirajganj|সিরাজগঞ্জ|সিরাজগঞ্জ সদর,বেলকুচি,চৌহালি,কামারখন্দ,কাজীপুর,রায়গঞ্জ,শাহজাদপুর,তাড়াশ,উল্লাপাড়া
+Khulna|খুলনা|বটিয়াঘাটা,ডাকোপ,দিঘলিয়া,দুমুরিয়া,কয়রা,পাইকগাছা,ফুলতলা,রূপসা,তেরখাদা,খুলনা সদর,সোনাডাঙ্গা,দৌলতপুর,খালিশপুর,খান জাহান আলী,হরিণটানা,লবণচরা
+Bagerhat|বাগেরহাট|বাগেরহাট সদর,চিতলমারী,ফকিরহাট,কচুয়া,মোল্লাহাট,মোংলা,মোরেলগঞ্জ,রামপাল,শরণখোলা
+Satkhira|সাতক্ষীরা|সাতক্ষীরা সদর,আশাশুনি,দেবহাটা,কালীগঞ্জ,কলারোয়া,শ্যামনগর,তালা
+Jashore|যশোর|যশোর সদর,অভয়নগর,বাঘারপাড়া,চৌগাছা,ঝিকরগাছা,কেশবপুর,মণিরামপুর,শার্শা
+Jhenaidah|ঝিনাইদহ|ঝিনাইদহ সদর,হরিণাকুন্ডু,কালীগঞ্জ,কোটচাঁদপুর,মহেশপুর,শৈলকুপা
+Magura|মাগুরা|মাগুরা সদর,মোহাম্মদপুর,শালিখা,শ্রীপুর
+Narail|নড়াইল|নড়াইল সদর,কালিয়া,লোহাগড়া,নড়াগাতি
+Kushtia|কুষ্টিয়া|কুষ্টিয়া সদর,ভেড়ামারা,দৌলতপুর,খোকসা,কুমারখালী,মিরপুর
+Chuadanga|চুয়াডাঙ্গা|চুয়াডাঙ্গা সদর,আলমডাঙ্গা,দামুড়হুদা,জীবননগর
+Meherpur|মেহেরপুর|মেহেরপুর সদর,গাংনী,মুজিবনগর
+Barishal|বরিশাল|বরিশাল সদর,আগৈলঝাড়া,বাবুগঞ্জ,বাকেরগঞ্জ,বানারীপাড়া,গৌরনদী,হিজলা,মেহেন্দিগঞ্জ,মুলাদী,উজিরপুর
+Jhalokati|ঝালকাঠি|ঝালকাঠি সদর,কাঁঠালিয়া,নলছিটি,রাজাপুর
+Patuakhali|পটুয়াখালী|পটুয়াখালী সদর,বাউফল,দশমিনা,দুমকি,গলাচিপা,কলাপাড়া,মির্জাগঞ্জ,রাঙ্গাবালী
+Pirojpur|পিরোজপুর|পিরোজপুর সদর,ভান্ডারিয়া,কাউখালী,মঠবাড়িয়া,নাজিরপুর,নেছারাবাদ,জিয়ানগর
+Bhola|ভোলা|ভোলা সদর,বোরহানউদ্দিন,চরফ্যাশন,দৌলতখান,লালমোহন,মনপুরা,তজুমদ্দিন
+Barguna|বরগুনা|বরগুনা সদর,আমতলী,বামনা,বেতাগী,পাথরঘাটা,তালতলী
+Sylhet|সিলেট|সিলেট সদর,বালাগঞ্জ,বিয়ানীবাজার,বিশ্বনাথ,কোম্পানীগঞ্জ,ফেঞ্চুগঞ্জ,গোলাপগঞ্জ,গোয়াইনঘাট,জৈন্তাপুর,কানাইঘাট,ওসমানীনগর,দক্ষিণ সুরমা,জকিগঞ্জ
+Moulvibazar|মৌলভীবাজার|মৌলভীবাজার সদর,বড়লেখা,জুড়ী,কমলগঞ্জ,কুলাউড়া,রাজনগর,শ্রীমঙ্গল
+Habiganj|হবিগঞ্জ|হবিগঞ্জ সদর,আজমিরীগঞ্জ,বাহুবল,বানিয়াচং,চুনারুঘাট,লাখাই,মাধবপুর,নবীগঞ্জ,শায়েস্তাগঞ্জ
+Sunamganj|সুনামগঞ্জ|সুনামগঞ্জ সদর,বিশ্বম্ভরপুর,ছাতক,দক্ষিণ সুনামগঞ্জ,দিরাই,ধর্মপাশা,দোয়ারাবাজার,জগন্নাথপুর,জামালগঞ্জ,শাল্লা,তাহিরপুর,মধ্যনগর
+Rangpur|রংপুর|রংপুর সদর,বদরগঞ্জ,গঙ্গাচড়া,কাউনিয়া,মিঠাপুকুর,পীরগাছা,পীরগঞ্জ,তারাগঞ্জ
+Dinajpur|দিনাজপুর|দিনাজপুর সদর,বীরগঞ্জ,বিরামপুর,বিরল,বোচাগঞ্জ,চিরিরবন্দর,ফুলবাড়ী,ঘোড়াঘাট,হাকিমপুর,কাহারোল,খানসামা,নবাবগঞ্জ,পার্বতীপুর
+Gaibandha|গাইবান্ধা|গাইবান্ধা সদর,ফুলছড়ি,গোবিন্দগঞ্জ,পলাশবাড়ী,সাদুল্লাপুর,সাঘাটা,সুন্দরগঞ্জ
+Kurigram|কুড়িগ্রাম|কুড়িগ্রাম সদর,ভুরুঙ্গামারী,চিলমারী,ফুলবাড়ী,নাগেশ্বরী,রাজারহাট,রাজিবপুর,রৌমারী,উলিপুর
+Lalmonirhat|লালমনিরহাট|লালমনিরহাট সদর,আদিতমারী,হাতীবান্ধা,কালীগঞ্জ,পাটগ্রাম
+Nilphamari|নীলফামারী|নীলফামারী সদর,ডিমলা,ডোমার,জলঢাকা,কিশোরগঞ্জ,সৈয়দপুর
+Panchagarh|পঞ্চগড়|পঞ্চগড় সদর,আটোয়ারী,বোদা,দেবীগঞ্জ,তেঁতুলিয়া
+Thakurgaon|ঠাকুরগাঁও|ঠাকুরগাঁও সদর,বালিয়াডাঙ্গী,হরিপুর,পীরগঞ্জ,রাণীশংকৈল
+Mymensingh|ময়মনসিংহ|ময়মনসিংহ সদর,ভালুকা,ধোবাউড়া,ফুলবাড়িয়া,গফরগাঁও,গৌরীপুর,হালুয়াঘাট,ঈশ্বরগঞ্জ,মুক্তাগাছা,নান্দাইল,ফুলপুর,ত্রিশাল,তারাকান্দা
+Jamalpur|জামালপুর|জামালপুর সদর,বকশীগঞ্জ,দেওয়ানগঞ্জ,ইসলামপুর,মাদারগঞ্জ,মেলান্দহ,সরিষাবাড়ী
+Netrokona|নেত্রকোণা|নেত্রকোণা সদর,আটপাড়া,বারহাট্টা,দুর্গাপুর,কলমাকান্দা,কেন্দুয়া,খালিয়াজুরি,মদন,মোহনগঞ্জ,পূর্বধলা
+Sherpur|শেরপুর|শেরপুর সদর,ঝিনাইগাতী,নকলা,নালিতাবাড়ী,শ্রীবরদী`;
+let BDM=null;const bdm=()=>BDM||(BDM=BDL.trim().split("\n").map(l=>{const p=l.split("|");return{en:p[0],bn:p[1],u:p[2].split(",")}}));
+const LCT={dz:["জেলা নির্বাচন করুন","জেলার নাম লিখে খুঁজুন (বাংলা/English)"],up:["উপজেলা নির্বাচন করুন","উপজেলার নাম লিখে খুঁজুন"],sh:["শহর নির্বাচন করুন","শহরের নাম লিখে খুঁজুন"],gm:["গ্রাম নির্বাচন করুন","আপনার গ্রামের নাম লিখুন"]};
+function lcOpts(id){const D=bdm();if(id=="dz")return D.map(d=>({v:d.bn,s:(d.bn+" "+d.en).toLowerCase()}));
+ const d=D.find(x=>x.bn==$("dz").value);if(!d)return[];
+ if(id=="up")return d.u.map(u=>({v:u,s:u.toLowerCase()}));
+ if(id=="sh"){const u=$("up").value,o=[{v:u+(/সদর/.test(u)?"":" উপজেলা সদর"),s:u},{v:d.bn+" জেলা শহর",s:d.bn+" শহর"}];return o.filter((x,i)=>o.findIndex(y=>y.v==x.v)==i)}
+ return[]}
+function lcRefresh(){const dz=$("dz"),up=$("up");if(!dz)return;
+ [["dz",0],["up",!dz.value],["gm",!up.value],["sh",!up.value]].forEach(a=>{const b=$(a[0]+"b");if(!b)return;const v=$(a[0]).value;b.classList.toggle("dis",!!a[1]);b.classList.toggle("has",!!v);b.querySelector("span").textContent=v||b.dataset.ph})}
+function lcPick(id,v){const old=$(id).value;$(id).value=v;
+ if(old!=v){if(id=="dz"){["up","gm","sh"].forEach(k=>$(k).value="");if(v!="ঢাকা")arSet(120)}else if(id=="up"){["gm","sh"].forEach(k=>$(k).value="")}}
+ lcRefresh();lcClose()}
+function lcClose(){const o=document.querySelector(".lc-ov");if(o)o.remove();document.body.style.overflow="";document.removeEventListener("keydown",lcKey)}
+function lcKey(ev){if(ev.key=="Escape")lcClose()}
+function lcOpen(id){
+ if(id!="dz"&&!$("dz").value)return toast("আগে জেলা নির্বাচন করুন");
+ if((id=="gm"||id=="sh")&&!$("up").value)return toast("আগে উপজেলা নির্বাচন করুন");
+ const O=lcOpts(id),cust=id!="dz",cur=$(id).value,ti=LCT[id],unit={dz:"জেলা",up:"উপজেলা",sh:"শহর",gm:"গ্রাম"}[id];
+ const m=document.createElement("div");m.className="lc-ov";
+ m.innerHTML=`<div class="lc-sh" role="dialog" aria-modal="true"><div class="lc-hd"><b>${ti[0]}</b><button type="button" class="lc-x" aria-label="Close">✕</button></div><div class="lc-s"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input type="search" id="lcq" placeholder="${ti[1]}" autocomplete="off" autocapitalize="off" spellcheck="false"></div><div class="lc-n" id="lcn"></div><div class="lc-l" id="lcl"></div></div>`;
+ document.body.appendChild(m);document.body.style.overflow="hidden";document.addEventListener("keydown",lcKey);
+ m.onclick=ev=>{if(ev.target==m)lcClose()};m.querySelector(".lc-x").onclick=lcClose;
+ const q=m.querySelector("#lcq"),l=m.querySelector("#lcl"),nn=m.querySelector("#lcn"),ck='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>';
+ const draw=()=>{const k=q.value.trim().toLowerCase(),R=k?O.filter(x=>x.s.includes(k)):O;let h=R.map(x=>`<button type="button" class="lc-i${x.v==cur?" on":""}" data-v="${e(x.v)}"><span>${e(x.v)}</span>${x.v==cur?ck:""}</button>`).join("");
+  const raw=q.value.trim();if(cust&&raw&&!O.some(x=>x.v==raw))h+=`<button type="button" class="lc-i lc-c" data-v="${e(raw)}"><span>✎ “${e(raw)}” ${L("ব্যবহার করুন","— use this")}</span></button>`;
+  if(!h)h=`<div class="lc-e">${L("কিছু পাওয়া যায়নি","Nothing found")}</div>`;
+  l.innerHTML=h;nn.textContent=!O.length?(id=="gm"?"আপনার গ্রামের নাম নিচের বক্সে লিখুন":""):(k?bd(R.length)+" টি পাওয়া গেছে":"মোট "+bd(O.length)+" টি "+unit)};
+ q.oninput=draw;l.onclick=ev=>{const b=ev.target.closest(".lc-i");if(b)lcPick(id,b.dataset.v)};
+ q.onkeydown=ev=>{if(ev.key=="Enter"){const f=l.querySelector(".lc-i");if(f)lcPick(id,f.dataset.v)}};
+ draw();if(!matchMedia("(pointer:coarse)").matches||id=="gm")setTimeout(()=>q.focus(),60);else setTimeout(()=>q.focus({preventScroll:true}),60)}
+const dcu=()=>{const d=+$("ar").value,T=$("tt");$("dc").textContent=tk(d);$("dc1").textContent=tk(d);T.textContent=tk(+T.dataset.s+d);window.AREA=d;const g=$("ckt");if(g)g.textContent=tk(+T.dataset.s+d);document.querySelectorAll(".ck-ar button").forEach(b=>b.classList.toggle("on",+b.dataset.v==d))};
 async function place(){if(window._pl)return;window._pl=1;try{await place2()}catch(err){alert("Error: "+err.message)}finally{window._pl=0}}
 async function place2(){const v=id=>$(id).value.trim(),it=direct||cart;
  if(!v("n")||!v("m")||!v("em")||!v("ad")||!v("dz")||!v("up")||!v("tx")||!v("snm"))return alert(t("fill"));
