@@ -973,6 +973,27 @@ html body button:disabled{filter:none!important}
 html body :focus-visible{outline:2px solid #c9a24d;outline-offset:2px}
 html body input:focus-visible,html body select:focus-visible,html body textarea:focus-visible{outline:0}
 @media(prefers-reduced-motion:reduce){html body :is(button,.btn,[role=button],input[type=button],input[type=submit],.upl,summary,.ip-go,.su,.lg,.chip,a[href],[onclick],.card,.ox,.oc2,.mt,.hc,.sec-t,.ad-big,.pcr,.hlp-c,.lg-c,.db-k,.db-ro,.dx-q a,.dx-s,.trust a,.ip-cta a,.hx-it,.sh-a,.cpb,.ad-back,.bkb):not(.__){transition:none!important}}
+
+/* ===== LOCATION PICKER (district / upazila): full height, keyboard aware ===== */
+.lc-ov{position:fixed;inset:auto;left:0;top:var(--vvt,0px);width:100%;height:var(--vvh,100%);align-items:stretch;justify-content:center;overscroll-behavior:contain;touch-action:none;background:rgba(8,22,51,.5)}
+.lc-sh{width:100%;max-width:none;height:100%;max-height:none;border-radius:0;box-shadow:none;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  animation:lcIn .26s cubic-bezier(.22,.8,.3,1) both;overflow:hidden}
+.lc-ov.kb .lc-sh{padding-bottom:0}
+@keyframes lcIn{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+.lc-hd{flex:none;padding:12px 16px 6px 18px}
+.lc-s{flex:none;margin:4px 16px 2px}
+.lc-n{flex:none;padding:6px 20px 6px}
+.lc-ov.kb .lc-hd{padding-top:8px;padding-bottom:2px}
+.lc-ov.kb .lc-hd b{font-size:15.5px}
+.lc-ov.kb .lc-n{padding-top:3px;padding-bottom:3px}
+.lc-l{flex:1 1 auto;min-height:0;touch-action:pan-y;scroll-padding-top:4px;
+  padding:4px 10px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid #eef1f8}
+.lc-ov.kb .lc-l{padding-bottom:10px}
+@media(min-width:700px){
+  .lc-ov{align-items:center;padding:24px}
+  .lc-sh{max-width:560px;height:min(640px,100%);border-radius:24px;box-shadow:0 24px 60px rgba(8,22,51,.35);padding-top:0}
+}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -1212,7 +1233,7 @@ function lcRefresh(){const dz=$("dz"),up=$("up");if(!dz)return;
 function lcPick(id,v){const old=$(id).value;$(id).value=v;
  if(old!=v){if(id=="dz"){$("up").value="";if(v!="ঢাকা")arSet(120)}}
  lcRefresh();lcClose()}
-function lcClose(){const o=document.querySelector(".lc-ov");if(o)o.remove();document.body.style.overflow="";document.removeEventListener("keydown",lcKey)}
+function lcClose(){const o=document.querySelector(".lc-ov");if(o)o.remove();document.body.style.overflow="";document.removeEventListener("keydown",lcKey);const v=window.visualViewport;if(v&&window._lcFit){v.removeEventListener("resize",window._lcFit);v.removeEventListener("scroll",window._lcFit);window._lcFit=null}}
 function lcKey(ev){if(ev.key=="Escape")lcClose()}
 function lcOpen(id){
  if(id!="dz"&&!$("dz").value)return toast("আগে জেলা নির্বাচন করুন");
@@ -1221,13 +1242,17 @@ function lcOpen(id){
  const m=document.createElement("div");m.className="lc-ov";
  m.innerHTML=`<div class="lc-sh" role="dialog" aria-modal="true"><div class="lc-hd"><b>${ti[0]}</b><button type="button" class="lc-x" aria-label="Close">✕</button></div><div class="lc-s"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input type="search" id="lcq" placeholder="${ti[1]}" autocomplete="off" autocapitalize="off" spellcheck="false"></div><div class="lc-n" id="lcn"></div><div class="lc-l" id="lcl"></div></div>`;
  document.body.appendChild(m);document.body.style.overflow="hidden";document.addEventListener("keydown",lcKey);
+ {const vv=window.visualViewport,H0=Math.max(window.innerHeight,vv?vv.height:0);
+  const fit=()=>{if(!vv||!m.isConnected)return;const h=Math.round(vv.height),t=Math.max(0,Math.round(vv.offsetTop));
+   m.style.setProperty("--vvh",h+"px");m.style.setProperty("--vvt",t+"px");m.classList.toggle("kb",h<H0-120)};
+  if(vv){window._lcFit=fit;vv.addEventListener("resize",fit);vv.addEventListener("scroll",fit);fit()}}
  m.onclick=ev=>{if(ev.target==m)lcClose()};m.querySelector(".lc-x").onclick=lcClose;
  const q=m.querySelector("#lcq"),l=m.querySelector("#lcl"),nn=m.querySelector("#lcn"),ck='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>';
  const draw=()=>{const k=q.value.trim().toLowerCase(),R=k?O.filter(x=>x.s.includes(k)):O;let h=R.map(x=>`<button type="button" class="lc-i${x.v==cur?" on":""}" data-v="${e(x.v)}"><span>${e(x.v)}</span>${x.v==cur?ck:""}</button>`).join("");
   const raw=q.value.trim();if(cust&&raw&&!O.some(x=>x.v==raw))h+=`<button type="button" class="lc-i lc-c" data-v="${e(raw)}"><span>✎ “${e(raw)}” ${L("ব্যবহার করুন","— use this")}</span></button>`;
   if(!h)h=`<div class="lc-e">${L("কিছু পাওয়া যায়নি","Nothing found")}</div>`;
-  l.innerHTML=h;nn.textContent=!O.length?(id=="gm"?"আপনার গ্রামের নাম নিচের বক্সে লিখুন":""):(k?bd(R.length)+" টি পাওয়া গেছে":"মোট "+bd(O.length)+" টি "+unit)};
- q.oninput=draw;l.onclick=ev=>{const b=ev.target.closest(".lc-i");if(b)lcPick(id,b.dataset.v)};
+  l.innerHTML=h;l.scrollTop=0;nn.textContent=!O.length?(id=="gm"?"আপনার গ্রামের নাম নিচের বক্সে লিখুন":""):(k?bd(R.length)+" টি পাওয়া গেছে":"মোট "+bd(O.length)+" টি "+unit)};
+ q.oninput=draw;q.onfocus=()=>{[0,120,320].forEach(d=>setTimeout(()=>{if(m.isConnected)window.scrollTo(0,window.scrollY)},d))};l.onclick=ev=>{const b=ev.target.closest(".lc-i");if(b)lcPick(id,b.dataset.v)};
  q.onkeydown=ev=>{if(ev.key=="Enter"){const f=l.querySelector(".lc-i");if(f)lcPick(id,f.dataset.v)}};
  draw();if(!matchMedia("(pointer:coarse)").matches||id=="gm")setTimeout(()=>q.focus(),60);else setTimeout(()=>q.focus({preventScroll:true}),60)}
 const dcu=()=>{const d=+$("ar").value,T=$("tt");$("dc").textContent=tk(d);$("dc1").textContent=tk(d);T.textContent=tk(+T.dataset.s+d);window.AREA=d;const g=$("ckt");if(g)g.textContent=tk(+T.dataset.s+d);document.querySelectorAll(".ck-ar button").forEach(b=>b.classList.toggle("on",+b.dataset.v==d))};
