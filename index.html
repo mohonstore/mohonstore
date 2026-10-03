@@ -224,7 +224,7 @@ button:active,.btn:active,.chip:active,.lg:active,.su:active{transform:scale(.95
 .ctt{display:flex;justify-content:space-between;align-items:center;margin:16px 4px 10px;font-weight:700;color:var(--bd)}.ctt b{font-size:20px;color:#047857}
 .all{display:block;text-align:center;height:50px;line-height:50px;padding:0;border-radius:16px;font-weight:800;background:linear-gradient(135deg,#0f2557,#173578)!important;color:#fff;border:1px solid #d4a24c}
 .empc{text-align:center;background:#fff;border:1px solid #e9edf6;border-radius:20px;padding:36px 16px;box-shadow:0 8px 22px rgba(15,37,87,.08);display:flex;flex-direction:column;gap:12px;align-items:center}.empc .ei{font-size:44px}
-.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.row>span:first-child{flex:1;min-width:0}.row>span:last-child,.row>b{flex-shrink:0;white-space:nowrap;text-align:right}.cp,.pr b,.pr .old,.now,.old,.ctt b,.off{white-space:nowrap}/* ===== PROFESSIONAL ORDERS ===== */
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.row>span:first-child{flex:1;min-width:0}.row>span:last-child,.row>b{flex-shrink:0;text-align:right}.cp,.card .pr b,.card .pr .old,.now,.old,.ctt b,.off{white-space:nowrap}/* ===== PROFESSIONAL ORDERS ===== */
 .oph{max-width:560px;margin:6px auto 12px;font-size:20px;color:var(--b)}
 .ox{--sc:#f59e0b;position:relative;max-width:560px;margin:0 auto 14px;background:#fff;border:1px solid #e6eaf3;border-radius:18px;box-shadow:0 6px 20px rgba(15,37,87,.08);overflow:hidden;cursor:pointer;transition:transform .15s,box-shadow .2s}
 .ox:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--sc)}
@@ -864,6 +864,115 @@ body.adm .ad-big:hover,body.adm .dx-q a:hover,body.adm .oc2:hover{box-shadow:inh
 .qs-t{margin-top:4px;padding:5px 9px;border-radius:10px}
 .qa .lbl{margin:2px 0 8px}.qs{margin-top:0}
 .ck-h{margin:6px 2px 0;font-size:12px;line-height:1.5;color:#7a849c}
+
+/* ===== FIX: nothing may leave its box (all pages + admin) ===== */
+html{overflow-x:hidden}
+body{max-width:100%}
+#app *{overflow-wrap:anywhere}
+#app img,#app svg,#app video{max-width:100%}
+#app :is(.nums span,.chip,.cq b,.dsc,.mg-pill,.stb,.hx-bd,.ip-ck,.lg-ck){overflow-wrap:normal}
+.box,.od-bx,.ck-c,.ip-ch,.ip-slip,.ad-sec,.oc2,.ox,.mt,.hc,.pcr,.qs,.db-k{min-width:0;max-width:100%}
+.od,.ck,.ip,.hlp,.cartw{max-width:100%}
+/* order detail */
+.od-r{flex-wrap:nowrap}
+.od-r>span{flex:0 1 auto;max-width:45%;min-width:0;overflow-wrap:anywhere}
+.od-r>b{flex:1 1 0;min-width:0;white-space:normal!important;overflow-wrap:anywhere;word-break:normal;text-align:right}
+.od-r.stk{flex-direction:column;align-items:stretch;gap:5px}
+.od-r.stk>span{max-width:100%}
+.od-r.stk>b{flex:none;text-align:left;line-height:1.6;font-weight:600}
+.od-eta>div{min-width:0;flex:1}
+.od-eta b,.od-eta small{display:block;white-space:normal!important;overflow-wrap:anywhere}
+.od-it,.od-in,.od-qp{min-width:0}
+.od-hd span{max-width:100%}
+.od-msg{overflow-wrap:anywhere}
+.od-tot{gap:10px;flex-wrap:wrap}
+/* lists, cards, summaries */
+.ox-ft>span:first-child{min-width:0;flex:1 1 150px;overflow-wrap:anywhere}
+.ck-it,.ck-rw,.ck-pn,.ck-ad{min-width:0}
+.ck-rw{flex-wrap:wrap}.ck-rw>*{min-width:0}
+.ck-pn b,.ck-it b{overflow-wrap:anywhere}
+.ip-num{flex-wrap:wrap}.ip-num b{min-width:0;overflow-wrap:anywhere}
+.ip-r{gap:10px}.ip-r span{min-width:0}
+.qs-r{flex-wrap:wrap}.qs-r b{white-space:normal;overflow-wrap:anywhere}
+.cn,.cb,.cm{min-width:0}
+.cr{flex-wrap:wrap}
+.mx b,.mx small,.hc b,.pcm b,.mg-hero b,.mg-hero small,.ad-ttl,.ad-inf,.ad-sml,.ad-no,.sh-pr b{overflow-wrap:anywhere}
+.mg-hero>div,.sh-pr>div,.ad-line>*{min-width:0}
+.pp{min-width:0}
+/* header & toast */
+header>b{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.toast{white-space:normal!important;text-align:center;width:max-content;max-width:calc(100vw - 32px);line-height:1.5}
+/* buttons / tabs / admin */
+button,.btn{max-width:100%}
+.tabs button,.stg button,.ad-sm button,.ad-sb,.mg-lb button,.mg-qk button,.mg-act button,.mg-mb button,.ck-ar button{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.prow>span:last-child,.row.prow>span:last-child{flex-shrink:1;flex-wrap:wrap;justify-content:flex-end}
+.catn{overflow-wrap:anywhere}
+.mgb{white-space:normal}
+.ad-line{flex-wrap:wrap}
+.fg2>*,.ad-sg>*,.stg>*,.dx-st>*,.dx-q>*,.db-kpi>*{min-width:0}
+.dx-q a,.dx-s,.db-k{overflow-wrap:anywhere}
+.db-rm b,.db-rm small{max-width:100%}
+.oc2 .r1>*{min-width:0}
+.oc2 .dk{max-width:calc(100% - 24px)}
+pre,.sqlb{max-width:100%;overflow-x:auto}
+table{display:block;max-width:100%;overflow-x:auto}
+footer,.fx-grid>div,.fx-cb,.fx-ci>*{min-width:0;overflow-wrap:anywhere}
+.fx-ci b{word-break:break-word}
+.fx-bar>*{min-width:0}
+
+/* ===== FIX: product cards - no tap / click / hover animation at all ===== */
+.card,.card:hover,.card:active,.card:focus,.card:focus-visible,.card.clk,.grid>.card,.grid>.card:hover,.grid>.card:active{
+  animation:none!important;transition:none!important;transform:none!important;translate:none!important;scale:none!important;opacity:1!important;filter:none!important;
+  box-shadow:0 1px 3px rgba(8,22,51,.06)!important;border-color:#eceae4!important}
+.card .im,.card .im img,.card:hover .im img,.card:active .im img{transition:none!important;transform:none!important;translate:none!important;scale:none!important}
+.card:focus,.card:focus-visible{outline:0}
+.card{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-drag:none}
+.card img{-webkit-user-drag:none;pointer-events:none}
+
+/* ===== TOUCH FEEDBACK: one simple, premium press effect everywhere (site + admin) =====
+   - no sinking / scaling / lifting / ring / shadow-growing animation
+   - only a soft darkening while pressed, which fades out smoothly on release
+   - nothing is written on screen; GPU-cheap (filter only), instant on press */
+html body :is(button,.btn,[role=button],input[type=button],input[type=submit],.upl,summary,.ip-go,.su,.lg,.chip,a[href],[onclick],.card,.ox,.oc2,.mt,.hc,.sec-t,.ad-big,.pcr,.hlp-c,.lg-c,.db-k,.db-ro,.dx-q a,.dx-s,.trust a,.ip-cta a,.hx-it,.sh-a,.cpb,.ad-back,.bkb):not(.__){
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  transition:filter .16s ease-out!important;
+}
+html body :is(button,.btn,.chip,.card,.sec-t,.ox,.oc2,.mt,.hc,.ad-big,.pcr,.hlp-c,.lg-c,.db-k,.dx-q a,.dx-s,.hx-it,.sh-a,.cpb,.ad-back,.bkb,.trust a,.ip-cta a,.su,.lg):not(.__){
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+}
+/* remove every movement on hover / press / focus / old tap-ring */
+html body :is(button,.btn,[role=button],input[type=button],input[type=submit],.upl,summary,.ip-go,.su,.lg,.chip,a[href],[onclick],.card,.ox,.oc2,.mt,.hc,.sec-t,.ad-big,.pcr,.hlp-c,.lg-c,.db-k,.db-ro,.dx-q a,.dx-s,.trust a,.ip-cta a,.hx-it,.sh-a,.cpb,.ad-back,.bkb):not(.__):is(:hover,:active,:focus,.clk){
+  translate:none!important;scale:none!important;transform:none!important;animation:none!important;
+}
+html body .card:is(:hover,:active,:focus,.clk),html body .sec-t:is(:hover,:active),html body .grid>.card:is(:hover,:active){
+  translate:none!important;scale:none!important;transform:none!important;
+}
+@media(hover:hover){
+  html body :is(button,.btn,[role=button],input[type=button],input[type=submit],.upl,summary,.ip-go,.su,.lg,.chip,a[href],[onclick],.card,.ox,.oc2,.mt,.hc,.sec-t,.ad-big,.pcr,.hlp-c,.lg-c,.db-k,.db-ro,.dx-q a,.dx-s,.trust a,.ip-cta a,.hx-it,.sh-a,.cpb,.ad-back,.bkb):not(.__):hover{filter:none!important}
+  html body .ox:hover{box-shadow:0 6px 20px rgba(15,37,87,.08)}
+  html body .ad-big:hover{box-shadow:0 10px 26px rgba(8,22,51,.22)}
+  html body .dx-q a:hover{box-shadow:0 4px 14px rgba(15,37,87,.06)}
+}
+/* boxes / cards / links: very light press tint */
+html body :is(a[href],[onclick],.card,.ox,.oc2,.mt,.hc,.sec-t,.ad-big,.pcr,.hlp-c,.lg-c,.db-k,.db-ro,.dx-q a,.dx-s,.trust a,.ip-cta a,.hx-it,.sh-a,.cpb,.ad-back,.bkb):not(.__):active:not(:disabled){
+  filter:brightness(.955)!important;transition:none!important;
+}
+/* buttons: slightly stronger press tint */
+html body :is(button,.btn,[role=button],input[type=button],input[type=submit],.upl,summary,.ip-go,.su,.lg,.chip):not(.__):active:not(:disabled){
+  filter:brightness(.88)!important;transition:none!important;
+}
+/* white / light buttons need a little less so they do not look grey-dirty */
+html body :is(.w,.ad-back,.ad-sb,.ck-ar button,.stg button,.ad-sm button,.cq button,.lc-x,.sh-x,.mg-lb button,.mg-qk button,.chip,.tabs button:not(.on),.bkb,.rmv,.pfb>.r):not(.__):active:not(:disabled){
+  filter:brightness(.93)!important;
+}
+/* header buttons sit on dark blue - keep them subtle */
+html body :is(.hx-mb,.hx-pf,.lg,.su):not(.__):active:not(:disabled){filter:brightness(.82)!important}
+html body .su:active:not(:disabled){filter:brightness(.9)!important}
+html body button:disabled{filter:none!important}
+html body :focus-visible{outline:2px solid #c9a24d;outline-offset:2px}
+html body input:focus-visible,html body select:focus-visible,html body textarea:focus-visible{outline:0}
+@media(prefers-reduced-motion:reduce){html body :is(button,.btn,[role=button],input[type=button],input[type=submit],.upl,summary,.ip-go,.su,.lg,.chip,a[href],[onclick],.card,.ox,.oc2,.mt,.hc,.sec-t,.ad-big,.pcr,.hlp-c,.lg-c,.db-k,.db-ro,.dx-q a,.dx-s,.trust a,.ip-cta a,.hx-it,.sh-a,.cpb,.ad-back,.bkb):not(.__){transition:none!important}}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -1164,7 +1273,7 @@ window.addEventListener("popstate",()=>{if(location.hash=="#/orders"&&odOpen)ord
 function oDet(){const o=OD;if(!o)return;odOpen=true;window.scrollTo(0,0);
  const st=stN(o),ix=st=="cancelled"?-1:SN.indexOf(st),its=o.items||[],d0=new Date(o.created_at),E=o.area=="Dhaka"?ETA.in:ETA.out,dc=+o.delivery_charge||0,sub=+o.subtotal||0,fin=st=="delivered"||st=="cancelled",
  a=new Date(d0.getTime()+E[0]*864e5),z=new Date(d0.getTime()+E[1]*864e5),
- R=(k,v)=>v?`<div class="od-r"><span>${k}</span><b>${v}</b></div>`:"",
+ R=(k,v)=>v?`<div class="od-r${String(v).replace(/<[^>]*>/g,"").length>26?" stk":""}"><span>${k}</span><b>${v}</b></div>`:"",
  tl=st=="cancelled"?`<div class="od-msg x">❌ ${t("m_cancelled")}</div>`:`<div class="od-tl">${SN.map((k,i)=>`<div class="od-s ${i<ix||st=="delivered"?"done":i==ix?"cur":""}"><i>${i<ix?"✓":OSI[k]}</i><b>${t("s_"+k)}</b><small>${i==0?fd(d0):(i==3&&!fin?"~ "+fd(z):"")}</small></div>`).join("")}</div><div class="od-msg">${t("m_"+st)}</div>`,
  est=fin?"":`<div class="od-eta"><span>🚚</span><div><small>${t("est")}</small><b>${oD(a)} – ${oD(z)}</b><small>${bd(E[0])}-${bd(E[1])} ${t("days")}</small></div></div>`,
  items=its.map(c=>{const p=P.find(x=>x.slug==c.slug),inn=`<div class="od-im">${oTh(c)}</div><div class="od-in"><b>${e(oN(c))}</b><div class="ox-ch">${c.size?`<i>${t("size")}: ${e(c.size)}</i>`:""}${c.color?`<i>${t("color")}: ${e(c.color)}</i>`:""}</div><div class="od-qp"><span>${tk(c.price)} × ${bd(c.qty||1)}</span><strong>${tk(c.price*c.qty)}</strong></div></div>`;
@@ -1786,7 +1895,7 @@ document.body.insertAdjacentHTML("beforeend",'<nav id="adnav">'+NAV.map(x=>'<a h
 const act=()=>{const h=location.hash.slice(1)||"/";let k="/";if(/^\/admin\/order/.test(h))k="/admin/orders";else if(/^\/admin\/(add|addp)(\/|$)/.test(h))k="/admin/add";else if(/^\/admin\/(products?|cats?|catedit)(\/|$)/.test(h))k="/admin/products";else if(/^\/admin\/(sections?|secnew)(\/|$)/.test(h))k="/admin/sections";else if(h.startsWith("/admin"))k="/admin";document.querySelectorAll("#adnav a").forEach(a=>a.classList.toggle("on",a.dataset.p==k))};
 const r0=route;route=function(){document.body.classList.toggle("noan",!!window._kct);act();return r0.apply(this,arguments)};
 document.addEventListener('click',ev=>{const a=ev.target.closest&&ev.target.closest('#adnav a');if(a&&location.hash==a.getAttribute('href')){ev.preventDefault();_rt=0;route()}});
-const SEL='button,.btn,.chip,.sec-t,.card,.hx-it,.mt,.oc2,.ox,.hc,.ad-big,.dx-q a,.dx-s,.ad-back,.ad-sg>*,.stg>*,.pcr,.prow,#adnav a,.sh-a,.ip-go,.cpb';document.addEventListener("pointerdown",ev=>{if(document.body.classList.contains("adm"))return;const el=ev.target.closest&&ev.target.closest(SEL);if(!el||el.disabled)return;el.classList.remove("clk");void el.offsetWidth;el.classList.add("clk");clearTimeout(el._ck);el._ck=setTimeout(()=>el.classList.remove("clk"),560)},{passive:true})})();
+})();
 try{history.scrollRestoration="manual"}catch(_){}window.addEventListener("pageshow",ev=>{if(ev.persisted)route()});
 window.onhashchange=route;chrome();boot();
 </script></body></html>
