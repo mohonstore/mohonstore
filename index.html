@@ -6,7 +6,7 @@ function g(q){return fetch(U+q,{headers:hd}).then(function(r){return r.ok?r.json
 var E={p:g("products?select=*&order=created_at.desc"),c:g("categories?select=*&order=created_at.asc"),s:g("sections?select=*&order=pos.asc"),one:null,oneH:H};
 try{if(H.indexOf("/product/")===0)E.one=g("products?select=*&limit=1&slug=eq."+encodeURIComponent(decodeURIComponent(H.slice(9))));else if(H.indexOf("/p/")===0){var q=decodeURIComponent(H.slice(3)).toLowerCase();if(/^[0-9a-f]{8}$/.test(q))E.one=g("products?select=*&limit=1&id=gte."+q+"-0000-0000-0000-000000000000&id=lte."+q+"-ffff-ffff-ffff-ffffffffffff")}}catch(e){}
 window.__E=E})();</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><meta name="theme-color" content="#0b1a40">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><meta name="theme-color" content="#0e1726">
 <style>
 :root{--b:#12285c;--g:#16a34a;--o:#f97316;--bg:#f5f7fb}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,"Noto Sans Bengali",sans-serif;background:var(--bg);color:#1b1f2a}
@@ -525,11 +525,55 @@ footer b{font-size:16px!important}
 .sk-sl{height:44px;border-radius:14px;margin:2px 0 12px}.sk-bar{display:flex;gap:10px;margin:0 0 14px}.sk-in{flex:1;height:48px;border-radius:15px}.sk-se{flex:0 0 118px;height:48px;border-radius:15px}.sk-tl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}.sk-t{height:78px;border-radius:16px}
 .sk-g{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sk-c .sk-im{aspect-ratio:400/430;border-radius:14px}.sk-l{height:14px;margin-top:10px;width:90%}.sk-l.s{width:55%}.sk-pi{aspect-ratio:1/1;border-radius:18px}
 body:has(#app>.skl) footer{display:none}
+
+:root{--b:#0e1726;--g:#8f6a22;--o:#a47a2c;--bg:#f7f6f3}
+body{font-family:"Hind Siliguri",system-ui,sans-serif}
+header{background:linear-gradient(180deg,#0e1726,#16243d);border-bottom:1px solid #c9a24d55;padding:8px 14px}
+header>b{font-family:"Noto Serif Bengali",serif;font-size:19px;letter-spacing:.3px;cursor:pointer}
+.su{background:linear-gradient(135deg,#e2c275,#c9a24d 55%,#a47a2c)!important;color:#1a1305!important;text-shadow:none!important;border:0!important;box-shadow:0 4px 12px #c9a24d55!important}
+main{max-width:1120px}
+.sl{height:clamp(190px,36vw,300px);border-radius:20px;font-family:"Noto Serif Bengali",serif;font-size:clamp(20px,4.4vw,34px);line-height:1.4;position:relative;overflow:hidden;box-shadow:0 12px 30px #0e172633}
+.sl:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 12%,#ffffff2e,transparent 45%);pointer-events:none}
+.sec-t,.sec-hd{border-radius:18px!important;box-shadow:0 8px 22px #0e172626}
+.sec-g .sec-t:nth-child(odd),.sec-hd{background:linear-gradient(135deg,#0e1726,#2a3d66)!important}
+.sec-g .sec-t:nth-child(even){background:linear-gradient(135deg,#5b4316,#b08a3e)!important}
+.sec-h{font-family:"Noto Serif Bengali",serif;font-size:21px}
+.card{border:1px solid #eceae4;box-shadow:none;border-radius:16px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 28px #0e172620}.card .im{background:#f1efe9}
+.bar input,.bar select{border-radius:99px;border-color:#e3e0d8;padding-left:16px}
+.box{border-radius:16px;border:1px solid #eceae4}
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:4px 0 24px}@media(min-width:700px){.trust{grid-template-columns:repeat(4,1fr)}}
+.trust div{background:#fff;border:1px solid #eceae4;border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:600;line-height:1.3}.trust svg{flex:none;width:26px;height:26px;color:#a47a2c}
+.pol{max-width:760px;margin:auto;padding:20px}.pol h2{font-family:"Noto Serif Bengali",serif;margin:10px 0 2px}.pol h3{margin:18px 0 4px;font-size:16px}.pol p{margin:0;color:#4a5568;line-height:1.8}.pol small{color:#8a93a3}
+footer{background:linear-gradient(180deg,#0b1220,#080d18);color:#b7c0d0;padding:0;margin-top:40px;border-top:2px solid #c9a24d}footer a{text-decoration:none}
+.fx-cta{max-width:1120px;margin:auto;padding:30px 18px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;border-bottom:1px solid #1d2840}
+.fx-cta h3{margin:0;color:#fff;font-family:"Noto Serif Bengali",serif;font-size:21px}.fx-cta p{margin:4px 0 0;font-size:14px;color:#9aa6bb}
+.fx-btn{display:flex;gap:10px;flex-wrap:wrap}.fx-btn a{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:99px;border:1px solid #33415f;color:#fff;font-weight:600;font-size:14px}.fx-btn a.fx-wa{background:linear-gradient(135deg,#e2c275,#c9a24d 55%,#a47a2c);border:0;color:#1a1305}
+.fx-i{display:flex}.fx-btn .fx-i svg{width:18px;height:18px}
+.fx-grid{max-width:1120px;margin:auto;padding:34px 18px 26px;display:grid;gap:28px;grid-template-columns:repeat(2,1fr)}@media(min-width:860px){.fx-grid{grid-template-columns:1fr 1fr 1fr 1.5fr}}
+footer h4{color:#fff;margin:0 0 14px;font-size:15px;font-weight:700;padding-bottom:8px;border-bottom:1px solid #c9a24d66;display:inline-block}
+.fx-l{display:block;padding:5px 0;color:#aab4c8;font-size:14px;transition:color .2s,padding .2s}.fx-l:hover{color:#e2c275;padding-left:4px}
+.fx-ct{grid-column:1/-1}@media(min-width:860px){.fx-ct{grid-column:auto}}
+.fx-ci{display:flex;gap:12px;align-items:center;padding:7px 0;color:#fff}.fx-ci .fx-i{width:38px;height:38px;border-radius:50%;background:#16223a;border:1px solid #2a3a5c;align-items:center;justify-content:center;color:#c9a24d;flex:none}.fx-ci svg{width:17px;height:17px}
+.fx-ci small{display:block;color:#7f8aa0;font-size:12px;line-height:1.2}.fx-ci b{font-weight:600;font-size:14px;word-break:break-all}
+.fx-bar{max-width:1120px;margin:auto;border-top:1px solid #1d2840;padding:16px 18px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:13px;color:#7f8aa0}.fx-bar a{color:#aab4c8}.fx-bar a:hover{color:#e2c275}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 </style></head><body>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
 <main id="app"><div class="skl" aria-hidden="true"><div class="sk sk-sl"></div><div class="sk-bar"><div class="sk sk-in"></div><div class="sk sk-se"></div></div><div class="sk-tl"><div class="sk sk-t"></div><div class="sk sk-t"></div></div><div class="sk-g"><div class="sk-c"><div class="sk sk-im"></div><div class="sk sk-l"></div><div class="sk sk-l s"></div></div><div class="sk-c"><div class="sk sk-im"></div><div class="sk sk-l"></div><div class="sk sk-l s"></div></div><div class="sk-c"><div class="sk sk-im"></div><div class="sk sk-l"></div><div class="sk sk-l s"></div></div><div class="sk-c"><div class="sk sk-im"></div><div class="sk sk-l"></div><div class="sk sk-l s"></div></div><div class="sk-c"><div class="sk sk-im"></div><div class="sk sk-l"></div><div class="sk sk-l s"></div></div><div class="sk-c"><div class="sk sk-im"></div><div class="sk sk-l"></div><div class="sk sk-l s"></div></div></div></div><div class="skp" aria-hidden="true"><div class="sk sk-pi"></div><div class="sk sk-l" style="width:80%;height:22px;margin-top:16px"></div><div class="sk sk-l s" style="height:26px"></div><div class="sk sk-l" style="height:50px;margin-top:20px;border-radius:14px"></div></div></main>
-<footer><b style="font-size:18px">Mohon Store</b><p id="ab"></p><div>Contact: <a href="tel:01725233759">01725233759</a></div><div>WhatsApp: <a href="https://wa.me/8801725233759">01725233759</a></div><div>Email: <a href="mailto:mashiurrahman.bus@gmail.com">mashiurrahman.bus@gmail.com</a></div></footer>
+<footer>
+<div class="fx-cta"><div><h3>সাহায্য দরকার?</h3><p>অর্ডার, ডেলিভারি বা পণ্য নিয়ে যেকোনো প্রশ্নে আমরা পাশে আছি।</p></div><div class="fx-btn"><a class="fx-wa" href="https://wa.me/8801725233759" target="_blank" rel="noopener"><span class="fx-i" data-i="wa"></span>হোয়াটসঅ্যাপে মেসেজ</a><a href="tel:01725233759"><span class="fx-i" data-i="ph"></span>কল করুন</a></div></div>
+<div class="fx-grid">
+<div><h4>কেনাকাটা</h4><a class="fx-l" href="#/">হোম</a><a class="fx-l" href="#/section/fashion">ফ্যাশন</a><a class="fx-l" href="#/section/electronics">ইলেকট্রনিক্স</a><a class="fx-l" href="#/orders">অর্ডার ট্র্যাক করুন</a></div>
+<div><h4>কাস্টমার সেবা</h4><a class="fx-l" href="#/shipping">ডেলিভারি ও পেমেন্ট</a><a class="fx-l" href="#/returns">রিটার্ন ও রিফান্ড</a><a class="fx-l" href="#/help">হেল্প সেন্টার</a></div>
+<div><h4>আইনি তথ্য</h4><a class="fx-l" href="#/privacy">প্রাইভেসি পলিসি</a><a class="fx-l" href="#/terms">শর্তাবলি</a></div>
+<div class="fx-ct"><h4>যোগাযোগ</h4>
+<a class="fx-ci" href="tel:01725233759"><span class="fx-i" data-i="ph"></span><span><small>কল করুন</small><b>01725233759</b></span></a>
+<a class="fx-ci" href="https://wa.me/8801725233759" target="_blank" rel="noopener"><span class="fx-i" data-i="wa"></span><span><small>হোয়াটসঅ্যাপ</small><b>01725233759</b></span></a>
+<a class="fx-ci" href="mailto:mashiurrahman.bus@gmail.com"><span class="fx-i" data-i="ml"></span><span><small>ইমেইল</small><b>mashiurrahman.bus@gmail.com</b></span></a></div>
+</div>
+<div class="fx-bar"><span>© <span id="yr"></span> Mohon Store. সর্বস্বত্ব সংরক্ষিত।</span><a href="#" onclick="scrollTo({top:0,behavior:'smooth'});return false">উপরে যান ↑</a></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 const _authStore=(()=>{let dbp;const idb=()=>dbp||(dbp=new Promise(r=>{try{const q=indexedDB.open("mhn_auth",1);q.onupgradeneeded=()=>q.result.createObjectStore("kv");q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)}catch(_){r(null)}}));
@@ -553,7 +597,7 @@ function mergeC(u){const k=c=>c.slug+"|"+c.size+"|"+c.color,r=(u.user_metadata&&
  const ch=JSON.stringify(m)!=JSON.stringify(cart);cart=m;localStorage.c=JSON.stringify(cart);chrome();
  if(JSON.stringify(m)!=JSON.stringify(r))sb.auth.updateUser({data:{cart}});
  if(ch&&/^#\/(cart|profile)$/.test(location.hash))route()}
-function chrome(){$("ab").textContent=t("ab");hxLabels()}
+function chrome(){const ab=$("ab");if(ab)ab.textContent=t("ab");hxLabels();document.querySelectorAll("[data-i]").forEach(x=>x.innerHTML=hxSvg(HXI[x.dataset.i]));const y=$("yr");if(y)y.textContent=new Date().getFullYear()}
 function setL(){lang=lang=="bn"?"en":"bn";localStorage.l=lang;chrome();route()}
 async function load(){const E=window.__E;window.__E=null;const pk=async(k,t,col,asc)=>{const d=E?await E[k]:null;return d?{data:d,error:null}:sb.from(t).select("*").order(col,{ascending:asc})};const[r,c,sx]=await Promise.all([pk("p","products","created_at",false),pk("c","categories","created_at",true),pk("s","sections","pos",true)]);SECOK=!sx.error;if(SECOK){SECN=(sx.data||[]).length;if(SECN)SEC=sx.data.map(x=>({k:x.k,bn:x.bn,en:x.en||x.bn,ic:x.ic||"🛍️",db:x.db||"",de:x.de||"",c:x.c||SWS[0],kind:x.kind||"fashion"}))}if(!r.error||!P.length)P=r.data||[];if(!c.error&&c.data)C=c.data;else if(!C.length||C.some(x=>x.fb))C=[...new Set(P.map(p=>p.category).filter(Boolean))].map(n=>({name:n,fb:1}));window.ADL=Date.now();if(!r.error&&P.length){try{localStorage.mhn_cache=JSON.stringify({P,C,S:SEC,SECOK,SECN})}catch(_){}}}
 let _rf=null,_rt=0;
@@ -565,14 +609,20 @@ async function ldC(){if(!P.length)return load();swr(location.hash.slice(1)||"/",
 async function chkAll(){const t=[];if(SCH===null)t.push(chkSch());if(STK===null)t.push(chkStk());await Promise.all(t)}
 let C=[];
 async function loadC(){const r=await sb.from("categories").select("*").order("created_at",{ascending:true});C=(!r.error&&r.data)?r.data:[...new Set(P.map(p=>p.category).filter(Boolean))].map(n=>({name:n,fb:1}))}
-async function route(){const h=location.hash.slice(1)||"/";window.scrollTo(0,0);clearInterval(window.tm);document.body.classList.toggle("adm",h.startsWith("/admin"));{const f=document.querySelector("footer");if(f)f.style.display=(h=="/"||h=="")?"":"none"}
- if(h=="/help"){helpV();return}
+const POL={privacy:["প্রাইভেসি পলিসি",[["আমরা কী তথ্য নিই","অর্ডার ও অ্যাকাউন্টের জন্য আপনার নাম, মোবাইল নাম্বার, ইমেইল, ডেলিভারি ঠিকানা ও পেমেন্টের ট্রানজেকশন তথ্য সংগ্রহ করা হয়।"],["তথ্য কীভাবে ব্যবহার হয়","শুধু অর্ডার প্রসেস, ডেলিভারি, অর্ডার ট্র্যাকিং ও কাস্টমার সাপোর্টের জন্য। আপনার তথ্য কারও কাছে বিক্রি করা হয় না।"],["তথ্য শেয়ার","ডেলিভারির জন্য প্রয়োজনে কুরিয়ার সার্ভিসকে নাম, ফোন ও ঠিকানা দেওয়া হয়। আইনি বাধ্যবাধকতা ছাড়া অন্য কাউকে দেওয়া হয় না।"],["নিরাপত্তা","আপনার তথ্য সুরক্ষিত ডাটাবেসে রাখা হয় এবং শুধু অনুমোদিত অ্যাডমিন দেখতে পারেন।"],["আপনার অধিকার","তথ্য সংশোধন বা মুছে ফেলতে চাইলে আমাদের হোয়াটসঅ্যাপ বা ইমেইলে জানান।"]]],
+terms:["শর্তাবলি",[["সম্মতি","এই ওয়েবসাইটে অর্ডার করার মাধ্যমে আপনি এই শর্তাবলিতে সম্মত হচ্ছেন।"],["অর্ডার ও কনফার্মেশন","অর্ডার জমা দেওয়ার পর পেমেন্ট যাচাই করে কনফার্ম করা হয়। স্টক শেষ বা তথ্যে ভুল থাকলে অর্ডার বাতিল করার অধিকার আমাদের আছে।"],["দাম ও তথ্য","পণ্যের দাম ও বিবরণ আগাম নোটিশ ছাড়া বদলাতে পারে। ছবির সাথে রঙে সামান্য পার্থক্য হতে পারে।"],["সঠিক তথ্য","সঠিক নাম, মোবাইল নাম্বার ও ঠিকানা দেওয়া আপনার দায়িত্ব। ভুল তথ্যের কারণে ডেলিভারি দেরি হলে আমরা দায়ী নই।"]]],
+returns:["রিটার্ন ও রিফান্ড",[["পণ্য বুঝে নেওয়া","ডেলিভারির সময় পণ্য দেখে নিন। ভুল, ক্ষতিগ্রস্ত বা অর্ডারের সাথে না মেলা পণ্য পেলে অবিলম্বে আমাদের জানান।"],["রিটার্ন সময়","সমস্যার কথা ডেলিভারির ৪৮ ঘণ্টার মধ্যে অর্ডার নম্বরসহ জানাতে হবে। পণ্য অব্যবহৃত ও আসল প্যাকেজিংয়ে থাকতে হবে।"],["রিফান্ড","রিটার্ন গ্রহণের পর যাচাই করে পণ্যের দাম ফেরত বা বদলে দেওয়া হয়। অ্যাডভান্স ডেলিভারি চার্জ আমাদের ভুলে সমস্যা হলে ফেরতযোগ্য।"],["ইলেকট্রনিক্স ওয়ারেন্টি","ওয়ারেন্টি থাকা পণ্যের শর্ত প্রোডাক্ট পেজে দেওয়া থাকে।"]]],
+shipping:["ডেলিভারি ও পেমেন্ট",[["ডেলিভারি এলাকা","সারা বাংলাদেশে কুরিয়ারের মাধ্যমে ডেলিভারি করা হয়।"],["ডেলিভারি চার্জ","ঢাকার ভেতরে ৬০ টাকা, ঢাকার বাইরে ১২০ টাকা।"],["পেমেন্ট","অর্ডারের সময় অ্যাডভান্স ডেলিভারি চার্জ bKash বা Nagad-এ 01725233759 নাম্বারে Send Money করে ট্রানজেকশন ID দিতে হয়। পণ্যের বাকি দাম ডেলিভারির সময় পরিশোধ করুন।"],["অর্ডার ট্র্যাকিং","অর্ডার নম্বর ও মোবাইল নাম্বার দিয়ে যেকোনো সময় অর্ডারের অবস্থা দেখা যায়।"]]]};
+function polV(k){const p=POL[k];$("app").innerHTML=`<div class="pol box"><button class="bkb" onclick="goHome()">← ${L("হোম","Home")}</button><h2>${p[0]}</h2><small>সর্বশেষ হালনাগাদ: ${bd(new Date().getFullYear())}</small>${p[1].map(x=>`<h3>${x[0]}</h3><p>${x[1]}</p>`).join("")}<p>আরও জানতে <a href="#/help" style="text-decoration:underline">হেল্প সেন্টারে</a> যোগাযোগ করুন।</p></div>`}
+const trust=()=>{const T=[['<path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',"সারা বাংলাদেশে ডেলিভারি"],['<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',"bKash/Nagad-এ নিরাপদ পেমেন্ট"],['<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>',"লাইভ অর্ডার ট্র্যাকিং"],[HXI.help,"হোয়াটসঅ্যাপে সাপোর্ট"]];return`<div class="trust">${T.map(x=>`<div>${hxSvg(x[0])}<span>${x[1]}</span></div>`).join("")}</div>`};
+async function route(){const h=location.hash.slice(1)||"/";window.scrollTo(0,0);clearInterval(window.tm);document.body.classList.toggle("adm",h.startsWith("/admin"));{const f=document.querySelector("footer");if(f)f.style.display=(h=="/"||h==""||/^\/(section|search|privacy|terms|returns|shipping)/.test(h))?"":"none"}
+ if(h=="/help"){helpV();return}if(/^\/(privacy|terms|returns|shipping)$/.test(h)){polV(h.slice(1));return}
  if(!h.startsWith("/admin")){if(!P.length){const E=window.__E,o=E&&E.one&&E.oneH===h?await E.one:null;if(o&&o[0]){P=o;const sg=JSON.stringify(o[0]);load().then(()=>{if((location.hash.slice(1)||"/")===h&&JSON.stringify(P.find(x=>x.id==o[0].id))!==sg&&!busy())route()}).catch(()=>{})}else await load()}else swr(h,okShop)}
  if(h=="/")home();else if(h.startsWith("/product/"))prod(decodeURIComponent(h.slice(9)));else if(h.startsWith("/p/")){const q=decodeURIComponent(h.slice(3)).toLowerCase(),p=P.find(x=>pCode(x)==q)||P.find(x=>String(x.id).replace(/-/g,"").toLowerCase().startsWith(q));p?prod(p.slug):($("app").innerHTML="404")}
  else if(h=="/cart")cartV();else if(h=="/orders")ordersV();else if(h=="/profile")profV();else if(h=="/checkout"){if(!(await needAcc()))checkout()}else if(h=="/admin")admin();else if(h=="/admin/orders")aOrders();else if(h=="/admin/products")aProducts();else if(/^\/admin\/(add|cats|cat|catedit|addp|sections|section|secnew)(\/|$)/.test(h))aRt(h);else if(h.startsWith("/admin/product/"))aManage(decodeURIComponent(h.slice(15)));else if(h.startsWith("/search/"))searchV(decodeURIComponent(h.slice(8)));else if(h.startsWith("/section/"))secV(decodeURIComponent(h.slice(9)));else if(h.startsWith("/admin/order/"))aOrder(decodeURIComponent(h.slice(13)));else home()}
-function home(){F.sec="";F.cat="";F.q="";const S=[["#12285c",t("s1")],["#f97316",t("s2")],["#16a34a",t("s3")]];
+function home(){F.sec="";F.cat="";F.q="";const S=[["linear-gradient(135deg,#0e1726,#2a3d66)",t("s1")],["linear-gradient(135deg,#5b4316,#c9a24d)",t("s2")],["linear-gradient(135deg,#0e1726,#4a3a1c)",t("s3")]];
  $("app").innerHTML=`<div class="sl" id="sl"></div><div class="bar"><input id="q" placeholder="${t("search")}" value="${e(F.q)}" enterkeyhint="search" onkeydown="if(event.key==='Enter')doSearch(this.value)"><select onchange="F.s=this.value;list()"><option value="new">${t("new")}</option><option value="lo" ${F.s=="lo"?"selected":""}>${t("lo")}</option><option value="hi" ${F.s=="hi"?"selected":""}>${t("hi")}</option></select></div>
- ${secTiles()}<h3 class="sec-h">${L("সব প্রোডাক্ট","All Products")}</h3><div class="grid" id="gr"></div>`;
+ ${secTiles()}${trust()}<h3 class="sec-h">${L("সব প্রোডাক্ট","All Products")}</h3><div class="grid" id="gr"></div>`;
  const sl=()=>{const x=S[si++%3];if($("sl")){$("sl").style.background=x[0];$("sl").textContent=x[1]}};sl();clearInterval(window.tm);window.tm=setInterval(sl,3500);list()}
 const DEFSEC=[{k:"fashion",kind:"fashion",bn:"ফ্যাশন",en:"Fashion",ic:"👕",db:"শার্ট, টি-শার্ট, পাঞ্জাবি, প্যান্ট, টাউজার ও আরও",de:"Shirts, T-shirts, Panjabi, Pants, Trousers & more",c:"linear-gradient(135deg,#0f2557,#2a4a9c)"},{k:"electronics",kind:"electronics",bn:"ইলেকট্রনিক্স",en:"Electronics",ic:"📺",db:"ফ্যান, টিভি, ফ্রিজ ও আরও ইলেকট্রনিক জিনিস",de:"Fans, TVs, Fridges & more electronics",c:"linear-gradient(135deg,#b45309,#f59e0b)"}];
 let SEC=DEFSEC,SECOK=false,SECN=0;const isEl=k=>{const x=SEC.find(y=>y.k==k);return x?x.kind=="electronics":k=="electronics"};
