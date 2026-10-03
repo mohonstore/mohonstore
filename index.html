@@ -6,10 +6,10 @@ function g(q){return fetch(U+q,{headers:hd}).then(function(r){return r.ok?r.json
 var E={p:g("products?select=*&order=created_at.desc"),c:g("categories?select=*&order=created_at.asc"),s:g("sections?select=*&order=pos.asc"),one:null,oneH:H};
 try{if(H.indexOf("/product/")===0)E.one=g("products?select=*&limit=1&slug=eq."+encodeURIComponent(decodeURIComponent(H.slice(9))));else if(H.indexOf("/p/")===0){var q=decodeURIComponent(H.slice(3)).toLowerCase();if(/^[0-9a-f]{8}$/.test(q))E.one=g("products?select=*&limit=1&id=gte."+q+"-0000-0000-0000-000000000000&id=lte."+q+"-ffff-ffff-ffff-ffffffffffff")}}catch(e){}
 window.__E=E})();</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><meta name="theme-color" content="#0e1726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet"><meta name="theme-color" content="#0e1726">
 <style>
 :root{--b:#12285c;--g:#16a34a;--o:#f97316;--bg:#f5f7fb}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,"Noto Sans Bengali",sans-serif;background:var(--bg);color:#1b1f2a}
+*{box-sizing:border-box}body{margin:0;font-family:var(--ff);background:var(--bg);color:#1b1f2a}
 a{color:inherit;text-decoration:none}header{background:var(--b);color:#fff;padding:10px 14px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:5;}
 header img{height:36px;background:#fff;border-radius:6px}
 button,.btn{border:0;border-radius:8px;padding:10px 14px;font-size:15px;cursor:pointer;background:var(--b);color:#fff;display:inline-block}
@@ -69,7 +69,7 @@ input.bad{border:1.5px solid #dc2626!important;background:#fef2f2!important}inpu
 
 /* ===== PRO THEME ===== */
 :root{--b:#0f2557;--bd:#081633;--o:#f59e0b;--g:#059669;--gold:#d4a24c;--bg:#f3f5fa;--line:#e6eaf3;--tx:#1a2238;--mut:#667290;--sh:0 4px 18px rgba(15,37,87,.08)}
-body{font-family:Inter,"Hind Siliguri",system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;line-height:1.5}
+body{font-family:var(--ff);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;line-height:1.5}
 h1,h2,h3{letter-spacing:-.2px;color:var(--bd)}
 header{background:linear-gradient(135deg,#081633 0%,#0f2557 60%,#173578 100%);box-shadow:0 4px 20px rgba(8,22,51,.35);border-bottom:2px solid var(--gold);padding:7px 14px}
 header img{background:#fff;border-radius:9px;padding:2px;height:36px;box-shadow:0 2px 8px #0004}
@@ -532,27 +532,27 @@ footer b{font-size:16px!important}
 body:has(#app>.skl) footer{display:none}
 
 :root{--b:#0e1726;--g:#8f6a22;--o:#a47a2c;--bg:#f7f6f3}
-body{font-family:"Hind Siliguri",system-ui,sans-serif}
+body{font-family:var(--ff)}
 header{background:linear-gradient(180deg,#0e1726,#16243d);border-bottom:1px solid #c9a24d55;padding:8px 14px}
-header>b{font-family:"Noto Serif Bengali",serif;font-size:19px;letter-spacing:.3px;cursor:pointer}
+header>b{font-family:var(--ff);font-size:19px;letter-spacing:.3px;cursor:pointer}
 .su{background:linear-gradient(135deg,#e2c275,#c9a24d 55%,#a47a2c)!important;color:#1a1305!important;text-shadow:none!important;border:0!important;box-shadow:0 4px 12px #c9a24d55!important}
 main{max-width:1120px}
-.sl{height:clamp(190px,36vw,300px);border-radius:20px;font-family:"Noto Serif Bengali",serif;font-size:clamp(20px,4.4vw,34px);line-height:1.4;position:relative;overflow:hidden;box-shadow:0 12px 30px #0e172633}
+.sl{height:clamp(190px,36vw,300px);border-radius:20px;font-family:var(--ff);font-size:clamp(20px,4.4vw,34px);line-height:1.4;position:relative;overflow:hidden;box-shadow:0 12px 30px #0e172633}
 .sl:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 12%,#ffffff2e,transparent 45%);pointer-events:none}
 .sec-t,.sec-hd{border-radius:18px!important;box-shadow:0 8px 22px #0e172626}
 .sec-g .sec-t:nth-child(odd),.sec-hd{background:linear-gradient(135deg,#0e1726,#2a3d66)!important}
 .sec-g .sec-t:nth-child(even){background:linear-gradient(135deg,#5b4316,#b08a3e)!important}
-.sec-h{font-family:"Noto Serif Bengali",serif;font-size:21px}
+.sec-h{font-family:var(--ff);font-size:21px}
 .card{border:1px solid #eceae4;box-shadow:none;border-radius:16px;transition:transform .25s,box-shadow .25s}
 .card:hover{transform:translateY(-3px);box-shadow:0 14px 28px #0e172620}.card .im{background:#f1efe9}
 .bar input,.bar select{border-radius:99px;border-color:#e3e0d8;padding-left:16px}
 .box{border-radius:16px;border:1px solid #eceae4}
 .trust{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:4px 0 24px}@media(min-width:700px){.trust{grid-template-columns:repeat(4,1fr)}}
 .trust div{background:#fff;border:1px solid #eceae4;border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:600;line-height:1.3}.trust svg{flex:none;width:26px;height:26px;color:#a47a2c}
-.pol{max-width:760px;margin:auto;padding:20px}.pol h2{font-family:"Noto Serif Bengali",serif;margin:10px 0 2px}.pol h3{margin:18px 0 4px;font-size:16px}.pol p{margin:0;color:#4a5568;line-height:1.8}.pol small{color:#8a93a3}
+.pol{max-width:760px;margin:auto;padding:20px}.pol h2{font-family:var(--ff);margin:10px 0 2px}.pol h3{margin:18px 0 4px;font-size:16px}.pol p{margin:0;color:#4a5568;line-height:1.8}.pol small{color:#8a93a3}
 footer{background:linear-gradient(180deg,#0b1220,#080d18);color:#b7c0d0;padding:0;margin-top:40px;border-top:2px solid #c9a24d}footer a{text-decoration:none}
 .fx-cta{max-width:1120px;margin:auto;padding:30px 18px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;border-bottom:1px solid #1d2840}
-.fx-cta h3{margin:0;color:#fff;font-family:"Noto Serif Bengali",serif;font-size:21px}.fx-cta p{margin:4px 0 0;font-size:14px;color:#9aa6bb}
+.fx-cta h3{margin:0;color:#fff;font-family:var(--ff);font-size:21px}.fx-cta p{margin:4px 0 0;font-size:14px;color:#9aa6bb}
 .fx-btn{display:flex;gap:10px;flex-wrap:wrap}.fx-btn a{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:99px;border:1px solid #33415f;color:#fff;font-weight:600;font-size:14px}.fx-btn a.fx-wa{background:linear-gradient(135deg,#e2c275,#c9a24d 55%,#a47a2c);border:0;color:#1a1305}
 .fx-i{display:flex}.fx-btn .fx-i svg{width:18px;height:18px}
 .fx-grid{max-width:1120px;margin:auto;padding:34px 18px 26px;display:grid;gap:28px;grid-template-columns:repeat(2,1fr)}@media(min-width:860px){.fx-grid{grid-template-columns:1fr 1fr 1fr 1.5fr}}
@@ -581,12 +581,12 @@ footer h4{color:#fff;margin:0 0 14px;font-size:15px;font-weight:700;padding-bott
 .ip{max-width:640px;margin:0 auto;padding-bottom:8px}
 .ip-hero{position:relative;background:linear-gradient(160deg,#0b1220 0%,#12285c 100%);color:#fff;border-radius:22px;padding:24px 22px 28px;margin:4px 0 22px;overflow:hidden;border:1px solid #1d2c52}
 .ip-hero:after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:linear-gradient(90deg,#e2c275,#c9a24d,#a47a2c)}
-.ip-hero h2{font-family:"Noto Serif Bengali",serif;font-size:25px;line-height:1.35;margin:14px 0 8px;color:#fff}
+.ip-hero h2{font-family:var(--ff);font-size:25px;line-height:1.35;margin:14px 0 8px;color:#fff}
 .ip-hero p{margin:0;color:#b8c3da;font-size:14.5px;line-height:1.75;max-width:52ch}
 .ip-ic{width:48px;height:48px;border-radius:14px;background:rgba(226,194,117,.12);border:1px solid rgba(226,194,117,.45);color:#e2c275;display:flex;align-items:center;justify-content:center}
 .ip-ic svg{width:25px;height:25px}
 .ip-s{margin:0 0 26px}
-.ip-s>h3{font-family:"Noto Serif Bengali",serif;font-size:19px;line-height:1.4;color:var(--b);margin:0 0 6px}
+.ip-s>h3{font-family:var(--ff);font-size:19px;line-height:1.4;color:var(--b);margin:0 0 6px}
 .ip-s>.lead{margin:0 0 12px;color:var(--mut);font-size:13.5px;line-height:1.7}
 .ip-s>h3+*:not(.lead){margin-top:10px}
 
@@ -663,12 +663,12 @@ footer h4{color:#fff;margin:0 0 14px;font-size:15px;font-weight:700;padding-bott
 /* ===== profile avatar (header + profile) ===== */
 .hx-pf.on{background:linear-gradient(145deg,#f6d38a,#d4a24c);border:2px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.35);overflow:hidden}
 .hx-pf img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
-.pf-l{font-family:"Hind Siliguri",Inter,sans-serif;font-weight:800;font-size:18px;line-height:1;color:#12285c}
+.pf-l{font-family:var(--ff);font-weight:800;font-size:18px;line-height:1;color:#12285c}
 .hx-pf.on:active{transform:scale(.94)}
 .hx-ic.pfm{overflow:hidden;background:linear-gradient(145deg,#f6d38a,#d4a24c);border-radius:50%}
 .hx-ic.pfm img{width:100%;height:100%;object-fit:cover;display:block}
 .hx-ic.pfm .pf-l{font-size:16px}
-div.av{background:linear-gradient(145deg,#f6d38a,#d4a24c);color:#12285c;font-family:"Hind Siliguri",Inter,sans-serif;font-weight:800}
+div.av{background:linear-gradient(145deg,#f6d38a,#d4a24c);color:#12285c;font-family:var(--ff);font-weight:800}
 .hero div.av{font-size:38px;border:3px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.28),0 0 0 3px rgba(212,162,76,.55)}
 .hero img.av{box-shadow:0 6px 18px rgba(0,0,0,.28),0 0 0 3px rgba(212,162,76,.55)}
 /* ===== settings: language ===== */
@@ -689,7 +689,7 @@ div.av{background:linear-gradient(145deg,#f6d38a,#d4a24c);color:#12285c;font-fam
 .fx-ch{display:flex;align-items:center;gap:14px}
 .fx-hi{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:#e2c275;background:linear-gradient(145deg,#1b3a7a,#0e1f4d);box-shadow:inset 0 0 0 1px rgba(226,194,117,.55),0 6px 16px rgba(0,0,0,.3)}
 .fx-hi svg{width:26px;height:26px}
-.fx-cb h3{margin:0;color:#fff;font-family:"Noto Serif Bengali",serif;font-size:21px;line-height:1.35}
+.fx-cb h3{margin:0;color:#fff;font-family:var(--ff);font-size:21px;line-height:1.35}
 .fx-cb p{margin:3px 0 0;font-size:13.5px;line-height:1.65;color:#aab6cd}
 .fx-cb .fx-btn{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .fx-cb .fx-btn a{flex:1 1 150px;justify-content:center;padding:13px 18px;font-size:14.5px;font-weight:700;border-radius:14px;border:1px solid #33415f;background:rgba(255,255,255,.04);color:#fff}
@@ -731,7 +731,7 @@ div.av{background:linear-gradient(145deg,#f6d38a,#d4a24c);color:#12285c;font-fam
 #boot{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#16295a,#081633 70%);transition:opacity .5s var(--ease),visibility .5s}
 #boot.off{opacity:0;visibility:hidden}
 #boot .bt{display:flex;flex-direction:column;align-items:center;gap:18px;animation:btIn .6s var(--ease) backwards}
-#boot .bt b{font:700 26px/1 "Noto Serif Bengali","Inter",serif;letter-spacing:.5px;color:#f3d9a0}
+#boot .bt b{font:700 26px/1 var(--ff);letter-spacing:.5px;color:#f3d9a0}
 #boot .bt i{width:44px;height:44px;border-radius:50%;border:3px solid rgba(255,255,255,.15);border-top-color:#d4a24c;animation:btSp .8s linear infinite}
 @keyframes btSp{to{rotate:360deg}}@keyframes btIn{from{opacity:0;translate:0 12px}}
 @keyframes pgIn{from{opacity:0;translate:0 14px}to{opacity:1;translate:none}}
@@ -850,7 +850,7 @@ body.adm .ad-big:hover,body.adm .dx-q a:hover,body.adm .oc2:hover{box-shadow:inh
 .lc-e{text-align:center;color:#8a93a8;padding:26px 10px}
 
 /* ===== old price: normal font, muted, red strike ===== */
-.old,.card .pr .old,.pp .old{font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Bengali","Noto Sans",Roboto,sans-serif!important;font-weight:400!important;font-style:normal!important;letter-spacing:0!important;color:#9aa3b8!important;text-decoration-line:line-through!important;text-decoration-color:#e11d2e!important;text-decoration-thickness:1.5px!important;-webkit-text-decoration-color:#e11d2e!important;text-decoration-skip-ink:none}
+.old,.card .pr .old,.pp .old{font-family:var(--ff);font-weight:400!important;font-style:normal!important;letter-spacing:0!important;color:#9aa3b8!important;text-decoration-line:line-through!important;text-decoration-color:#e11d2e!important;text-decoration-thickness:1.5px!important;-webkit-text-decoration-color:#e11d2e!important;text-decoration-skip-ink:none}
 .card .pr .old{font-size:12.5px!important}.pp .old{font-size:16px!important}
 
 /* ===== compact order summary ===== */
@@ -994,6 +994,19 @@ html body input:focus-visible,html body select:focus-visible,html body textarea:
   .lc-ov{align-items:center;padding:24px}
   .lc-sh{max-width:560px;height:min(640px,100%);border-radius:24px;box-shadow:0 24px 60px rgba(8,22,51,.35);padding-top:0}
 }
+
+/* ===== TYPOGRAPHY: Inter (English/numbers) + Noto Sans Bengali (বাংলা) ===== */
+:root{--ff:"Inter","Noto Sans Bengali","Hind Siliguri",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html body,html body button,html body input,html body select,html body textarea,html body .toast,html body #boot .bt b{font-family:var(--ff)}
+html body{font-weight:400;line-height:1.65;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:"kern" 1,"liga" 1}
+html body h1,html body h2,html body h3,html body h4{font-family:var(--ff);font-weight:700;line-height:1.4}
+html body *{letter-spacing:0!important}
+html body :is(.ip-num b,.ox-h b,.ck-pn b,.od-hero h2,.ad-no,.ox-b){letter-spacing:.4px!important}
+html body :is(.ct,.dx-h){letter-spacing:.8px!important}
+html body input,html body textarea,html body select{font-size:16px;line-height:1.5}
+html body .card .nm,html body .cn,html body .ox-tt,html body .mx b{font-weight:600;line-height:1.5}
+html body .sl,html body .sec-h,html body .ip-hero h2,html body .ip-s>h3,html body .fx-cb h3,html body .pol h2,html body header>b{font-weight:700}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
