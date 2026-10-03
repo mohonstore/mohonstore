@@ -1130,7 +1130,7 @@ function home(){F.sec="";F.cat="";F.q="";const S=[["linear-gradient(135deg,#0e17
  ${secTiles()}<h3 class="sec-h">${L("সব প্রোডাক্ট","All Products")}</h3><div class="grid" id="gr"></div>`;
  const sl=()=>{const x=S[si++%3];if($("sl")){$("sl").style.background=x[0];$("sl").textContent=x[1]}};sl();clearInterval(window.tm);window.tm=setInterval(sl,3500);list()}
 const DEFSEC=[{k:"fashion",kind:"fashion",bn:"ফ্যাশন",en:"Fashion",ic:"👕",db:"শার্ট, টি-শার্ট, পাঞ্জাবি, প্যান্ট, টাউজার ও আরও",de:"Shirts, T-shirts, Panjabi, Pants, Trousers & more",c:"linear-gradient(135deg,#0f2557,#2a4a9c)"},{k:"electronics",kind:"electronics",bn:"ইলেকট্রনিক্স",en:"Electronics",ic:"📺",db:"ফ্যান, টিভি, ফ্রিজ ও আরও ইলেকট্রনিক জিনিস",de:"Fans, TVs, Fridges & more electronics",c:"linear-gradient(135deg,#b45309,#f59e0b)"}];
-let SEC=DEFSEC,SECOK=false,SECN=0;const isEl=k=>{const x=SEC.find(y=>y.k==k);return x?x.kind=="electronics":k=="electronics"};
+let SEC=DEFSEC,SECOK=false,SECN=0;const isEl=k=>{if(k=="fashion")return false;if(k=="electronics")return true;const x=SEC.find(y=>y.k==k);return x?x.kind=="electronics":false};
 const secN=k=>P.filter(p=>(p.section||"fashion")==k).length;
 function secTiles(){return`<div class="sec-g">${SEC.map(s=>`<a class="sec-t" href="#/section/${s.k}" style="background:${s.c}"><span class="sec-i">${s.ic}</span><span class="sec-x"><b>${L(s.bn,s.en)}</b><em>${bd(secN(s.k))} ${L("টি প্রোডাক্ট","items")}</em></span><span class="sec-go">›</span></a>`).join("")}</div>`}
 function secV(k){F.q="";const s=SEC.find(x=>x.k==k);if(!s)return home();if(F.sec!=k){F.sec=k;F.cat=""}clearInterval(window.tm);
@@ -1704,7 +1704,7 @@ function secDel(k){const x=SEC.find(y=>y.k==k);if(!x)return;if(k=="fashion")retu
   try{if(SCH)await sb.from("categories").delete().eq("section",k)}catch(_){}
   secBg()}}
 let SCC=SWS[0];
-function aSecEdit(k){const x=k?SEC.find(y=>y.k==k):{bn:"",en:"",ic:"🛍️",db:"",de:"",c:SWS[0],kind:"fashion"};
+function aSecEdit(k){const x=k?SEC.find(y=>y.k==k):{bn:"",en:"",ic:"🛍️",db:"",de:"",c:SWS[0],kind:"fashion"};const bi=k=="fashion"||k=="electronics",kk=bi?k:x&&x.kind;
  if(k&&!x)return location.replace("#/admin/sections");SCC=x.c;
  $("app").innerHTML=adT(k?"✏️ সেকশন এডিট":"＋ নতুন সেকশন","/admin/sections")+secSqlW()+`<div class="box"><div class="sch" id="spv" style="background:${SCC}"><span id="spi">${e(x.ic)}</span><div><b id="spb">${e(x.bn)||"সেকশনের নাম"}</b><small id="spe">${e(x.en)||"Section name"}</small></div></div>
  <label class="fl">নাম (বাংলা) *</label><input id="sbn" value="${e(x.bn)}" placeholder="যেমন: জুতা" oninput="secPv()">
@@ -1713,7 +1713,7 @@ function aSecEdit(k){const x=k?SEC.find(y=>y.k==k):{bn:"",en:"",ic:"🛍️",db:
  <label class="fl">ছোট বিবরণ (বাংলা)</label><input id="sdb" value="${e(x.db)}" placeholder="যেমন: স্নিকার, স্যান্ডেল ও আরও">
  <label class="fl">Short description (English)</label><input id="sde" value="${e(x.de)}" placeholder="e.g. Sneakers, sandals & more">
  <label class="fl">রঙ</label><div class="swr">${SWS.map(c=>`<button type="button" class="${c==SCC?"on":""}" style="background:${c}" onclick="secCol(this,'${c}')" aria-label="রঙ"></button>`).join("")}</div>
- <label class="fl">প্রোডাক্ট ফর্মের ধরন</label><select id="skd"><option value="fashion" ${x.kind!="electronics"?"selected":""}>সাধারণ (সাইজ, রঙ)</option><option value="electronics" ${x.kind=="electronics"?"selected":""}>টেকনিক্যাল (ব্র্যান্ড, মডেল, ওয়ারেন্টি, স্পেসিফিকেশন)</option></select>
+ <label class="fl">প্রোডাক্ট ফর্মের ধরন</label><select id="skd" ${bi?"disabled":""}><option value="fashion" ${kk!="electronics"?"selected":""}>সাধারণ (সাইজ, রঙ)</option><option value="electronics" ${kk=="electronics"?"selected":""}>টেকনিক্যাল (ব্র্যান্ড, মডেল, ওয়ারেন্টি, স্পেসিফিকেশন)</option></select>
  <button type="button" class="g" id="ssv" style="width:100%;margin-top:12px" onclick="secSave('${k||""}')">✓ সেভ করুন</button></div>`}
 function secPv(){$("spi").textContent=$("sic").value||"🛍️";$("spb").textContent=$("sbn").value||"সেকশনের নাম";$("spe").textContent=$("sen").value||"Section name"}
 function secCol(b,c){SCC=c;$("spv").style.background=c;document.querySelectorAll(".swr button").forEach(z=>z.classList.toggle("on",z==b))}
