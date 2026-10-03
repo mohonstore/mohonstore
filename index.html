@@ -2,7 +2,7 @@
 <link rel="preconnect" href="https://yqdrdgqmmjidffggbomw.supabase.co" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" crossorigin>
 <script>(function(){var H=location.hash.slice(1),de=document.documentElement;de.className+=(H===""||H==="/")?" hm":/^\/(product|p)\//.test(H)?" pr":" nk";
 if(/^\/admin/.test(H))return;var U="https://yqdrdgqmmjidffggbomw.supabase.co/rest/v1/",hd={apikey:"sb_publishable_FSqjVxLUGgmQalyx-K8IRw_5W0HuR3h"};
-function g(q){return fetch(U+q,{headers:hd}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}
+function g(q){return fetch(U+q,{headers:hd,cache:"no-store"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}
 var E={p:g("products?select=*&order=created_at.desc"),c:g("categories?select=*&order=created_at.asc"),s:g("sections?select=*&order=pos.asc"),one:null,oneH:H};
 try{if(H.indexOf("/product/")===0)E.one=g("products?select=*&limit=1&slug=eq."+encodeURIComponent(decodeURIComponent(H.slice(9))));else if(H.indexOf("/p/")===0){var q=decodeURIComponent(H.slice(3)).toLowerCase();if(/^[0-9a-f]{8}$/.test(q))E.one=g("products?select=*&limit=1&id=gte."+q+"-0000-0000-0000-000000000000&id=lte."+q+"-ffff-ffff-ffff-ffffffffffff")}}catch(e){}
 window.__E=E})();</script>
@@ -1018,6 +1018,41 @@ html body #addb.added{background:linear-gradient(135deg,#10b981,#047857)!importa
 .cd-ov .mg-md p{overflow-wrap:anywhere}
 .cd-ov .mg-mb button{min-height:46px}
 .cd-ov #cdok{background:linear-gradient(135deg,#ef4444,#b91c1c)!important;color:#fff!important}
+
+/* ===== admin: manage product list ===== */
+.mx-flt{background:#fff;border:1px solid #e6eaf4;border-radius:20px;padding:14px;margin-bottom:14px;box-shadow:0 6px 20px rgba(15,37,87,.07)}
+.mx-fr{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mx-fr>*{min-width:0}
+.mx-lb{display:block;font-size:12px;font-weight:700;color:#667290;margin:0 0 4px 2px}
+.mx-flt select,.mx-flt input{margin:0;height:46px;border-radius:12px;border:1.5px solid #dfe5f2;background:#f8f9fd;font-size:14.5px;padding:0 12px;width:100%}
+.mx-flt select:focus,.mx-flt input:focus{outline:0;border-color:#d4a24c;background:#fff}
+.mx-q{margin-top:10px!important}
+.mx-sum{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:2px 4px 12px;font-size:13px;color:#667290}.mx-sum b{color:#0f2557}
+.mx-so{font-size:12px;font-weight:800;color:#b91c1c;background:#fee2e2;border-radius:20px;padding:3px 10px}
+.mx-g{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.mx-g{grid-template-columns:1fr 1fr}}
+.mx-c{position:relative;display:flex;flex-direction:column;min-width:0;overflow:hidden;background:#fff;border:1px solid #e6eaf4;border-radius:22px;padding:18px 14px 14px;box-shadow:0 8px 24px rgba(15,37,87,.09)}
+.mx-c::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#d4a24c,#f0c978 50%,#d4a24c)}
+.mx-t{display:flex;gap:12px;align-items:flex-start}
+.mx-im{width:92px;height:92px;flex:none;border-radius:16px;overflow:hidden;background:#eef2fb;display:grid;place-items:center;font-size:34px;border:1px solid #e6eaf4}
+.mx-im img{width:100%;height:100%;object-fit:cover;display:block}
+.mx-tx{min-width:0;flex:1}
+.mx-nm{margin:0;font-size:16px;font-weight:800;color:#081633;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.mx-en{display:block;margin-top:2px;font-size:12.5px;color:#667290;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mx-pr{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;margin-top:8px}
+.mx-pr b{font-size:21px;font-weight:800;color:#0f2557;letter-spacing:-.3px}
+.mx-pr s{font-size:13px;color:#9aa3b8;text-decoration-color:#e11d2e}
+.mx-off{font-style:normal;font-size:11.5px;font-weight:800;color:#047857;background:#d1fae5;border-radius:20px;padding:2px 8px}
+.mx-pl{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.mx-p{display:inline-flex;align-items:center;gap:4px;max-width:100%;font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;background:#eef2fb;color:#0f2557;overflow-wrap:anywhere}
+.mx-p.ok{background:#d1fae5;color:#047857}.mx-p.no{background:#fee2e2;color:#b91c1c}
+.mx-inf{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:12px 0 0;padding:12px;border-radius:14px;background:#f8f9fd;font-size:13px}
+.mx-inf dt{color:#667290;font-weight:600;white-space:nowrap}.mx-inf dd{margin:0;color:#1a2238;font-weight:600;min-width:0;overflow-wrap:anywhere}
+.mx-ds{margin:10px 2px 0;font-size:12.5px;line-height:1.6;color:#667290;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.mx-ac{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:14px}
+.mx-ac button{height:46px;margin:0;padding:0 10px;border-radius:14px;font-size:14.5px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:6px}
+.mx-ed{background:linear-gradient(135deg,#0f2557,#173578)!important;color:#fff!important;border:1.5px solid #d4a24c!important}
+.mx-dl{background:#fff!important;color:#b91c1c!important;border:1.5px solid #fca5a5!important}
+.mx-em{text-align:center;padding:30px 16px!important;color:#667290}.mx-em b{display:block;color:#081633;font-size:16px}.mx-em p{margin:6px 0 14px}.mx-ei{font-size:40px;line-height:1;margin-bottom:8px}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -1050,7 +1085,7 @@ const io=async(m,k,v)=>{const d=await idb();if(!d)return null;return new Promise
 return{async getItem(k){let v=null;try{v=localStorage.getItem(k)}catch(_){}if(v==null){v=await io("get",k);if(v!=null){try{localStorage.setItem(k,v)}catch(_){}}}return v},
 async setItem(k,v){try{localStorage.setItem(k,v)}catch(_){}await io("set",k,v)},
 async removeItem(k){try{localStorage.removeItem(k)}catch(_){}await io("del",k)}}})();
-const sb=supabase.createClient("https://yqdrdgqmmjidffggbomw.supabase.co","sb_publishable_FSqjVxLUGgmQalyx-K8IRw_5W0HuR3h",{auth:{persistSession:true,autoRefreshToken:true,storage:_authStore,storageKey:"sb-yqdrdgqmmjidffggbomw-auth-token"}});
+const sb=supabase.createClient("https://yqdrdgqmmjidffggbomw.supabase.co","sb_publishable_FSqjVxLUGgmQalyx-K8IRw_5W0HuR3h",{auth:{persistSession:true,autoRefreshToken:true,storage:_authStore,storageKey:"sb-yqdrdgqmmjidffggbomw-auth-token"},global:{fetch:(u,o)=>fetch(u,Object.assign({},o,{cache:"no-store"}))}});
 try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(_){}
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")sb.auth.getSession().catch(()=>{})});
 const WA="8801725233759",PAY="01725233759";
@@ -1089,7 +1124,7 @@ async function route(){const h=location.hash.slice(1)||"/";if(h.startsWith("/adm
  if(h=="/delivery"){delV();return}if(h=="/payment"){payV();return}if(h=="/track"){trackV();return}if(h=="/help"){helpV();return}if(/^\/(privacy|terms|returns|shipping)$/.test(h)){polV(h.slice(1));return}
  if(!h.startsWith("/admin")){if(!P.length){const E=window.__E,o=E&&E.one&&E.oneH===h?await E.one:null;if(o&&o[0]){P=o;const sg=JSON.stringify(o[0]);load().then(()=>{if((location.hash.slice(1)||"/")===h&&JSON.stringify(P.find(x=>x.id==o[0].id))!==sg&&!busy())route()}).catch(()=>{})}else await load()}else swr(h,okShop)}
  if(h=="/")home();else if(h.startsWith("/product/"))prod(decodeURIComponent(h.slice(9)));else if(h.startsWith("/p/")){const q=decodeURIComponent(h.slice(3)).toLowerCase(),p=P.find(x=>pCode(x)==q)||P.find(x=>String(x.id).replace(/-/g,"").toLowerCase().startsWith(q));p?prod(p.slug):($("app").innerHTML="404")}
- else if(h=="/cart")cartV();else if(h=="/orders")ordersV();else if(h=="/profile")profV();else if(h=="/checkout"){if(!(await needAcc()))checkout()}else if(h=="/admin")admin();else if(h=="/admin/orders")aOrders();else if(h=="/admin/products")aProducts();else if(/^\/admin\/(add|cats|cat|catedit|addp|sections|section|secnew)(\/|$)/.test(h))aRt(h);else if(h.startsWith("/admin/product/"))aManage(decodeURIComponent(h.slice(15)));else if(h.startsWith("/search/"))searchV(decodeURIComponent(h.slice(8)));else if(h.startsWith("/section/"))secV(decodeURIComponent(h.slice(9)));else if(h.startsWith("/admin/order/"))aOrder(decodeURIComponent(h.slice(13)));else home()}
+ else if(h=="/cart")cartV();else if(h=="/orders")ordersV();else if(h=="/profile")profV();else if(h=="/checkout"){if(!(await needAcc()))checkout()}else if(h=="/admin")admin();else if(h=="/admin/orders")aOrders();else if(h=="/admin/products")aProducts();else if(h=="/admin/manage")aManageList();else if(/^\/admin\/(add|cats|cat|catedit|addp|sections|section|secnew)(\/|$)/.test(h))aRt(h);else if(h.startsWith("/admin/product/"))aManage(decodeURIComponent(h.slice(15)));else if(h.startsWith("/search/"))searchV(decodeURIComponent(h.slice(8)));else if(h.startsWith("/section/"))secV(decodeURIComponent(h.slice(9)));else if(h.startsWith("/admin/order/"))aOrder(decodeURIComponent(h.slice(13)));else home()}
 function home(){F.sec="";F.cat="";F.q="";const S=[["linear-gradient(135deg,#0e1726,#2a3d66)",t("s1")],["linear-gradient(135deg,#5b4316,#c9a24d)",t("s2")],["linear-gradient(135deg,#0e1726,#4a3a1c)",t("s3")]];
  $("app").innerHTML=`<div class="sl" id="sl"></div>${trust()}<div class="bar"><input id="q" placeholder="${t("search")}" value="${e(F.q)}" enterkeyhint="search" onkeydown="if(event.key==='Enter')doSearch(this.value)"><button type="button" class="sbx" aria-label="${t("search")}" onclick="srchGo()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button><select onchange="F.s=this.value;list()"><option value="new">${t("new")}</option><option value="old" ${F.s=="old"?"selected":""}>${t("old")}</option><option value="lo" ${F.s=="lo"?"selected":""}>${t("lo")}</option><option value="hi" ${F.s=="hi"?"selected":""}>${t("hi")}</option></select></div>
  ${secTiles()}<h3 class="sec-h">${L("সব প্রোডাক্ট","All Products")}</h3><div class="grid" id="gr"></div>`;
@@ -1457,11 +1492,10 @@ async function admin(){
  K=(id,l,c,p,h)=>`<a class="db-k" href="#${h}" style="--c:${c}"><i class="ki">${ic(p)}</i><b id="${id}">—</b><span>${l}</span></a>`;
  $("app").innerHTML=`<div id="dbr"><div class="ad-top"><div class="dx-hd"><span class="dx-av">🛍️</span><div><h2>Admin Panel</h2><small>Mohon Store · সব কন্ট্রোল এক জায়গায়</small></div></div><button class="ad-lo dx-lo" onclick="admLogout()">⎋ Logout</button></div>
 <a class="db-k db-rev" href="#/admin/orders"><div><span>মোট বিক্রি (বাতিল বাদে)</span><b id="d_rev">—</b><em id="d_dl">ডেলিভারড —</em></div><i class="ki">${ic(IC.rev)}</i></a>
-<div class="db-kpi">${K("d_pe","Pending অর্ডার","#f59e0b",IC.pe,"/admin/orders")}${K("d_td","আজকের অর্ডার","#2563eb",IC.td,"/admin/orders")}${K("d_o","মোট অর্ডার","#7c3aed",HXI.box,"/admin/orders")}${K("d_p","মোট প্রোডাক্ট","#059669",IC.pr,"/admin/products")}${K("d_out","স্টক শেষ","#dc2626",IC.ot,"/admin/products")}${K("d_s","সেকশন","#c2410c",IC.sc,"/admin/sections")}</div>
+<div class="db-kpi">${K("d_pe","Pending অর্ডার","#f59e0b",IC.pe,"/admin/orders")}${K("d_td","আজকের অর্ডার","#2563eb",IC.td,"/admin/orders")}${K("d_o","মোট অর্ডার","#7c3aed",HXI.box,"/admin/orders")}${K("d_p","মোট প্রোডাক্ট","#059669",IC.pr,"/admin/manage")}${K("d_out","স্টক শেষ","#dc2626",IC.ot,"/admin/manage")}${K("d_s","সেকশন","#c2410c",IC.sc,"/admin/sections")}</div>
 <h3 class="dx-h">অর্ডারের অবস্থা</h3><div class="box db-sb" id="d_stat"><div class="db-ld">লোড হচ্ছে...</div></div>
 <h3 class="dx-h">সাম্প্রতিক অর্ডার <a class="db-all" href="#/admin/orders">সব দেখুন ›</a></h3><div class="box db-rc" id="d_rec"><div class="db-ld">লোড হচ্ছে...</div></div>
-<h3 class="dx-h">মূল কাজ</h3><div class="db-main"><button class="ad-big" onclick="location.hash='#/admin/orders'"><span class="ic">📦</span><span><b>Manage Order</b><small id="mc">...</small></span></button><button class="ad-big alt" onclick="location.hash='#/admin/products'"><span class="ic">➕</span><span><b>Manage Product</b><small id="pc">...</small></span></button><button class="ad-big alt2" onclick="location.hash='#/admin/sections'"><span class="ic">🗂️</span><span><b>Section</b><small id="sc">${SEC.length} টি সেকশন</small></span></button></div>
-<h3 class="dx-h">দ্রুত কাজ</h3><div class="dx-q"><a href="#/admin/add"><i>➕</i>নতুন প্রোডাক্ট</a><a href="#/admin/cats"><i>🏷️</i>ক্যাটাগরি</a><a href="#/"><i>🌐</i>সাইট দেখুন</a></div></div>`;
+</div>`;
  const [ro,rp,rs]=await Promise.all([qo,qp,qs]);if(!$("dbr"))return;
  const o=ro.data||[],p=rp.data||[],S=(id,v)=>{const el=$(id);if(el)el.textContent=v},
  amt=x=>(+x.subtotal||0)+(+x.delivery_charge||0),
@@ -1472,7 +1506,7 @@ async function admin(){
  out=p.filter(x=>!x.in_stock).length,
  sn=(!rs.error&&rs.data&&rs.data.length)?rs.data.length:SEC.length;
  S("d_rev",M(rev));S("d_dl","ডেলিভারড "+M(dl));S("d_pe",bn(pe));S("d_td",bn(today));S("d_o",bn(o.length));S("d_p",bn(p.length));S("d_out",bn(out));S("d_s",bn(sn));
- S("mc","মোট "+bn(o.length)+" টি অর্ডার · Pending "+bn(pe)+" টি");S("pc","মোট "+bn(p.length)+" টি প্রোডাক্ট · স্টক শেষ "+bn(out)+" টি");S("sc","মোট "+bn(sn)+" টি সেকশন");
+ 
  const cnt={};o.forEach(x=>{const k=x.status||"pending";cnt[k]=(cnt[k]||0)+1});
  if($("d_stat"))$("d_stat").innerHTML=o.length?`<div class="db-bar">${ST.map(s=>cnt[s[0]]?`<i style="width:${cnt[s[0]]/o.length*100}%;background:${s[2]}"></i>`:"").join("")}</div><div class="db-lg">${ST.map(s=>`<a href="#/admin/orders"><i style="background:${s[2]}"></i>${s[1]} <b>${bn(cnt[s[0]]||0)}</b></a>`).join("")}</div>`:`<div class="db-ld">এখনো কোনো অর্ডার নেই</div>`;
  if($("d_rec"))$("d_rec").innerHTML=o.slice(0,5).map(x=>{const si=stI(x.status||"pending");return`<a class="db-ro" href="#/admin/order/${encodeURIComponent(x.id)}"><span class="db-rm"><b>${e(x.order_no)}</b><small>${e(x.customer_name)} · ${new Date(x.created_at).toLocaleString("en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})}</small></span><span class="db-rr"><b>${M(amt(x))}</b><em style="background:${si[2]}">${si[1]}</em></span></a>`}).join("")||`<div class="db-ld">এখনো কোনো অর্ডার নেই</div>`}
@@ -1580,7 +1614,8 @@ const enc=encodeURIComponent,adT=(t,fb)=>`<div class="ad-top"><button class="ad-
 const sqlW=()=>SCH?"":`<div class="ad-warn"><b>⚠️ একবার ডাটাবেসে SQL চালাতে হবে</b><p>Supabase → SQL Editor-এ নিচের কোডটি Run করুন। এটি না করলে ইলেকট্রনিক্স সেকশন কাজ করবে না।</p><pre class="sqlb">${e(SQLFIX)}</pre><button type="button" class="cpb" data-v="${e(SQLFIX)}" onclick="cp(this)">কপি</button></div>`;
 const secPick=(base,t,fb)=>adT(t,fb)+sqlW()+`<div class="box ad-secs"><div class="ad-lb">সেকশন বাছুন</div><div class="ad-sg">${SEC.map(x=>`<button type="button" class="ad-sb" onclick="location.hash='#${base}/${x.k}'"><span class="ic">${x.ic}</span><b>${x.bn}</b><small>${secP(x.k).length} টি প্রোডাক্ট · ${secC(x.k).length} টি ক্যাটাগরি</small></button>`).join("")}</div></div>`;
 async function aProducts(){if(!await admOK())return admLogin();
- $("app").innerHTML=adT("Manage Product","/admin")+`<button class="ad-big" onclick="location.hash='#/admin/add'"><span class="ic">➕</span><span><b>Add new product</b><small>সেকশন বেছে নতুন প্রোডাক্ট যোগ করুন</small></span></button><button class="ad-big alt" onclick="location.hash='#/admin/cats'"><span class="ic">🏷️</span><span><b>ক্যাটাগরি</b><small>ক্যাটাগরি তৈরি ও ম্যানেজ করুন</small></span></button>`}
+ if(!P.length)await load();
+ $("app").innerHTML=adT("ম্যানেজ","/admin")+`<button class="ad-big" onclick="location.hash='#/admin/add'"><span class="ic">➕</span><span><b>নতুন প্রোডাক্ট যোগ করুন</b><small>সেকশন বেছে নতুন প্রোডাক্ট যোগ করুন</small></span></button><button class="ad-big alt" onclick="location.hash='#/admin/cats'"><span class="ic">🏷️</span><span><b>ক্যাটাগরি</b><small>ক্যাটাগরি তৈরি ও ম্যানেজ করুন</small></span></button><button class="ad-big alt2" onclick="location.hash='#/admin/manage'"><span class="ic">🛠️</span><span><b>ম্যানেজ প্রোডাক্ট</b><small>${bn(P.length)} টি প্রোডাক্ট · এডিট ও ডিলেট করুন</small></span></button>`}
 async function aRt(h){if(!await admOK())return admLogin();
  const p=h.split("/").slice(2).map(x=>{try{return decodeURIComponent(x)}catch(_){return x}}),k=p[0],sc=p[1],cn=p[2];
  $("app").innerHTML=adT("Manage Product","/admin/products")+'<div class="box">Loading...</div>';
@@ -1679,7 +1714,7 @@ async function chkStk(){const r=await sb.from("products").select("stock").limit(
 function aList(){const ps=secP(AS);
  $("aw").innerHTML=ps.map(p=>`<div class="box row prow"><span>${e(p.name_bn)} ৳${p.price}${p.category?` <small style="color:var(--mut)">· ${e(p.category)}</small>`:""} ${p.in_stock?"":"(স্টক শেষ)"}</span><span><button type="button" class="mgb" onclick="aMng('${p.id}')">⚙️ ম্যানেজ প্রোডাক্ট</button></span></div>`).join("")||`<div class="box" style="text-align:center;color:var(--mut)">এই সেকশনে এখনো কোনো প্রোডাক্ট নেই</div>`}
 function aMng(id){location.hash="#/admin/product/"+encodeURIComponent(id)}
-function mBack(){abk("/admin/products")}
+function mBack(){abk("/admin/manage")}
 async function aManage(id){if(!await admOK())return admLogin();
  $("app").innerHTML=`<div class="ad-top"><button class="ad-back" onclick="mBack()">← ফিরে যান</button><h2>ম্যানেজ প্রোডাক্ট</h2></div><div class="box">Loading...</div>`;
  await load();await chkAll();
@@ -1778,6 +1813,51 @@ async function gate(ev,path){ev.preventDefault();const s=(await sb.auth.getSessi
 async function needAcc(){const s=(await sb.auth.getSession()).data.session;if(s&&isC(s.user))return false;try{sessionStorage.ret=location.hash}catch(_){}mode="up";made=false;toast(L("অর্ডার করতে আগে অ্যাকাউন্ট তৈরি করুন","Please create an account to order"));location.hash="#/profile";return true}
 function retBack(){let r="";try{r=sessionStorage.ret||"";sessionStorage.removeItem("ret")}catch(_){}if(r&&r!="#/profile"&&r!="#/checkout"){made=false;location.hash=r;return true}return false}
 function goHome(){if(location.hash==""||location.hash=="#/")route();else location.hash="#/"}
+/* ===== MANAGE PRODUCT LIST (admin) ===== */
+let ML={sec:"",cat:"",q:""};
+const mxM=n=>"৳"+bn(Math.round(+n||0).toLocaleString("en-IN"));
+const mxSec=p=>SEC.find(x=>x.k==(p.section||"fashion"))||{k:p.section||"fashion",bn:p.section||"ফ্যাশন",ic:"🛍️"};
+const mxCache=()=>{try{if(P.length)localStorage.mhn_cache=JSON.stringify({P,C,S:SEC,SECOK,SECN});else localStorage.removeItem("mhn_cache")}catch(_){}};
+async function aManageList(){if(!await admOK())return admLogin();
+ $("app").innerHTML=adT("ম্যানেজ প্রোডাক্ট","/admin/products")+'<div class="box" style="text-align:center;color:var(--mut)">লোড হচ্ছে...</div>';
+ await Promise.all([load(),chkAll()]);
+ if((location.hash.slice(1)||"/")!=="/admin/manage")return;
+ mlDraw()}
+function mlCats(){const s=ML.sec,seen=new Set(),out=[],add=n=>{if(n&&!seen.has(n)){seen.add(n);out.push(n)}};
+ (s?secC(s):C).forEach(c=>add(c.name));(s?secP(s):P).forEach(p=>add(p.category));return out}
+function mlDraw(){if(ML.sec&&!SEC.some(x=>x.k==ML.sec))ML.sec="";
+ const cats=mlCats();if(ML.cat&&!cats.includes(ML.cat))ML.cat="";
+ $("app").innerHTML=adT("ম্যানেজ প্রোডাক্ট","/admin/products")+`<div class="mx-flt"><div class="mx-fr"><div><label class="mx-lb" for="mxs">সেকশন</label><select id="mxs" onchange="mlSec(this.value)"><option value="">সব সেকশন</option>${SEC.map(x=>`<option value="${e(x.k)}" ${ML.sec==x.k?"selected":""}>${x.ic} ${e(x.bn)}</option>`).join("")}</select></div><div><label class="mx-lb" for="mxc">ক্যাটাগরি</label><select id="mxc" onchange="mlCat(this.value)"><option value="">সব ক্যাটাগরি</option>${cats.map(n=>`<option value="${e(n)}" ${ML.cat==n?"selected":""}>${e(n)}</option>`).join("")}</select></div></div><input id="mxq" class="mx-q" type="search" placeholder="প্রোডাক্টের নাম দিয়ে খুঁজুন" value="${e(ML.q)}" oninput="mlQ(this.value)"></div><div id="mxl"></div>`;
+ mlList()}
+const mlF=()=>{const q=ML.q.trim().toLowerCase();return P.filter(p=>(!ML.sec||(p.section||"fashion")==ML.sec)&&(!ML.cat||p.category==ML.cat)&&(!q||((p.name_bn||"")+" "+(p.name_en||"")+" "+(p.category||"")).toLowerCase().includes(q)))};
+function mlList(){const box=$("mxl");if(!box)return;const ps=mlF(),out=ps.filter(p=>!p.in_stock).length;
+ box.innerHTML=`<div class="mx-sum"><span>দেখানো হচ্ছে <b>${bn(ps.length)} টি</b> · মোট ${bn(P.length)} টি</span>${out?`<span class="mx-so">স্টক শেষ ${bn(out)} টি</span>`:""}</div>`+(ps.length?`<div class="mx-g">${ps.map(mlCard).join("")}</div>`:`<div class="box mx-em"><div class="mx-ei">📦</div><b>কোনো প্রোডাক্ট পাওয়া যায়নি</b><p>${P.length?"ফিল্টার বদলে আবার দেখুন।":"এখনো কোনো প্রোডাক্ট যোগ করা হয়নি।"}</p>${P.length?`<button type="button" class="w" onclick="mlReset()">ফিল্টার মুছুন</button>`:`<button type="button" class="g" onclick="location.hash='#/admin/add'">নতুন প্রোডাক্ট যোগ করুন</button>`}</div>`)+'<div style="height:100px"></div>'}
+function mlCard(p){const s=mxSec(p),el=isEl(p.section||"fashion"),sp=p.specs||{},img=p.images&&p.images[0],
+ disc=(+p.old_price>+p.price&&+p.price>0)?Math.round((1-p.price/p.old_price)*100):0,
+ qty=(p.stock!=null&&p.stock!=="")?" · "+bn(p.stock)+" টি":"",rows=[["ক্যাটাগরি",p.category||"—"],["সেকশন",s.ic+" "+s.bn]];
+ if(p.sizes&&p.sizes.length)rows.push([el?"ভ্যারিয়েন্ট":"সাইজ",p.sizes.join(", ")]);
+ if(p.colors&&p.colors.length)rows.push(["রঙ",p.colors.join(", ")]);
+ if(el){if(sp.brand)rows.push(["ব্র্যান্ড",sp.brand]);if(sp.model)rows.push(["মডেল",sp.model]);if(sp.warranty)rows.push(["ওয়ারেন্টি",sp.warranty])}
+ rows.push(["ছবি",bn((p.images||[]).length)+" টি"]);
+ return `<div class="mx-c"><div class="mx-t"><div class="mx-im">${img?`<img src="${e(img)}" alt="" loading="lazy">`:s.ic}</div><div class="mx-tx"><h3 class="mx-nm">${e(p.name_bn)}</h3>${p.name_en?`<span class="mx-en">${e(p.name_en)}</span>`:""}<div class="mx-pr"><b>${mxM(p.price)}</b>${disc?`<s>${mxM(p.old_price)}</s><i class="mx-off">${bn(disc)}% ছাড়</i>`:""}</div></div></div>
+ <div class="mx-pl"><span class="mx-p ${p.in_stock?"ok":"no"}">${p.in_stock?"✅ স্টকে আছে":"⛔ স্টক শেষ"}${qty}</span><span class="mx-p">${s.ic} ${e(s.bn)}</span>${p.category?`<span class="mx-p">🏷️ ${e(p.category)}</span>`:""}</div>
+ <dl class="mx-inf">${rows.map(r=>`<dt>${r[0]}</dt><dd>${e(r[1])}</dd>`).join("")}</dl>${p.description?`<p class="mx-ds">${e(p.description)}</p>`:""}
+ <div class="mx-ac"><button type="button" class="mx-ed" onclick="aMng('${e(p.id)}')">✏️ এডিট</button><button type="button" class="mx-dl" onclick="mlDel('${e(p.id)}')">🗑️ ডিলেট</button></div></div>`}
+function mlSec(v){ML.sec=v;ML.cat="";mlDraw()}
+function mlCat(v){ML.cat=v;mlList()}
+function mlQ(v){ML.q=v;mlList()}
+function mlReset(){ML={sec:"",cat:"",q:""};mlDraw()}
+function mlDel(id){const p=P.find(x=>String(x.id)==String(id));if(!p)return;
+ const m=document.createElement("div");m.className="mg-ov";
+ m.innerHTML=`<div class="mg-md" role="dialog" aria-modal="true"><div class="mg-mi">🗑️</div><h3>প্রোডাক্ট ডিলিট করবেন?</h3><p><b>${e(p.name_bn)}</b> ওয়েবসাইট থেকে স্থায়ীভাবে মুছে যাবে এবং আর ফেরত আনা যাবে না।</p><div class="mg-mb"><button type="button" class="w" id="mxno">বাতিল</button><button type="button" class="r" id="mxyes">ওকে, ডিলিট করুন</button></div></div>`;
+ document.body.appendChild(m);m.onclick=ev=>{if(ev.target==m)m.remove()};$("mxno").onclick=()=>m.remove();
+ $("mxyes").onclick=async()=>{const y=$("mxyes"),n=$("mxno");y.disabled=true;n.disabled=true;y.textContent="ডিলিট হচ্ছে...";
+  let r;try{r=await sb.from("products").delete().eq("id",p.id).select("id")}catch(err){r={error:err}}
+  m.remove();
+  if(r.error)return alert(r.error.message||"ডিলিট করা যায়নি");
+  if(!r.data||!r.data.length)return alert("প্রোডাক্ট ডিলিট হয়নি। আবার লগইন করে চেষ্টা করুন।");
+  P=P.filter(x=>String(x.id)!=String(p.id));mxCache();mlList();toast("✓ প্রোডাক্ট ওয়েবসাইট থেকে ডিলিট হয়েছে");
+  load().then(()=>{if(location.hash=="#/admin/manage")mlList()}).catch(()=>{})}}
 /* ===== three-dot menu + help page ===== */
 const HX={ph:"01725233759",wa:"8801725233759",ml:"mashiurrahman.bus@gmail.com"};
 const HXI={home:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',
@@ -1953,12 +2033,36 @@ window.addEventListener("popstate",()=>{if(history.state&&history.state.i!=null)
 window.addEventListener("hashchange",()=>{try{if(!history.state||history.state.i==null){LI=LI+1;history.replaceState(Object.assign({},history.state,{i:LI}),"")}else LI=cur();if(location.hash!="#/profile")sessionStorage.pv="home"}catch(_){}})})();
 /* ===== animations: route wrapper, ripple ring, admin nav, counters ===== */
 function admSt(k,n){const el=$("sa_"+k);if(!el)return;const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/700);el.textContent=bn(Math.round(n*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(t0)}
-(function(){const NAV=[["/admin","Dashboard",'<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'],["/admin/orders","অর্ডার",HXI.box],["/admin/add","",'<path d="M12 5v14M5 12h14"/>',1],["/admin/products","প্রোডাক্ট",'<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/>'],["/admin/sections","সেকশন",'<path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>']];
+(function(){const NAV=[["/admin","Dashboard",'<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'],["/admin/orders","অর্ডার",HXI.box],["/admin/add","",'<path d="M12 5v14M5 12h14"/>',1],["/admin/products","ম্যানেজ",'<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>'],["/admin/sections","সেকশন",'<path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>']];
 document.body.insertAdjacentHTML("beforeend",'<nav id="adnav">'+NAV.map(x=>'<a href="#'+x[0]+'" data-p="'+x[0]+'"'+(x[3]?' class="pl" aria-label="নতুন প্রোডাক্ট"':'')+'>'+hxSvg(x[2])+x[1]+'</a>').join("")+'</nav>');
-const act=()=>{const h=location.hash.slice(1)||"/";let k="/";if(/^\/admin\/order/.test(h))k="/admin/orders";else if(/^\/admin\/(add|addp)(\/|$)/.test(h))k="/admin/add";else if(/^\/admin\/(products?|cats?|catedit)(\/|$)/.test(h))k="/admin/products";else if(/^\/admin\/(sections?|secnew)(\/|$)/.test(h))k="/admin/sections";else if(h.startsWith("/admin"))k="/admin";document.querySelectorAll("#adnav a").forEach(a=>a.classList.toggle("on",a.dataset.p==k))};
+const act=()=>{const h=location.hash.slice(1)||"/";let k="/";if(/^\/admin\/order/.test(h))k="/admin/orders";else if(/^\/admin\/(add|addp)(\/|$)/.test(h))k="/admin/add";else if(/^\/admin\/(products?|manage|cats?|catedit)(\/|$)/.test(h))k="/admin/products";else if(/^\/admin\/(sections?|secnew)(\/|$)/.test(h))k="/admin/sections";else if(h.startsWith("/admin"))k="/admin";document.querySelectorAll("#adnav a").forEach(a=>a.classList.toggle("on",a.dataset.p==k))};
 const r0=route;route=function(){document.body.classList.toggle("noan",!!window._kct);act();return r0.apply(this,arguments)};
 document.addEventListener('click',ev=>{const a=ev.target.closest&&ev.target.closest('#adnav a');if(a&&location.hash==a.getAttribute('href')){ev.preventDefault();_rt=0;route()}});
 })();
 try{history.scrollRestoration="manual"}catch(_){}window.addEventListener("pageshow",ev=>{if(ev.persisted)route()});
+/* ===== LIVE SYNC: admin change -> every open page updates at once ===== */
+(function(){
+ const TB=["products","categories","sections"];let live=false,busyF=null,again=false,tm=null,ot=null,tk=0,bc=null,chB=null,chP=null;
+ const sig=()=>JSON.stringify([P,C,SEC]);
+ const okSync=h=>okShop(h)||h=="/admin/products"||/^\/admin\/(manage|cats|sections)(\/|$)/.test(h);
+ const calm=()=>!busy()&&!(typeof PK!=="undefined"&&PK.size)&&!document.querySelector(".mg-ov,#mdl");
+ async function rr(){const y=window.scrollY;window._kct=1;try{await route()}catch(_){}window._kct=0;window.scrollTo(0,y)}
+ function refresh(){if(busyF){again=true;return busyF}
+  busyF=(async()=>{try{const s0=sig();await load();const h=location.hash.slice(1)||"/";if(sig()!==s0&&okSync(h)&&calm())await rr()}catch(_){}finally{busyF=null;if(again){again=false;refresh()}}})();return busyF}
+ const sched=d=>{clearTimeout(tm);tm=setTimeout(refresh,d==null?120:d)};
+ function osync(){const h=location.hash.slice(1)||"/";if(!/^\/(admin|admin\/orders|orders)$/.test(h)||!calm()||(typeof odOpen!=="undefined"&&odOpen))return;clearTimeout(ot);ot=setTimeout(rr,250)}
+ function ping(t){try{if(chB)chB.send({type:"broadcast",event:"chg",payload:{t:t}})}catch(_){}try{if(bc)bc.postMessage(t)}catch(_){}}
+ /* every successful admin/customer write tells all other open pages */
+ const of=sb.from.bind(sb);
+ sb.from=function(t){const q=of(t);["insert","update","upsert","delete"].forEach(m=>{const f=q[m];if(typeof f!=="function")return;
+  q[m]=function(){const b=f.apply(q,arguments);if(b&&typeof b.then==="function"){const th=b.then.bind(b);b.then=function(a,c){return th(function(r){try{if(r&&!r.error)ping(t)}catch(_){}return a?a(r):r},c)}}return b}});return q};
+ try{bc=new BroadcastChannel("mhn-live");bc.onmessage=m=>{m&&m.data=="orders"?osync():sched(0)}}catch(_){}
+ try{chB=sb.channel("mhn-live",{config:{broadcast:{self:false}}}).on("broadcast",{event:"chg"},m=>{const t=m&&m.payload&&m.payload.t;t=="orders"?osync():sched(0)}).subscribe(s=>{live=(s==="SUBSCRIBED");if(live)sched(0)})}catch(_){}
+ try{chP=sb.channel("mhn-db");TB.forEach(t=>{chP=chP.on("postgres_changes",{event:"*",schema:"public",table:t},()=>sched(60))});chP.subscribe()}catch(_){}
+ document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")sched(0)});
+ window.addEventListener("focus",()=>sched(0));window.addEventListener("online",()=>sched(0));
+ /* safety net: fast polling if realtime is not connected, slow check otherwise */
+ setInterval(()=>{if(document.visibilityState!=="visible")return;tk++;if(!live||tk%5==0)refresh()},6000);
+})();
 window.onhashchange=route;chrome();boot();
 </script></body></html>
