@@ -564,11 +564,13 @@ footer h4{color:#fff;margin:0 0 14px;font-size:15px;font-weight:700;padding-bott
 @media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 
 /* ===== clickable trust badges ===== */
-.trust a{background:#fff;border:1px solid #eceae4;border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:600;line-height:1.3;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
-.trust a:after{content:"\203A";margin-left:auto;padding-left:4px;color:#a47a2c;font-size:22px;line-height:1}
+.trust{gap:8px;margin:2px 0 18px}
+.trust a{display:flex;align-items:center;gap:9px;min-height:46px;padding:7px 10px;background:linear-gradient(180deg,#fff,#faf8f2);border:1px solid #e9e4d6;border-radius:12px;box-shadow:0 1px 2px rgba(15,37,87,.05);font-size:12.5px;font-weight:600;line-height:1.25;color:#1a2238;transition:border-color .15s,box-shadow .15s,transform .15s}
+.trust a .ti{flex:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#1b3a7a,#0e1f4d);box-shadow:inset 0 0 0 1px rgba(226,194,117,.55);display:flex;align-items:center;justify-content:center}
+.trust a .ti svg{width:14px;height:14px;stroke-width:1.9;color:#e2c275}
 .trust a:active{transform:scale(.98)}
 .trust a:focus-visible{outline:2px solid #c9a24d;outline-offset:2px}
-@media(hover:hover){.trust a:hover{border-color:#c9a24d;box-shadow:0 6px 16px rgba(15,37,87,.10)}}
+@media(hover:hover){.trust a:hover{border-color:#c9a24d;box-shadow:0 4px 12px rgba(15,37,87,.09)}}
 
 /* ===== info pages (delivery / payment / track) ===== */
 .ip{max-width:640px;margin:0 auto;padding-bottom:8px}
@@ -708,7 +710,7 @@ terms:["শর্তাবলি",[["সম্মতি","এই ওয়েব
 returns:["রিটার্ন ও রিফান্ড",[["পণ্য বুঝে নেওয়া","ডেলিভারির সময় পণ্য দেখে নিন। ভুল, ক্ষতিগ্রস্ত বা অর্ডারের সাথে না মেলা পণ্য পেলে অবিলম্বে আমাদের জানান।"],["রিটার্ন সময়","সমস্যার কথা ডেলিভারির ৪৮ ঘণ্টার মধ্যে অর্ডার নম্বরসহ জানাতে হবে। পণ্য অব্যবহৃত ও আসল প্যাকেজিংয়ে থাকতে হবে।"],["রিফান্ড","রিটার্ন গ্রহণের পর যাচাই করে পণ্যের দাম ফেরত বা বদলে দেওয়া হয়। অ্যাডভান্স ডেলিভারি চার্জ আমাদের ভুলে সমস্যা হলে ফেরতযোগ্য।"],["ইলেকট্রনিক্স ওয়ারেন্টি","ওয়ারেন্টি থাকা পণ্যের শর্ত প্রোডাক্ট পেজে দেওয়া থাকে।"]]],
 shipping:["ডেলিভারি ও পেমেন্ট",[["ডেলিভারি এলাকা","সারা বাংলাদেশে কুরিয়ারের মাধ্যমে ডেলিভারি করা হয়।"],["ডেলিভারি চার্জ","ঢাকার ভেতরে ৬০ টাকা, ঢাকার বাইরে ১২০ টাকা।"],["পেমেন্ট","অর্ডারের সময় অ্যাডভান্স ডেলিভারি চার্জ bKash বা Nagad-এ 01725233759 নাম্বারে Send Money করে ট্রানজেকশন ID দিতে হয়। পণ্যের বাকি দাম ডেলিভারির সময় পরিশোধ করুন।"],["অর্ডার ট্র্যাকিং","অর্ডার নম্বর ও মোবাইল নাম্বার দিয়ে যেকোনো সময় অর্ডারের অবস্থা দেখা যায়।"]]]};
 function polV(k){const p=POL[k];$("app").innerHTML=`<div class="pol box"><button class="bkb" onclick="goHome()">← ${L("হোম","Home")}</button><h2>${p[0]}</h2><small>সর্বশেষ হালনাগাদ: ${bd(new Date().getFullYear())}</small>${p[1].map(x=>`<h3>${x[0]}</h3><p>${x[1]}</p>`).join("")}<p>আরও জানতে <a href="#/help" style="text-decoration:underline">হেল্প সেন্টারে</a> যোগাযোগ করুন।</p></div>`}
-const trust=()=>{const T=[[IPI.truck,L("সারা বাংলাদেশে ডেলিভারি","Delivery across Bangladesh"),'href="#/delivery"'],[IPI.shield,L("bKash/Nagad-এ নিরাপদ পেমেন্ট","Secure payment via bKash/Nagad"),'href="#/payment"'],[IPI.search,L("লাইভ অর্ডার ট্র্যাকিং","Live order tracking"),'href="#/track"'],[HXI.wa,L("হোয়াটসঅ্যাপে সাপোর্ট","Support on WhatsApp"),'href="'+WAM()+'" target="_blank" rel="noopener"']];return`<div class="trust">${T.map(x=>`<a ${x[2]}>${hxSvg(x[0])}<span>${x[1]}</span></a>`).join("")}</div>`};
+const trust=()=>{const T=[[IPI.truck,L("সারা বাংলাদেশে ডেলিভারি","Delivery across Bangladesh"),'href="#/delivery"'],[IPI.shield,L("bKash/Nagad-এ নিরাপদ পেমেন্ট","Secure payment via bKash/Nagad"),'href="#/payment"'],[IPI.search,L("লাইভ অর্ডার ট্র্যাকিং","Live order tracking"),'href="#/track"'],[HXI.wa,L("হোয়াটসঅ্যাপে সাপোর্ট","Support on WhatsApp"),'href="'+WAM()+'" target="_blank" rel="noopener"']];return`<div class="trust">${T.map(x=>`<a ${x[2]}><i class="ti">${hxSvg(x[0])}</i><span>${x[1]}</span></a>`).join("")}</div>`};
 async function route(){const h=location.hash.slice(1)||"/";window.scrollTo(0,0);clearInterval(window.tm);document.body.classList.toggle("adm",h.startsWith("/admin"));{const f=document.querySelector("footer");if(f)f.style.display=(h=="/"||h==""||/^\/(section|search|privacy|terms|returns|shipping|delivery|payment|track)/.test(h))?"":"none"}
  if(h=="/delivery"){delV();return}if(h=="/payment"){payV();return}if(h=="/track"){trackV();return}if(h=="/help"){helpV();return}if(/^\/(privacy|terms|returns|shipping)$/.test(h)){polV(h.slice(1));return}
  if(!h.startsWith("/admin")){if(!P.length){const E=window.__E,o=E&&E.one&&E.oneH===h?await E.one:null;if(o&&o[0]){P=o;const sg=JSON.stringify(o[0]);load().then(()=>{if((location.hash.slice(1)||"/")===h&&JSON.stringify(P.find(x=>x.id==o[0].id))!==sg&&!busy())route()}).catch(()=>{})}else await load()}else swr(h,okShop)}
