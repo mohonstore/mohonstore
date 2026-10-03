@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mohon Store</title><meta name="theme-color" content="#0e1726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<style>
+:root{--ink:#0e1726;--mut:#667085;--line:#e6e8ec;--soft:#f6f5f1;--gold:#b08a3e;--ok:#1d7a4f;--bad:#c0392b}
+*{box-sizing:border-box}body{margin:0;font-family:"Hind Siliguri",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+a{color:inherit;text-decoration:none}h1,h2,h3{margin:0}.sf{font-family:"Noto Serif Bengali",serif}
+header{position:sticky;top:0;z-index:9;background:#fffffff2;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{max-width:1120px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:14px}
+.logo{font-family:"Noto Serif Bengali",serif;font-weight:700;font-size:20px;letter-spacing:.2px}.logo i{font-style:normal;color:var(--gold)}
+.hd form{flex:1;max-width:380px;margin-left:auto}.hd input{margin:0;background:var(--soft);border-color:transparent;border-radius:99px;padding:8px 16px}
+nav{display:flex;gap:4px}nav a{padding:8px 12px;border-radius:99px;font-weight:500;font-size:15px;white-space:nowrap}nav a:hover{background:var(--soft)}
+nav b{background:var(--ink);color:#fff;border-radius:99px;padding:0 7px;font-size:12px;margin-left:4px}
+@media(max-width:700px){.hd{flex-wrap:wrap}.hd form{order:3;max-width:none;flex-basis:100%}nav{margin-left:auto}nav a{padding:6px 8px;font-size:14px}}
+main{max-width:1120px;margin:auto;padding:20px 16px 60px;min-height:70vh}
+input,select,textarea{width:100%;padding:11px 13px;margin:5px 0 12px;border:1px solid #d0d5dd;border-radius:10px;font:inherit;background:#fff}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.bt{border:0;border-radius:10px;padding:12px 20px;font:inherit;font-weight:600;cursor:pointer;background:var(--ink);color:#fff}.bt.g{background:var(--gold)}.bt.w{background:var(--soft);color:var(--ink)}.bt.f{width:100%}
+.hero{background:var(--ink);color:#fff;border-radius:20px;padding:48px 32px;margin-bottom:28px}
+.hero h1{font-family:"Noto Serif Bengali",serif;font-size:clamp(28px,5vw,46px);line-height:1.25;max-width:640px}
+.hero p{color:#c9d0dc;max-width:480px;margin:14px 0 24px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:34px}
+.tile{display:flex;flex-direction:column;gap:2px;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--soft)}.tile span{font-size:30px}.tile b{font-size:19px}.tile small{color:var(--mut)}.tile:hover{border-color:var(--gold)}
+.hh{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 14px}.hh h2{font-family:"Noto Serif Bengali",serif;font-size:22px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px}@media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card .im{aspect-ratio:4/5;background:var(--soft);border-radius:12px;overflow:hidden;position:relative}.card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.card:hover img{transform:scale(1.04)}
+.card .im i{position:absolute;left:8px;top:8px;background:var(--ink);color:#fff;font-style:normal;font-size:12px;padding:2px 10px;border-radius:99px}
+.card h3{font-size:15px;font-weight:500;margin:9px 0 2px}.card p{margin:0;font-weight:700}.card s{color:var(--mut);font-weight:400;font-size:13px;margin-left:4px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:12px}.chip{padding:7px 16px;border:1px solid var(--line);border-radius:99px;white-space:nowrap;cursor:pointer;background:#fff;font:inherit}.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pd{display:grid;gap:24px}@media(min-width:800px){.pd{grid-template-columns:1.1fr 1fr}}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;border-radius:16px}.gal>*{flex:0 0 100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:center;background:var(--soft);border-radius:16px}
+.pr{font-size:26px;font-weight:700;margin:8px 0}.pr s{font-size:16px;color:var(--mut);font-weight:400;margin-left:6px}
+.lb{font-weight:600;margin:14px 0 6px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>.bt{flex:1}
+.box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}.nar{max-width:460px;margin:20px auto}.nar h2{font-family:"Noto Serif Bengali",serif;margin-bottom:14px}
+.alt{text-align:center;color:var(--mut);margin:12px 0 0}.alt a{color:var(--ink);font-weight:700;text-decoration:underline}
+.spec{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}.spec span{color:var(--mut)}
+.ci{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.ci img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:var(--soft)}.ci>div{flex:1}.ci small{color:var(--mut)}
+.q{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px}.q button{border:0;background:none;width:34px;height:34px;font-size:18px;cursor:pointer}.q span{min-width:24px;text-align:center}
+.tot{display:flex;justify-content:space-between;padding:5px 0}.tot.b{font-weight:700;font-size:18px;border-top:1px solid var(--line);margin-top:6px;padding-top:12px}
+.stp{display:flex;margin:16px 0}.stp div{flex:1;text-align:center;font-size:13px;color:var(--mut)}.stp div:before{content:"";display:block;height:6px;background:var(--line);margin-bottom:6px}.stp .on{color:var(--ink);font-weight:600}.stp .on:before{background:var(--gold)}
+.badge{display:inline-block;padding:2px 12px;border-radius:99px;background:var(--soft);font-size:13px;font-weight:600}
+.em{text-align:center;color:var(--mut);padding:50px 10px}
+footer{background:var(--ink);color:#c9d0dc;padding:28px 16px;text-align:center;font-size:14px}footer b{color:#fff}footer a{color:var(--gold)}
+#t{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s;z-index:99}#t.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="hd"><a class="logo" href="#/">Mohon <i>Store</i></a>
+<form onsubmit="location.hash='#/search/'+encodeURIComponent(this.q.value.trim());return false"><input name="q" placeholder="প্রোডাক্ট খুঁজুন" aria-label="খুঁজুন"></form>
+<nav><a href="#/track">ট্র্যাক</a><a href="#/profile">প্রোফাইল</a><a href="#/cart">কার্ট<b id="cc">0</b></a></nav></div></header>
+<main id="app"></main>
+<footer><b class="sf">Mohon Store</b><br>সারা বাংলাদেশে ডেলিভারি · হোয়াটসঅ্যাপ: <a href="https://wa.me/8801725233759">01725233759</a></footer>
+<div id="t"></div>
+<script>
+const sb=supabase.createClient("https://yqdrdgqmmjidffggbomw.supabase.co","sb_publishable_FSqjVxLUGgmQalyx-K8IRw_5W0HuR3h");
+const $=s=>document.querySelector(s),app=$("#app");
+const e=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const bd=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]),tk=n=>"৳"+bd(Number(n).toLocaleString("en-IN"));
+let P=[],C=[],S=[],mode="in",cart=[];try{cart=JSON.parse(localStorage.mc||"[]")}catch(_){}
+const save=()=>{localStorage.mc=JSON.stringify(cart);$("#cc").textContent=bd(cart.reduce((a,c)=>a+c.qty,0))};
+const toast=m=>{const t=$("#t");t.textContent=m;t.className="on";clearTimeout(t.h);t.h=setTimeout(()=>t.className="",2400)};
+const r=h=>{app.innerHTML=h;scrollTo(0,0)};
+const out=p=>p.in_stock===false||p.stock===0;
+const secP=k=>P.filter(p=>(p.section||"fashion")==k);
+const card=p=>`<a class="card" href="#/product/${encodeURIComponent(p.slug||p.id)}"><div class="im">${p.images&&p.images[0]?`<img loading="lazy" src="${e(p.images[0])}" alt="${e(p.name_bn)}">`:""}${out(p)?"<i>স্টক শেষ</i>":""}</div><h3>${e(p.name_bn)}</h3><p>${tk(p.price)}${p.old_price?`<s>${tk(p.old_price)}</s>`:""}</p></a>`;
+const grid=l=>l.length?`<div class="grid">${l.map(card).join("")}</div>`:`<div class="em">কোনো প্রোডাক্ট পাওয়া যায়নি।</div>`;
+async function load(){const[a,b,c]=await Promise.all([sb.from("products").select("*").order("created_at",{ascending:false}),sb.from("categories").select("*").order("created_at"),sb.from("sections").select("*").order("pos")]);P=a.data||[];C=b.data||[];S=c.data||[]}
+const session=async()=>(await sb.auth.getSession()).data.session;
+
+function home(){r(`<section class="hero"><h1>পছন্দের পোশাক আর ইলেকট্রনিক্স, এক জায়গায়</h1><p>মানসম্মত পণ্য, সহজ অর্ডার আর সারা বাংলাদেশে দ্রুত ডেলিভারি।</p><a class="bt g" href="#/search/">সব প্রোডাক্ট দেখুন</a></section>
+<div class="tiles">${S.map(s=>`<a class="tile" href="#/section/${e(s.k)}"><span>${e(s.ic)}</span><b>${e(s.bn)}</b><small>${bd(secP(s.k).length)} টি প্রোডাক্ট</small></a>`).join("")}</div>
+<div class="hh"><h2>নতুন এসেছে</h2></div>${grid(P.slice(0,8))}`)}
+
+function section(k,cat){const s=S.find(x=>x.k==k);if(!s)return home();const cs=C.filter(c=>(c.section||"fashion")==k);let l=secP(k);if(cat)l=l.filter(p=>p.category==cat);
+r(`<div class="hh"><h2>${e(s.ic)} ${e(s.bn)}</h2><small>${bd(l.length)} টি প্রোডাক্ট</small></div><div class="chips"><a class="chip ${cat?"":"on"}" href="#/section/${k}">সব</a>${cs.map(c=>`<a class="chip ${c.name==cat?"on":""}" href="#/section/${k}/${encodeURIComponent(c.name)}">${e(c.name)}</a>`).join("")}</div>${grid(l)}`)}
+
+function search(q){const t=(q||"").toLowerCase(),l=P.filter(p=>(p.name_bn+" "+(p.name_en||"")+" "+(p.category||"")).toLowerCase().includes(t));r(`<div class="hh"><h2>${q?"সার্চ ফলাফল":"সব প্রোডাক্ট"}</h2><small>${bd(l.length)} টি পাওয়া গেছে</small></div>${grid(l)}`)}
+
+let sel={};
+function product(key){const p=P.find(x=>(x.slug||x.id)==key||x.id==key);if(!p)return r(`<div class="em">প্রোডাক্টটি পাওয়া যায়নি।<br><br><a class="bt" href="#/">হোমে ফিরুন</a></div>`);
+sel={p,size:(p.sizes||[])[0]||"",color:(p.colors||[])[0]||"",qty:1};const sp=(p.specs&&p.specs.items)||[],ch=(a,k)=>(a||[]).map(x=>`<button class="chip ${sel[k]==x?"on":""}" onclick="pick('${k}',this)">${e(x)}</button>`).join("");
+r(`<div class="pd"><div><div class="gal">${(p.images||[]).map(u=>`<img src="${e(u)}" alt="">`).join("")||'<div></div>'}</div></div><div>
+<h1 class="sf" style="font-size:26px">${e(p.name_bn)}</h1><div class="pr">${tk(p.price)}${p.old_price?`<s>${tk(p.old_price)}</s>`:""}</div>
+${out(p)?'<span class="badge" style="color:var(--bad)">স্টক শেষ</span>':""}
+${(p.sizes||[]).length?`<div class="lb">সাইজ</div><div class="row">${ch(p.sizes,"size")}</div>`:""}${(p.colors||[]).length?`<div class="lb">রঙ</div><div class="row">${ch(p.colors,"color")}</div>`:""}
+<div class="lb">পরিমাণ</div><div class="q"><button onclick="sq(-1)">−</button><span id="sq">1</span><button onclick="sq(1)">+</button></div>
+<div class="row" style="margin-top:18px"><button class="bt w" onclick="add(0)" ${out(p)?"disabled":""}>কার্টে যোগ করুন</button><button class="bt g" onclick="add(1)" ${out(p)?"disabled":""}>অর্ডার করুন</button></div></div></div>
+${p.description?`<div class="box" style="margin-top:20px"><h3>পণ্যের বিবরণ</h3><p style="white-space:pre-line">${e(p.description)}</p></div>`:""}
+${sp.length?`<div class="box"><h3>স্পেসিফিকেশন</h3>${sp.map(x=>`<div class="spec"><span>${e(x[0])}</span><b>${e(x[1])}</b></div>`).join("")}</div>`:""}
+<div class="box"><h3>রিভিউ</h3><div id="rv">লোড হচ্ছে...</div><div class="lb">আপনার রিভিউ লিখুন</div><select id="rt"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><textarea id="rc" rows="2" placeholder="আপনার মন্তব্য"></textarea><button class="bt" onclick="sendR()">রিভিউ পাঠান</button></div>`);loadR()}
+function pick(k,b){sel[k]=b.textContent;b.parentNode.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c==b))}
+function sq(d){sel.qty=Math.max(1,sel.qty+d);$("#sq").textContent=bd(sel.qty)}
+function add(go){const p=sel.p,i=cart.find(c=>c.id==p.id&&c.size==sel.size&&c.color==sel.color);if(i)i.qty+=sel.qty;else cart.push({id:p.id,name:p.name_bn,img:(p.images||[])[0]||"",price:p.price,size:sel.size,color:sel.color,qty:sel.qty});save();if(go)location.hash="#/checkout";else toast("কার্টে যোগ হয়েছে")}
+async function loadR(){const x=await sb.from("reviews").select("*").eq("product_id",sel.p.id).eq("approved",true).order("created_at",{ascending:false});$("#rv").innerHTML=(x.data||[]).map(v=>`<div class="spec" style="display:block"><b>${e(v.name||"কাস্টমার")}</b> ${"★".repeat(v.rating||5)}<br>${e(v.comment)}</div>`).join("")||'<span style="color:var(--mut)">এখনও রিভিউ নেই</span>'}
+async function sendR(){const s=await session();if(!s)return needLogin();const c=$("#rc").value.trim();if(!c)return toast("মন্তব্য লিখুন");const x=await sb.from("reviews").insert({product_id:sel.p.id,name:(s.user.user_metadata||{}).name||"",rating:+$("#rt").value,comment:c});if(x.error)return toast(x.error.message);$("#rc").value="";toast("রিভিউ পাঠানো হয়েছে, অনুমোদনের পর দেখা যাবে")}
+
+function cartV(){if(!cart.length)return r(`<div class="em">আপনার কার্ট খালি।<br><br><a class="bt" href="#/search/">কেনাকাটা শুরু করুন</a></div>`);const s=cart.reduce((a,c)=>a+c.price*c.qty,0);
+r(`<div class="hh"><h2>আমার কার্ট</h2></div><div class="box">${cart.map((c,i)=>`<div class="ci"><img src="${e(c.img)}" alt=""><div><b>${e(c.name)}</b><br><small>${[c.size,c.color].filter(Boolean).map(e).join(" · ")}</small><br>${tk(c.price)}</div><div class="q"><button onclick="cq(${i},-1)">−</button><span>${bd(c.qty)}</span><button onclick="cq(${i},1)">+</button></div></div>`).join("")}<div class="tot b"><span>মোট দাম</span><span>${tk(s)}</span></div></div><a class="bt g f" style="display:block;text-align:center" href="#/checkout">অর্ডার করুন</a>`)}
+function cq(i,d){cart[i].qty+=d;if(cart[i].qty<1)cart.splice(i,1);save();cartV()}
+function needLogin(){try{sessionStorage.ret=location.hash}catch(_){}mode="up";toast("আগে অ্যাকাউন্ট তৈরি বা লগইন করুন");location.hash="#/profile"}
+
+async function checkout(){if(!cart.length)return cartV();const s=await session();if(!s)return needLogin();const m=s.user.user_metadata||{},sub=cart.reduce((a,c)=>a+c.price*c.qty,0);
+r(`<div class="nar"><h2>চেকআউট</h2><div class="box"><input id="n" placeholder="আপনার নাম" value="${e(m.name)}"><input id="m" type="tel" placeholder="মোবাইল নাম্বার" value="${e(m.mobile)}"><input id="em" type="email" placeholder="ইমেইল" value="${e(s.user.email)}"><textarea id="ad" rows="2" placeholder="পূর্ণ ঠিকানা"></textarea><input id="dz" placeholder="জেলা"><select id="ar" onchange="tt()"><option value="60">ঢাকার ভেতরে (৬০ টাকা)</option><option value="120">ঢাকার বাইরে (১২০ টাকা)</option></select></div>
+<div class="box"><b>অ্যাডভান্স ডেলিভারি চার্জ</b><p style="color:var(--mut);margin:6px 0">bKash/Nagad নাম্বারে Send Money করুন: <b style="color:var(--ink)">01725233759</b></p><input id="sn" placeholder="যে নাম্বার থেকে পাঠিয়েছেন"><input id="tx" placeholder="ট্রানজেকশন ID"></div>
+<div class="box"><div class="tot"><span>প্রোডাক্টের দাম</span><span>${tk(sub)}</span></div><div class="tot"><span>ডেলিভারি চার্জ</span><span id="dc">${tk(60)}</span></div><div class="tot b"><span>মোট</span><span id="gt">${tk(sub+60)}</span></div></div><button class="bt g f" onclick="place()">অর্ডার কনফার্ম করুন</button></div>`)}
+function tt(){const d=+$("#ar").value,sub=cart.reduce((a,c)=>a+c.price*c.qty,0);$("#dc").textContent=tk(d);$("#gt").textContent=tk(sub+d)}
+async function place(){const v=i=>$("#"+i).value.trim();if(["n","m","ad","dz","sn","tx"].some(i=>!v(i)))return toast("সব ঘর পূরণ করুন");const dc=+$("#ar").value,sub=cart.reduce((a,c)=>a+c.price*c.qty,0);let no,x;
+for(let k=0;k<5;k++){no="MS"+(Math.floor(Math.random()*90000)+10000);x=await sb.from("orders").insert({order_no:no,customer_name:v("n"),mobile:v("m"),email:v("em")||null,address:v("ad")+"\nজেলা: "+v("dz"),area:dc==60?"Dhaka":"Outside",delivery_charge:dc,subtotal:sub,items:cart,trx_id:v("tx"),sender_number:v("sn")});if(!x.error||x.error.code!="23505")break}
+if(x.error)return toast(x.error.message);cart=[];save();location.hash="#/done/"+no}
+function done(no){r(`<div class="nar box" style="text-align:center"><div style="font-size:42px">🎉</div><h2 class="sf">ধন্যবাদ, আপনার অর্ডার জমা হয়েছে</h2><p>অর্ডার নম্বর: <b>${e(no)}</b></p><p style="color:var(--mut)">পেমেন্ট যাচাই করে শীঘ্রই কনফার্ম করা হবে। অর্ডার নম্বরটি সংরক্ষণ করুন।</p><a class="bt f" style="display:block" href="#/track">অর্ডার ট্র্যাক করুন</a></div>`)}
+
+const SN=["pending","confirmed","shipped","delivered"],SL={pending:"অর্ডার জমা",confirmed:"কনফার্ম",shipped:"শিপড",delivered:"ডেলিভারড",cancelled:"বাতিল"};
+const steps=s=>s=="cancelled"?'<span class="badge" style="color:var(--bad)">এই অর্ডারটি বাতিল করা হয়েছে</span>':`<div class="stp">${SN.map((k,i)=>`<div class="${i<=SN.indexOf(s)?"on":""}">${SL[k]}</div>`).join("")}</div>`;
+function track(no){r(`<div class="nar"><h2>অর্ডার ট্র্যাক করুন</h2><div class="box"><input id="to" placeholder="অর্ডার নম্বর (যেমন MS12345)" value="${e(no||"")}"><input id="tm" type="tel" placeholder="অর্ডারের সময় দেওয়া মোবাইল নাম্বার"><button class="bt f" onclick="doTrack()">দেখুন</button></div><div id="tr"></div></div>`)}
+async function doTrack(){const x=await sb.rpc("track_order",{p_order_no:$("#to").value,p_mobile:$("#tm").value});const o=x.data;if(x.error||!o)return $("#tr").innerHTML='<div class="em">অর্ডার পাওয়া যায়নি। অর্ডার নম্বর ও মোবাইল নাম্বার ঠিক আছে কিনা দেখুন।</div>';
+$("#tr").innerHTML=`<div class="box"><b>অর্ডার ${e(o.order_no)}</b> <span class="badge">${SL[o.status]||SL.pending}</span>${steps(o.status)}${(o.items||[]).map(c=>`<div class="ci"><img src="${e(c.img)}" alt=""><div><b>${e(c.name)}</b><br><small>${[c.size,c.color].filter(Boolean).map(e).join(" · ")} × ${bd(c.qty)}</small></div></div>`).join("")}<div class="tot"><span>ডেলিভারি চার্জ</span><span>${tk(o.delivery_charge)}</span></div><div class="tot b"><span>মোট</span><span>${tk(+o.subtotal+ +o.delivery_charge)}</span></div></div>`}
+
+async function profile(){const s=await session();
+if(!s)return r(`<div class="box nar"><h2>${mode=="in"?"লগইন":"অ্যাকাউন্ট তৈরি করুন"}</h2>${mode=="up"?'<input id="n" placeholder="আপনার নাম"><input id="m" type="tel" placeholder="মোবাইল নাম্বার">':""}<input id="em" type="email" placeholder="ইমেইল"><input id="pw" type="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)"><button class="bt f" onclick="auth()">${mode=="in"?"লগইন করুন":"সাইন আপ করুন"}</button><p class="alt">${mode=="in"?"অ্যাকাউন্ট নেই?":"আগেই অ্যাকাউন্ট আছে?"} <a href="#" onclick="mode='${mode=="in"?"up":"in"}';profile();return false">${mode=="in"?"সাইন আপ":"লগইন"}</a></p></div>`);
+const m=s.user.user_metadata||{},x=await sb.from("orders").select("*").eq("user_id",s.user.id).order("created_at",{ascending:false});
+r(`<div class="nar" style="max-width:600px"><div class="box"><h2>${e(m.name||"আমার প্রোফাইল")}</h2><p style="color:var(--mut)">${e(s.user.email)}${m.mobile?" · "+e(m.mobile):""}</p><button class="bt w" onclick="await_out()">লগআউট</button></div><div class="hh"><h2>আমার অর্ডার</h2></div>${(x.data||[]).map(o=>`<div class="box"><a href="#/track/${e(o.order_no)}"><b>${e(o.order_no)}</b></a> <span class="badge">${SL[o.status]||SL.pending}</span><br><small style="color:var(--mut)">${new Date(o.created_at).toLocaleDateString("bn-BD")} · ${tk(+o.subtotal+ +o.delivery_charge)}</small></div>`).join("")||'<div class="em">কোনো অর্ডার নেই</div>'}</div>`)}
+async function auth(){const v=i=>($("#"+i)||{value:""}).value.trim(),em=v("em"),pw=$("#pw").value;if(!em||pw.length<6)return toast("ইমেইল ও কমপক্ষে ৬ অক্ষরের পাসওয়ার্ড দিন");
+const x=mode=="in"?await sb.auth.signInWithPassword({email:em,password:pw}):await sb.auth.signUp({email:em,password:pw,options:{data:{name:v("n"),mobile:v("m"),cust:true}}});
+if(x.error)return toast(/registered|exists/i.test(x.error.message)?"এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট খোলা হয়েছে, লগইন করুন":/invalid/i.test(x.error.message)?"ইমেইল বা পাসওয়ার্ড ভুল":x.error.message);
+let b="";try{b=sessionStorage.ret||"";sessionStorage.removeItem("ret")}catch(_){}b=b&&b!="#/profile"?b:"#/profile";if(location.hash==b)route();else location.hash=b}
+async function await_out(){await sb.auth.signOut();mode="in";route()}
+
+async function route(){const h=decodeURIComponent(location.hash.slice(1)||"/"),[,a,b,c]=h.split("/");
+if(!a)home();else if(a=="section")section(b,c);else if(a=="search")search(b);else if(a=="product")product(b);else if(a=="cart")cartV();else if(a=="checkout")checkout();else if(a=="done")done(b);else if(a=="track")track(b);else if(a=="profile")profile();else home()}
+window.addEventListener("hashchange",route);save();
+app.innerHTML='<div class="em">লোড হচ্ছে...</div>';load().then(route);
+</script></body></html>
