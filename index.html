@@ -788,6 +788,29 @@ body.adm #app>*:nth-child(1){animation-delay:0.05s}body.adm #app>*:nth-child(2){
 .bar>button.sbx:active{scale:.94}
 .bar>input:focus{border-color:#d4a24c!important}
 .bar>select{flex:0 0 104px!important}
+
+/* ===== admin: no touch effects, faster, pro dashboard ===== */
+body.adm #app>*,body.adm #adnav,body.adm .clk{animation:none!important}
+body.adm :is(button,.btn,.chip,.card,.oc2,.ad-big,.dx-q a,.dx-s,.ad-back,.pcr,.prow,#adnav a,.cpb,.db-k,.db-ro,.db-lg a){transition:none!important;-webkit-tap-highlight-color:transparent}
+body.adm :is(button,.btn,.chip,.oc2,.ad-big,.dx-q a,.ad-back,.pcr,.prow,#adnav a,.cpb,.db-k,.db-ro):is(:active,:hover){scale:none!important;translate:none!important;filter:none!important}
+body.adm .ad-big:hover,body.adm .dx-q a:hover,body.adm .oc2:hover{box-shadow:inherit}
+#adnav a.pl{align-self:center;width:48px;height:48px;min-width:48px;padding:0;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#d4a24c,#f0c978);color:#081633}
+#adnav a.pl svg{width:26px;height:26px;stroke-width:2.6}
+#adnav a.pl.on{box-shadow:0 0 0 3px rgba(240,201,120,.45)}
+.db-k{display:block;position:relative;overflow:hidden;background:#fff;border:1px solid #e6eaf4;border-radius:16px;padding:14px;box-shadow:0 4px 16px rgba(15,37,87,.06);color:inherit}
+.db-k .ki{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--c,#0f2557);color:#fff;margin-bottom:10px;font-style:normal}.db-k .ki svg{width:18px;height:18px}
+.db-k b{display:block;font-size:24px;font-weight:800;color:#081633;line-height:1.1}.db-k span{font-size:12.5px;color:var(--mut)}
+.db-kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.db-rev{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;background:linear-gradient(135deg,#081633,#0f2557 65%,#173578);border:0;color:#fff;box-shadow:0 10px 26px rgba(8,22,51,.22)}
+.db-rev b{color:#fff;font-size:30px;margin:4px 0}.db-rev span,.db-rev em{color:#c9d5f2;font-style:normal;font-size:12.5px}.db-rev .ki{margin:0;background:rgba(255,255,255,.16);width:46px;height:46px;border-radius:14px}.db-rev .ki svg{width:24px;height:24px}
+.db-sb,.db-rc{padding:14px!important}.db-ld{text-align:center;color:var(--mut);font-size:13.5px;padding:6px}
+.db-bar{display:flex;height:12px;border-radius:99px;overflow:hidden;background:#eef1f8;margin-bottom:12px}.db-bar i{display:block;height:100%}
+.db-lg{display:flex;flex-wrap:wrap;gap:8px}.db-lg a{display:flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid #e6eaf4;border-radius:99px;font-size:12.5px;font-weight:600;background:#f8faff}.db-lg i{width:9px;height:9px;border-radius:50%;display:block}.db-lg b{color:#081633}
+.db-all{float:right;text-transform:none;letter-spacing:0;color:var(--b);font-weight:700}
+.db-ro{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #eef1f8;color:inherit}.db-ro:last-child{border-bottom:0;padding-bottom:0}.db-ro:first-child{padding-top:0}
+.db-rm{min-width:0}.db-rm b,.db-rm small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.db-rm b{font-size:14px}.db-rm small{font-size:12px;color:var(--mut);margin-top:2px}
+.db-rr{text-align:right;flex:none}.db-rr b{display:block;font-size:14px;color:#081633}.db-rr em{display:inline-block;margin-top:3px;font-style:normal;font-size:11px;font-weight:700;color:#fff;padding:2px 8px;border-radius:99px}
+.db-main{display:grid;gap:10px}.db-main .ad-big{padding:14px 16px;gap:14px;border-radius:16px}.db-main .ad-big .ic{width:48px;height:48px;font-size:24px;border-radius:14px}.db-main .ad-big b{font-size:18px}.db-main .ad-big small{font-size:12.5px;margin-top:2px}.db-main .ad-big::after{font-size:28px}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -855,7 +878,7 @@ returns:["রিটার্ন ও রিফান্ড",[["পণ্য ব�
 shipping:["ডেলিভারি ও পেমেন্ট",[["ডেলিভারি এলাকা","সারা বাংলাদেশে কুরিয়ারের মাধ্যমে ডেলিভারি করা হয়।"],["ডেলিভারি চার্জ","ঢাকার ভেতরে ৬০ টাকা, ঢাকার বাইরে ১২০ টাকা।"],["পেমেন্ট","অর্ডারের সময় অ্যাডভান্স ডেলিভারি চার্জ bKash বা Nagad-এ 01725233759 নাম্বারে Send Money করে ট্রানজেকশন ID দিতে হয়। পণ্যের বাকি দাম ডেলিভারির সময় পরিশোধ করুন।"],["অর্ডার ট্র্যাকিং","অর্ডার নম্বর ও মোবাইল নাম্বার দিয়ে যেকোনো সময় অর্ডারের অবস্থা দেখা যায়।"]]]};
 function polV(k){const p=POL[k];$("app").innerHTML=`<div class="pol box"><button class="bkb" onclick="goBack()">← ${L("পেছনে","Back")}</button><h2>${p[0]}</h2><small>সর্বশেষ হালনাগাদ: ${bd(new Date().getFullYear())}</small>${p[1].map(x=>`<h3>${x[0]}</h3><p>${x[1]}</p>`).join("")}<p>আরও জানতে <a href="#/help" style="text-decoration:underline">হেল্প সেন্টারে</a> যোগাযোগ করুন।</p></div>`}
 const trust=()=>{const T=[[IPI.truck,L("সারা বাংলাদেশে ডেলিভারি","Delivery across Bangladesh"),'href="#/delivery"'],[IPI.shield,L("bKash/Nagad-এ নিরাপদ পেমেন্ট","Secure payment via bKash/Nagad"),'href="#/payment"'],[IPI.search,L("লাইভ অর্ডার ট্র্যাকিং","Live order tracking"),'href="#/track"'],[HXI.wa,L("হোয়াটসঅ্যাপে সাপোর্ট","Support on WhatsApp"),'href="'+WAM()+'" target="_blank" rel="noopener"']];return`<div class="trust">${T.map(x=>`<a ${x[2]}><i class="ti">${hxSvg(x[0])}</i><span>${x[1]}</span></a>`).join("")}</div>`};
-async function route(){const h=location.hash.slice(1)||"/";window.scrollTo(0,0);clearInterval(window.tm);document.body.classList.toggle("adm",h.startsWith("/admin"));{const f=document.querySelector("footer");if(f)f.style.display=(h=="/"||h==""||/^\/(section|search|privacy|terms|returns|shipping|delivery|payment|track)/.test(h))?"":"none"}
+async function route(){const h=location.hash.slice(1)||"/";if(h.startsWith("/admin"))_rt=0;window.scrollTo(0,0);clearInterval(window.tm);document.body.classList.toggle("adm",h.startsWith("/admin"));{const f=document.querySelector("footer");if(f)f.style.display=(h=="/"||h==""||/^\/(section|search|privacy|terms|returns|shipping|delivery|payment|track)/.test(h))?"":"none"}
  if(h=="/delivery"){delV();return}if(h=="/payment"){payV();return}if(h=="/track"){trackV();return}if(h=="/help"){helpV();return}if(/^\/(privacy|terms|returns|shipping)$/.test(h)){polV(h.slice(1));return}
  if(!h.startsWith("/admin")){if(!P.length){const E=window.__E,o=E&&E.one&&E.oneH===h?await E.one:null;if(o&&o[0]){P=o;const sg=JSON.stringify(o[0]);load().then(()=>{if((location.hash.slice(1)||"/")===h&&JSON.stringify(P.find(x=>x.id==o[0].id))!==sg&&!busy())route()}).catch(()=>{})}else await load()}else swr(h,okShop)}
  if(h=="/")home();else if(h.startsWith("/product/"))prod(decodeURIComponent(h.slice(9)));else if(h.startsWith("/p/")){const q=decodeURIComponent(h.slice(3)).toLowerCase(),p=P.find(x=>pCode(x)==q)||P.find(x=>String(x.id).replace(/-/g,"").toLowerCase().startsWith(q));p?prod(p.slug):($("app").innerHTML="404")}
@@ -1074,9 +1097,36 @@ async function admOK(){if(Date.now()-_adm<300000)return true;const ok=await admO
 async function admOK0(){let s=(await sb.auth.getSession()).data.session;if(!s){try{s=(await sb.auth.refreshSession()).data.session}catch(_){}}if(!s)return false;window.ADM_EMAIL=s.user.email;try{const r=await sb.from("admins").select("user_id").eq("user_id",s.user.id).maybeSingle();window.ADM_TBL=!r.error;if(!r.error)return !!r.data}catch(_){}return !(s.user.user_metadata||{}).cust}
 function admLogin(){$("app").innerHTML=`<div class="box auth"><h3>Admin Login</h3><input id="ae" type="email" placeholder="Email"><input id="ap" type="password" placeholder="Password"><button onclick="login()">Login</button></div>`}
 async function admin(){
+ const sf=r=>r.then(x=>x,()=>({error:1})),
+ qo=sf(sb.from("orders").select("id,order_no,status,created_at,customer_name,subtotal,delivery_charge").order("created_at",{ascending:false})),
+ qp=sf(sb.from("products").select("id,in_stock")),
+ qs=sf(sb.from("sections").select("k"));
  if(!await admOK())return admLogin();
- $("app").innerHTML=`<div class="ad-top"><div class="dx-hd"><span class="dx-av">🛍️</span><div><h2>Admin Panel</h2><small>Mohon Store · সব কন্ট্রোল এক জায়গায়</small></div></div><button class="ad-lo dx-lo" onclick="admLogout()">⎋ Logout</button></div><div class="dx-st"><div class="dx-s" style="--c:#2563eb"><b id="sa_o">০</b><span>মোট অর্ডার</span></div><div class="dx-s" style="--c:#f59e0b"><b id="sa_pe">০</b><span>Pending অর্ডার</span></div><div class="dx-s" style="--c:#059669"><b id="sa_p">০</b><span>মোট প্রোডাক্ট</span></div><div class="dx-s" style="--c:#7c3aed"><b id="sa_s">০</b><span>সেকশন</span></div></div><h3 class="dx-h">মূল কাজ</h3><button class="ad-big" onclick="location.hash='#/admin/orders'"><span class="ic">📦</span><span><b>Manage Order</b><small id="mc">...</small></span></button><button class="ad-big alt" onclick="location.hash='#/admin/products'"><span class="ic">➕</span><span><b>Manage Product</b><small id="pc">...</small></span></button><button class="ad-big alt2" onclick="location.hash='#/admin/sections'"><span class="ic">🗂️</span><span><b>Section</b><small id="sc">${SEC.length} টি সেকশন</small></span></button><h3 class="dx-h">দ্রুত কাজ</h3><div class="dx-q"><a href="#/admin/add"><i>➕</i>নতুন প্রোডাক্ট</a><a href="#/admin/cats"><i>🏷️</i>ক্যাটাগরি</a><a href="#/"><i>🌐</i>সাইট দেখুন</a></div>`;
- Promise.resolve(ldC()).then(()=>{admSt("s",SEC.length);if($("sc"))$("sc").textContent="মোট "+SEC.length+" টি সেকশন"});const r=await sb.from("orders").select("id,status");const d=r.data||[];admSt("o",d.length);admSt("pe",d.filter(x=>(x.status||"pending")=="pending").length);if($("mc"))$("mc").textContent="মোট "+d.length+" টি অর্ডার · Pending "+d.filter(x=>(x.status||"pending")=="pending").length+" টি";let q=await sb.from("products").select("id,section");if(q.error)q=await sb.from("products").select("id");const pd=q.data||[],nf0=admSt("p",(q.data||[]).length),nf=pd.filter(x=>(x.section||"fashion")=="fashion").length;if($("pc"))$("pc").textContent="মোট "+pd.length+" টি প্রোডাক্ট · ফ্যাশন "+nf+" · ইলেকট্রনিক্স "+(pd.length-nf)}
+ const ic=hxSvg,M=n=>"৳"+bn(Math.round(n||0).toLocaleString("en-IN")),
+ IC={rev:'<path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',pe:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',td:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',pr:'<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/>',ot:'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/>',sc:'<path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>'},
+ K=(id,l,c,p,h)=>`<a class="db-k" href="#${h}" style="--c:${c}"><i class="ki">${ic(p)}</i><b id="${id}">—</b><span>${l}</span></a>`;
+ $("app").innerHTML=`<div id="dbr"><div class="ad-top"><div class="dx-hd"><span class="dx-av">🛍️</span><div><h2>Admin Panel</h2><small>Mohon Store · সব কন্ট্রোল এক জায়গায়</small></div></div><button class="ad-lo dx-lo" onclick="admLogout()">⎋ Logout</button></div>
+<a class="db-k db-rev" href="#/admin/orders"><div><span>মোট বিক্রি (বাতিল বাদে)</span><b id="d_rev">—</b><em id="d_dl">ডেলিভারড —</em></div><i class="ki">${ic(IC.rev)}</i></a>
+<div class="db-kpi">${K("d_pe","Pending অর্ডার","#f59e0b",IC.pe,"/admin/orders")}${K("d_td","আজকের অর্ডার","#2563eb",IC.td,"/admin/orders")}${K("d_o","মোট অর্ডার","#7c3aed",HXI.box,"/admin/orders")}${K("d_p","মোট প্রোডাক্ট","#059669",IC.pr,"/admin/products")}${K("d_out","স্টক শেষ","#dc2626",IC.ot,"/admin/products")}${K("d_s","সেকশন","#c2410c",IC.sc,"/admin/sections")}</div>
+<h3 class="dx-h">অর্ডারের অবস্থা</h3><div class="box db-sb" id="d_stat"><div class="db-ld">লোড হচ্ছে...</div></div>
+<h3 class="dx-h">সাম্প্রতিক অর্ডার <a class="db-all" href="#/admin/orders">সব দেখুন ›</a></h3><div class="box db-rc" id="d_rec"><div class="db-ld">লোড হচ্ছে...</div></div>
+<h3 class="dx-h">মূল কাজ</h3><div class="db-main"><button class="ad-big" onclick="location.hash='#/admin/orders'"><span class="ic">📦</span><span><b>Manage Order</b><small id="mc">...</small></span></button><button class="ad-big alt" onclick="location.hash='#/admin/products'"><span class="ic">➕</span><span><b>Manage Product</b><small id="pc">...</small></span></button><button class="ad-big alt2" onclick="location.hash='#/admin/sections'"><span class="ic">🗂️</span><span><b>Section</b><small id="sc">${SEC.length} টি সেকশন</small></span></button></div>
+<h3 class="dx-h">দ্রুত কাজ</h3><div class="dx-q"><a href="#/admin/add"><i>➕</i>নতুন প্রোডাক্ট</a><a href="#/admin/cats"><i>🏷️</i>ক্যাটাগরি</a><a href="#/"><i>🌐</i>সাইট দেখুন</a></div></div>`;
+ const [ro,rp,rs]=await Promise.all([qo,qp,qs]);if(!$("dbr"))return;
+ const o=ro.data||[],p=rp.data||[],S=(id,v)=>{const el=$(id);if(el)el.textContent=v},
+ amt=x=>(+x.subtotal||0)+(+x.delivery_charge||0),
+ pe=o.filter(x=>(x.status||"pending")=="pending").length,td=new Date().toDateString(),
+ today=o.filter(x=>new Date(x.created_at).toDateString()==td).length,
+ rev=o.filter(x=>x.status!="cancelled").reduce((s,x)=>s+amt(x),0),
+ dl=o.filter(x=>x.status=="delivered").reduce((s,x)=>s+amt(x),0),
+ out=p.filter(x=>!x.in_stock).length,
+ sn=(!rs.error&&rs.data&&rs.data.length)?rs.data.length:SEC.length;
+ S("d_rev",M(rev));S("d_dl","ডেলিভারড "+M(dl));S("d_pe",bn(pe));S("d_td",bn(today));S("d_o",bn(o.length));S("d_p",bn(p.length));S("d_out",bn(out));S("d_s",bn(sn));
+ S("mc","মোট "+bn(o.length)+" টি অর্ডার · Pending "+bn(pe)+" টি");S("pc","মোট "+bn(p.length)+" টি প্রোডাক্ট · স্টক শেষ "+bn(out)+" টি");S("sc","মোট "+bn(sn)+" টি সেকশন");
+ const cnt={};o.forEach(x=>{const k=x.status||"pending";cnt[k]=(cnt[k]||0)+1});
+ if($("d_stat"))$("d_stat").innerHTML=o.length?`<div class="db-bar">${ST.map(s=>cnt[s[0]]?`<i style="width:${cnt[s[0]]/o.length*100}%;background:${s[2]}"></i>`:"").join("")}</div><div class="db-lg">${ST.map(s=>`<a href="#/admin/orders"><i style="background:${s[2]}"></i>${s[1]} <b>${bn(cnt[s[0]]||0)}</b></a>`).join("")}</div>`:`<div class="db-ld">এখনো কোনো অর্ডার নেই</div>`;
+ if($("d_rec"))$("d_rec").innerHTML=o.slice(0,5).map(x=>{const si=stI(x.status||"pending");return`<a class="db-ro" href="#/admin/order/${encodeURIComponent(x.id)}"><span class="db-rm"><b>${e(x.order_no)}</b><small>${e(x.customer_name)} · ${new Date(x.created_at).toLocaleString("en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})}</small></span><span class="db-rr"><b>${M(amt(x))}</b><em style="background:${si[2]}">${si[1]}</em></span></a>`}).join("")||`<div class="db-ld">এখনো কোনো অর্ডার নেই</div>`}
+
 async function aOrders(){if(!await admOK())return admLogin();
  $("app").innerHTML=`<div class="ad-top"><button class="ad-back" onclick="abk('/admin')">← ফিরে যান</button><h2>Manage Order</h2></div><div id="ol">Loading...</div>`;
  const r=await sb.from("orders").select("*").order("created_at",{ascending:false});if(r.error){$("ol").textContent=r.error.message;return}
@@ -1120,7 +1170,7 @@ async function login(){const r=await sb.auth.signInWithPassword({email:$("ae").v
 /* ADMIN: ADD PRODUCT (sections) */
 const SQLFIX="alter table products add column if not exists section text default 'fashion';\nalter table products add column if not exists specs jsonb default '{}'::jsonb;\nalter table categories add column if not exists section text default 'fashion';\nupdate products set section='fashion' where section is null;\nupdate categories set section='fashion' where section is null;";
 let SCH=null,AS=null,AT="add";
-async function chkSch(){const a=await sb.from("products").select("section,specs").limit(1),b=await sb.from("categories").select("section").limit(1);SCH=!a.error&&!b.error}
+async function chkSch(){const[a,b]=await Promise.all([sb.from("products").select("section,specs").limit(1),sb.from("categories").select("section").limit(1)]);SCH=!a.error&&!b.error}
 const secC=k=>C.filter(c=>(c.section||"fashion")==k),secP=k=>P.filter(p=>(p.section||"fashion")==k);
 const catRow=n=>SCH?{name:n,section:AS}:{name:n};
 function aDraw(){
@@ -1184,7 +1234,7 @@ async function aProducts(){if(!await admOK())return admLogin();
 async function aRt(h){if(!await admOK())return admLogin();
  const p=h.split("/").slice(2).map(x=>{try{return decodeURIComponent(x)}catch(_){return x}}),k=p[0],sc=p[1],cn=p[2];
  $("app").innerHTML=adT("Manage Product","/admin/products")+'<div class="box">Loading...</div>';
- await ldC();await chkAll();
+ await Promise.all([ldC(),chkAll()]);
  if(k=="sections")return aSecList();if(k=="section")return aSecEdit(sc);if(k=="secnew")return aSecEdit("");
  if(sc&&!SEC.some(x=>x.k==sc))return location.replace("#/admin/products");
  AS=sc||null;ACF=null;
@@ -1538,12 +1588,12 @@ window.addEventListener("popstate",()=>{if(location.hash=="#/track"&&odOpen)trac
 
 /* ===== boot: show everything together ===== */
 function bootDone(){const b=$("boot");if(!b)return;b.classList.add("off");setTimeout(()=>b.remove(),600)}
-async function boot(){const t0=Date.now(),wait=ms=>new Promise(r=>setTimeout(r,ms)),rendered=()=>!document.querySelector("#app>.skl,#app>.skp");let p;try{p=route()}catch(_){}
+async function boot(){const adm=/^#\/admin/.test(location.hash),t0=Date.now(),wait=ms=>new Promise(r=>setTimeout(r,ms)),rendered=()=>!document.querySelector("#app>.skl,#app>.skp");let p;try{p=route()}catch(_){}
 const main=(async()=>{try{await p}catch(_){}for(let k=0;k<90&&!rendered();k++)await wait(50);await wait(60);
-const im=[...document.querySelectorAll("header img,#app img")].slice(0,10);im.forEach(i=>{i.loading="eager"});
+if(adm)return;const im=[...document.querySelectorAll("header img,#app img")].slice(0,10);im.forEach(i=>{i.loading="eager"});
 await Promise.race([Promise.all(im.map(i=>i.decode?i.decode().catch(()=>{}):0)),wait(2200)]);
 if(document.fonts&&document.fonts.ready)await Promise.race([document.fonts.ready,wait(1200)])})();
-await Promise.race([main,wait(4800)]);const r=400-(Date.now()-t0);if(r>0)await wait(r);bootDone()}
+await Promise.race([main,wait(4800)]);const r=(adm?0:400)-(Date.now()-t0);if(r>0)await wait(r);bootDone()}
 /* ===== one-step back ===== */
 function goBack(){if(history.state&&history.state.i>0)history.back();else location.replace("#/")}
 (function(){let LI=0;const ps=history.pushState.bind(history),cur=()=>(history.state&&history.state.i)||0;
@@ -1553,10 +1603,12 @@ window.addEventListener("popstate",()=>{if(history.state&&history.state.i!=null)
 window.addEventListener("hashchange",()=>{try{if(!history.state||history.state.i==null){LI=LI+1;history.replaceState(Object.assign({},history.state,{i:LI}),"")}else LI=cur();if(location.hash!="#/profile")sessionStorage.pv="home"}catch(_){}})})();
 /* ===== animations: route wrapper, ripple ring, admin nav, counters ===== */
 function admSt(k,n){const el=$("sa_"+k);if(!el)return;const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/700);el.textContent=bn(Math.round(n*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(t0)}
-(function(){const NAV=[["/admin","Dashboard",'<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'],["/admin/orders","অর্ডার",HXI.box],["/admin/products","প্রোডাক্ট",'<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/>'],["/admin/sections","সেকশন",'<path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>'],["/","সাইট",HXI.home]];
-document.body.insertAdjacentHTML("beforeend",'<nav id="adnav">'+NAV.map(x=>'<a href="#'+x[0]+'" data-p="'+x[0]+'">'+hxSvg(x[2])+x[1]+'</a>').join("")+'</nav>');
-const act=()=>{const h=location.hash.slice(1)||"/";let k="/";if(/^\/admin\/order/.test(h))k="/admin/orders";else if(/^\/admin\/(products?|add|cats?|catedit|addp)(\/|$)/.test(h))k="/admin/products";else if(/^\/admin\/(sections?|secnew)(\/|$)/.test(h))k="/admin/sections";else if(h.startsWith("/admin"))k="/admin";document.querySelectorAll("#adnav a").forEach(a=>a.classList.toggle("on",a.dataset.p==k))};
+(function(){const NAV=[["/admin","Dashboard",'<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'],["/admin/orders","অর্ডার",HXI.box],["/admin/add","",'<path d="M12 5v14M5 12h14"/>',1],["/admin/products","প্রোডাক্ট",'<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/>'],["/admin/sections","সেকশন",'<path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>']];
+document.body.insertAdjacentHTML("beforeend",'<nav id="adnav">'+NAV.map(x=>'<a href="#'+x[0]+'" data-p="'+x[0]+'"'+(x[3]?' class="pl" aria-label="নতুন প্রোডাক্ট"':'')+'>'+hxSvg(x[2])+x[1]+'</a>').join("")+'</nav>');
+const act=()=>{const h=location.hash.slice(1)||"/";let k="/";if(/^\/admin\/order/.test(h))k="/admin/orders";else if(/^\/admin\/(add|addp)(\/|$)/.test(h))k="/admin/add";else if(/^\/admin\/(products?|cats?|catedit)(\/|$)/.test(h))k="/admin/products";else if(/^\/admin\/(sections?|secnew)(\/|$)/.test(h))k="/admin/sections";else if(h.startsWith("/admin"))k="/admin";document.querySelectorAll("#adnav a").forEach(a=>a.classList.toggle("on",a.dataset.p==k))};
 const r0=route;route=function(){document.body.classList.toggle("noan",!!window._kct);act();return r0.apply(this,arguments)};
-const SEL='button,.btn,.chip,.sec-t,.card,.hx-it,.mt,.oc2,.ox,.hc,.ad-big,.dx-q a,.dx-s,.ad-back,.ad-sg>*,.stg>*,.pcr,.prow,#adnav a,.sh-a,.ip-go,.cpb';document.addEventListener("pointerdown",ev=>{const el=ev.target.closest&&ev.target.closest(SEL);if(!el||el.disabled)return;el.classList.remove("clk");void el.offsetWidth;el.classList.add("clk");clearTimeout(el._ck);el._ck=setTimeout(()=>el.classList.remove("clk"),560)},{passive:true})})();
+document.addEventListener('click',ev=>{const a=ev.target.closest&&ev.target.closest('#adnav a');if(a&&location.hash==a.getAttribute('href')){ev.preventDefault();_rt=0;route()}});
+const SEL='button,.btn,.chip,.sec-t,.card,.hx-it,.mt,.oc2,.ox,.hc,.ad-big,.dx-q a,.dx-s,.ad-back,.ad-sg>*,.stg>*,.pcr,.prow,#adnav a,.sh-a,.ip-go,.cpb';document.addEventListener("pointerdown",ev=>{if(document.body.classList.contains("adm"))return;const el=ev.target.closest&&ev.target.closest(SEL);if(!el||el.disabled)return;el.classList.remove("clk");void el.offsetWidth;el.classList.add("clk");clearTimeout(el._ck);el._ck=setTimeout(()=>el.classList.remove("clk"),560)},{passive:true})})();
+try{history.scrollRestoration="manual"}catch(_){}window.addEventListener("pageshow",ev=>{if(ev.persisted)route()});
 window.onhashchange=route;chrome();boot();
 </script></body></html>
