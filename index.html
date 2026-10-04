@@ -1801,7 +1801,7 @@ function mDraw(){const p=MP,sc=p.section||"fashion",el=isEl(sc),sec=SEC.find(x=>
   <div class="mg-act"><button type="button" class="r" onclick="mOut()">❌ স্টক শেষ (০)</button><button type="button" class="g" id="mgss" onclick="mStockSave()">✓ স্টক সেভ করুন</button></div>
   <p class="mg-nt">সংখ্যা ০ হলে প্রোডাক্ট "স্টক শেষ" দেখাবে, ১ বা তার বেশি হলে "স্টকে আছে" দেখাবে।</p></div>
  <div class="box"><h3>✏️ প্রোডাক্ট এডিট করুন</h3>
-  <label class="fl">নাম (বাংলা) *</label><input id="mnb" value="${e(p.name_bn||"")}">
+  <label class="fl">নাম (বাংলা) *</label><input id="mgnb" value="${e(p.name_bn||"")}">
   <label class="fl">Name (English)</label><input id="mne" value="${e(p.name_en||"")}">
   <label class="fl">ক্যাটাগরি *</label><select id="mca" onchange="document.getElementById('mncw').style.display=this.value=='__new__'?'block':'none'"><option value="">— ক্যাটাগরি বাছুন —</option>${opts.map(n=>`<option value="${e(n)}" ${n==p.category?"selected":""}>${e(n)}</option>`).join("")}<option value="__new__">➕ নতুন ক্যাটাগরি তৈরি করুন</option></select>
   <div id="mncw" style="display:none"><input id="mncn" placeholder="নতুন ক্যাটাগরির নাম"></div>
@@ -1850,14 +1850,14 @@ async function mUpl(el){const pv=$("mgup");pv.textContent="আপলোড হ�
  el.value="";pv.textContent="";mImgDraw()}
 async function mSave(){const p=MP,sc=p.section||"fashion",el=isEl(sc);
  const v=id=>($(id)?$(id).value:"").trim(),l=id=>v(id).split(",").map(s=>s.trim()).filter(Boolean);
- if(!v("mnb"))return alert("প্রোডাক্টের নাম (বাংলা) দিন");
+ if(!v("mgnb"))return alert("প্রোডাক্টের নাম (বাংলা) দিন");
  let cat=v("mca");if(!cat)return alert("ক্যাটাগরি বাছুন");
  if(!(+v("mpr")>0))return alert("দাম দিন");
  const b=$("mgsv");if(b)b.disabled=true;
  try{
   if(cat=="__new__"){cat=v("mncn");if(!cat)return alert("নতুন ক্যাটাগরির নাম দিন");
    if(!secC(sc).some(c=>c.name==cat)){const cr=await sb.from("categories").insert(SCH?{name:cat,section:sc}:{name:cat});if(cr.error)return alert(cr.error.message)}}
-  const row={slug:v("ms")||p.slug,name_bn:v("mnb"),name_en:v("mne"),category:cat,price:+v("mpr"),old_price:+v("mop")||null,colors:l("mco"),sizes:l("msz"),images:MI,description:$("mde").value};
+  const row={slug:v("ms")||p.slug,name_bn:v("mgnb"),name_en:v("mne"),category:cat,price:+v("mpr"),old_price:+v("mop")||null,colors:l("mco"),sizes:l("msz"),images:MI,description:$("mde").value};
   if(el&&SCH){const items=($("msp").value||"").split("\n").map(x=>x.trim()).filter(Boolean).map(x=>{const i=x.search(/[:：]/);return i>0?[x.slice(0,i).trim(),x.slice(i+1).trim()]:[x,"✓"]});row.specs={...(p.specs||{}),brand:v("mbr"),model:v("mmd"),warranty:v("mwr"),items}}
   const r=await sb.from("products").update(row).eq("id",p.id);if(r.error)return alert(r.error.message);
   await load();MP=P.find(x=>String(x.id)==String(p.id))||p;mDraw();window.scrollTo(0,0);toast("✓ পরিবর্তন সেভ হয়েছে")}
