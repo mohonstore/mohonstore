@@ -1396,6 +1396,255 @@ html body .wafab{width:48px;height:48px}
 html body .hero div.av span{color:#fff!important;text-shadow:0 2px 6px rgba(0,0,0,.35)}
 html body .desk-hdr{}
 @media(min-width:1000px){html body header{padding-left:max(12px,calc((100vw - 1160px)/2));padding-right:max(12px,calc((100vw - 1160px)/2))}}
+
+/* ===================== PRO THEME v4 (additive layer: nothing removed) ===================== */
+:root{--pb:#0f1f4d;--pb2:#1d3a8a;--pa:#f59e0b;--pg:#059669;--pr:#e11d48;--ink:#0f172a;--mut:#64748b;--ln:#e2e8f0;--sf:#fff;--pbg:#f4f6fb;--sh1:0 1px 2px rgba(15,23,42,.05),0 4px 14px rgba(15,23,42,.06);--sh2:0 10px 30px -8px rgba(15,31,77,.28);--rd:16px}
+body{background:var(--pbg);color:var(--ink);-webkit-font-smoothing:antialiased}
+header{background:linear-gradient(135deg,var(--pb),var(--pb2))!important;box-shadow:0 4px 18px -6px rgba(15,31,77,.5)}
+main{padding:16px}
+.box,.card{border-radius:var(--rd);border:1px solid var(--ln);box-shadow:var(--sh1)}
+button,.btn{border-radius:12px;font-weight:700;letter-spacing:.1px;transition:transform .15s,box-shadow .15s,filter .15s}
+button:active,.btn:active{transform:scale(.97)}
+.g{background:linear-gradient(135deg,#10b981,var(--pg))}.o{background:linear-gradient(135deg,#fbbf24,#f97316)}.r{background:linear-gradient(135deg,#f43f5e,var(--pr))}
+input,select,textarea{border-radius:12px;border:1.5px solid var(--ln);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pb2);box-shadow:0 0 0 4px rgba(29,58,138,.12)}
+.chip.on{background:var(--pb2);border-color:var(--pb2);color:#fff}
+/* ---- PROFILE ---- */
+.pfb{background:transparent!important;border:0!important;box-shadow:none!important;max-width:560px!important}
+.pfb .hero{position:relative;overflow:hidden;border-radius:24px;padding:30px 18px 0;margin:0 0 16px;background:radial-gradient(120% 140% at 0 0,#2a4fb8 0,transparent 55%),linear-gradient(135deg,var(--pb),#16306f 60%,#0b1739);box-shadow:var(--sh2)}
+.pfb .hero:before{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(245,158,11,.18)}
+.pfb .hero .av{width:92px;height:92px;font-size:38px;border:4px solid rgba(255,255,255,.9);box-shadow:0 8px 24px rgba(0,0,0,.35);background:linear-gradient(135deg,#f59e0b,#ea580c);position:relative}
+.pfb .hero h2{font-size:23px;font-weight:800;letter-spacing:.2px;position:relative}
+.pfb .hero .vb{display:inline-flex;align-items:center;gap:5px;background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(110,231,183,.4);border-radius:99px;padding:3px 11px;font-size:12px;font-weight:700;margin-bottom:8px}
+.pfb .hch{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;position:relative}
+.pfb .hs{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);border-radius:99px;padding:5px 12px;font-size:12.5px}
+.pfb .stt{margin:20px -18px 0;background:rgba(0,0,0,.28);border-top:1px solid rgba(255,255,255,.14);position:relative}
+.pfb .stt>div+div{border-left:1px solid rgba(255,255,255,.14)}
+.pfb .stt b{font-size:17px}
+.pfb .qa{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}
+.pfb .qa a{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 4px;background:var(--sf);border:1px solid var(--ln);border-radius:16px;box-shadow:var(--sh1);font-size:12px;font-weight:700;color:var(--pb);text-align:center}
+.pfb .qa a span{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,#eef2ff,#dbe4ff)}
+.pfb .qa a:active{transform:scale(.95)}
+.pfb h4.sec{margin:6px 4px 10px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);font-weight:800}
+.pfb>.mt,.pfb .mt{border-radius:16px;border:1px solid var(--ln);box-shadow:var(--sh1);padding:13px 14px;margin:0 0 10px;width:100%}
+.pfb .mt .mi{width:42px;height:42px;flex:0 0 42px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#eef2ff,#dbe4ff);font-size:20px}
+.pfb .mt b{font-size:15px;color:var(--ink)}.pfb .mt small{color:var(--mut);font-size:12.5px}
+.pfb .mt .ch{color:#94a3b8;font-size:22px}
+.pfb .sup{display:flex;gap:10px;margin:6px 0 14px}
+.pfb .sup a{flex:1;text-align:center;padding:13px;border-radius:14px;font-weight:800;font-size:14px;color:#fff}
+.pfb .sup .wa{background:linear-gradient(135deg,#22c55e,#15803d)}.pfb .sup .cl{background:linear-gradient(135deg,var(--pb2),var(--pb))}
+.pfb>.r{border-radius:14px;padding:13px}
+/* ---- ORDERS / TABS / CART ---- */
+.tabs{background:#e8edf8;padding:5px;border-radius:14px}.tabs button{background:transparent;border-radius:10px}
+.tabs button.on{background:#fff;color:var(--pb);box-shadow:var(--sh1)}
+.bkb{border-radius:99px;background:#e8edf8;color:var(--pb);font-weight:700}
+/* ---- ADMIN ---- */
+.ad-top{padding:14px 16px;background:linear-gradient(135deg,var(--pb),var(--pb2));border-radius:18px;box-shadow:var(--sh2)}
+.ad-top h2{color:#fff}.ad-back{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.ad-big{border-radius:20px;box-shadow:var(--sh2);transition:transform .15s}.ad-big:active{transform:scale(.98)}
+.ad-item,.ad-sec{border-radius:16px;box-shadow:var(--sh1);border:1px solid var(--ln)}
+.ad-tabs{background:#e8edf8;border-radius:14px;padding:5px}
+.ad-warn{border-radius:14px}
+/* ---- FOOTER ---- */
+footer{background:linear-gradient(180deg,#0b1739,#070f26)!important}
+.fx-bar{border-top:1px solid rgba(255,255,255,.1)}
+@media(min-width:700px){main{padding:24px}.pfb .qa{gap:14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ===================== PRO THEME v5: every page (additive) ===================== */
+html body{--pb:#0f1f4d;--pb2:#1d3a8a;--gold:#f59e0b;--ln:#e2e8f0;--sh1:0 1px 2px rgba(15,23,42,.05),0 6px 18px rgba(15,23,42,.07);--sh2:0 14px 34px -10px rgba(15,31,77,.35)}
+/* ---- HOME: banner, categories, trust ---- */
+html body .sl{border-radius:24px;box-shadow:var(--sh2);background-image:linear-gradient(135deg,var(--pb),#1d3a8a 55%,#0b1739)}
+html body .bar input,html body .bar select{background:#fff;border:1.5px solid var(--ln);border-radius:14px;box-shadow:var(--sh1);padding:12px 14px}
+html body .sec-t{border-radius:20px!important;box-shadow:var(--sh1)}
+html body .trust a{background:#fff;border:1px solid var(--ln);box-shadow:var(--sh1);color:var(--pb);font-weight:700}
+html body .mq{background:linear-gradient(90deg,var(--pb),#1d3a8a)}
+/* ---- PRODUCT CARDS ---- */
+html body .grid{gap:14px}
+html body .card{border-radius:20px!important;border:1px solid var(--ln);background:#fff;box-shadow:var(--sh1)!important}
+html body .card .im{border-radius:0;background:#eef2f9}
+html body .card .nm{font-weight:700;color:#0f172a;line-height:1.35}
+html body .card .pr b{color:var(--pb);font-weight:800}
+html body .card .old{color:#94a3b8}
+html body #app .card .dsc{border-radius:99px;box-shadow:0 4px 10px rgba(220,38,38,.35)}
+html body .card .out{background:rgba(15,23,42,.82);backdrop-filter:blur(2px)}
+/* ---- PRODUCT PAGE / CART / CHECKOUT ---- */
+html body .pdx,html body .pgx{border-radius:20px}
+html body .ci{border:1px solid var(--ln);box-shadow:var(--sh1);background:#fff}
+html body .cth{font-weight:800;color:var(--pb)}
+html body .ck-c{background:#fff;border:1px solid var(--ln);box-shadow:var(--sh1);border-radius:22px}
+html body .ck-t h2{color:var(--pb);font-weight:800}
+html body .ck-f label{color:#334155;font-weight:700}
+html body .ck .ck-f input,html body .ck .ck-f textarea{background:#f8fafc;border:1.5px solid var(--ln)}
+html body .ck .ck-f input:focus,html body .ck .ck-f textarea:focus{background:#fff;border-color:var(--pb2);box-shadow:0 0 0 4px rgba(29,58,138,.12)}
+html body .ck-tot{background:linear-gradient(135deg,var(--pb),#16306f);border-radius:18px;box-shadow:var(--sh2)}
+html body .ck-go{border-radius:16px;box-shadow:0 10px 22px -8px rgba(5,150,105,.7);font-size:16px;padding:15px}
+/* ---- SEARCH / ORDERS / TRACK / DETAILS ---- */
+html body .sr-em,html body .nd-c{border:1px solid var(--ln);box-shadow:var(--sh2);border-radius:24px;background:#fff}
+html body .ox{background:#fff;border:1px solid var(--ln);box-shadow:var(--sh1);border-radius:20px}
+html body .ox-b{border-radius:99px;font-weight:800}
+html body .od-hero{border-radius:22px;box-shadow:var(--sh2)}
+html body .od-r,html body .od-it{border-color:#eef2f7}
+html body .tl .st i{box-shadow:0 0 0 4px #eef2ff}
+/* ---- BOTTOM NAV / FOOTER ---- */
+html body .bn{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--ln);box-shadow:0 -8px 24px -10px rgba(15,23,42,.18)}
+html body .fx-cta{border-radius:24px}
+html body .fx-wa{box-shadow:0 8px 18px -6px rgba(34,197,94,.7)}
+html body .fx-l,html body .fx-ci{transition:opacity .15s}
+html body .fx-l:hover{opacity:.8}
+/* ---- ADMIN: dashboard, cards, lists, forms ---- */
+html body.adm{background:#eef1f8}
+html body .db-rev{border-radius:22px;box-shadow:var(--sh2);background:linear-gradient(135deg,var(--pb),#1d3a8a 60%,#0b1739)}
+html body .db-sb,html body .db-rc,html body .db-rm,html body .dx-s,html body .dx-q a{background:#fff;border:1px solid var(--ln);border-radius:18px;box-shadow:var(--sh1)}
+html body .dx-h{color:var(--pb);font-weight:800}
+html body .db-bar{height:14px;background:#e2e8f0}
+html body .stg button{border-radius:16px;box-shadow:var(--sh1);font-weight:800}
+html body .oc2,html body .mq-g,html body .mg-md,html body .mg-mb{border-radius:18px}
+html body .oc2{background:#fff;border:1px solid var(--ln);box-shadow:var(--sh1)}
+html body .ad-sec{background:#fff;border-radius:18px}
+html body .ad-line{border-color:#eef2f7}
+html body .sqlb,html body pre{border-radius:14px}
+html body table{border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden}
+html body .ad-warn{border-left:5px solid var(--gold)}
+html body ::-webkit-scrollbar{height:6px;width:6px}html body ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:9px}
+html body ::selection{background:#c7d2fe}
+html{scroll-behavior:smooth}
+
+/* ===================== PRO THEME v6: guide sections ===================== */
+.gx{margin:26px 0 8px}.gx h3{margin:0 4px 4px;font-size:20px;font-weight:800;color:var(--pb,#0f1f4d)}.gx>p{margin:0 4px 14px;color:#64748b;font-size:14px}
+.gx-st{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gx-st div{position:relative;background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:18px 14px 14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 6px 18px rgba(15,23,42,.07)}
+.gx-st i{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1d3a8a,#0f1f4d);color:#fff;font-style:normal;font-weight:800;margin-bottom:10px}
+.gx-st b{display:block;font-size:15px;margin-bottom:3px}.gx-st small{color:#64748b;font-size:12.5px;line-height:1.5}
+.gx-wy{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gx-wy div{background:linear-gradient(160deg,#fff,#f1f5ff);border:1px solid #e2e8f0;border-radius:20px;padding:16px 14px;box-shadow:0 1px 2px rgba(15,23,42,.05)}
+.gx-wy span{font-size:26px;display:block;margin-bottom:6px}.gx-wy b{display:block;font-size:14.5px;margin-bottom:2px}.gx-wy small{color:#64748b;font-size:12.5px;line-height:1.5}
+.gx details{background:#fff;border:1px solid #e2e8f0;border-radius:16px;margin-bottom:10px;padding:0 16px;box-shadow:0 1px 2px rgba(15,23,42,.05)}
+.gx summary{cursor:pointer;list-style:none;padding:15px 0;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;gap:10px}
+.gx summary::-webkit-details-marker{display:none}.gx summary:after{content:"+";font-size:20px;color:#1d3a8a;line-height:1}
+.gx details[open] summary:after{content:"\2212"}.gx details p{margin:0 0 15px;color:#475569;font-size:13.5px;line-height:1.7}
+.gx-cta{display:flex;gap:10px;margin:18px 0 90px}.gx-cta a{flex:1;text-align:center;padding:14px;border-radius:14px;font-weight:800;color:#fff;font-size:14px}
+.gx-cta .a{background:linear-gradient(135deg,#22c55e,#15803d)}.gx-cta .b{background:linear-gradient(135deg,#1d3a8a,#0f1f4d)}
+.gx-top{position:fixed;right:14px;bottom:150px;z-index:4;width:42px;height:42px;border-radius:50%;padding:0;background:#fff;color:#0f1f4d;border:1px solid #e2e8f0;box-shadow:0 8px 20px -6px rgba(15,23,42,.35);font-size:18px;opacity:0;pointer-events:none;transition:opacity .2s}
+.gx-top.on{opacity:1;pointer-events:auto}body.adm .gx-top{display:none}
+@media(min-width:700px){.gx-st,.gx-wy{grid-template-columns:repeat(4,1fr)}}
+
+/* ===================== PRO THEME v7: bright royal footer + matching ===================== */
+html body footer{background:linear-gradient(165deg,#2447a8 0%,#1d3a8a 45%,#142c6e 100%)!important;border-top:3px solid #f59e0b!important;color:#e6ecfb!important;margin-top:46px!important;box-shadow:inset 0 24px 40px -30px rgba(255,255,255,.25)}
+html body .fx-cb{background:radial-gradient(circle at 100% 0,rgba(245,158,11,.30),transparent 55%),linear-gradient(160deg,#3358c4,#1f3f96 75%)!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:0 18px 34px -16px rgba(8,18,60,.6)}
+html body .fx-cb:before{background:linear-gradient(90deg,transparent,#fbbf24,transparent)}
+html body .fx-grid>div{background:rgba(255,255,255,.10)!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:18px}
+html body footer h4{border-bottom:1px solid rgba(251,191,36,.7)!important;color:#fff}
+html body .fx-l,html body .fx-pt,html body .fx-tp a{color:#f1f5ff!important}
+html body .fx-l:before,html body .fx-pt svg{color:#fbbf24}
+html body .fx-l:hover,html body .fx-pt:hover,html body .fx-bar a:hover{color:#fde68a!important}
+html body .fx-tp a{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+html body .fx-ci .fx-i,html body .fx-hi,html body .fx-sl{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fde68a}
+html body .fx-ci small,html body .fx-cb p,html body .fx-bar{color:#cfdaf5!important}
+html body .fx-bar{border-top:1px solid rgba(255,255,255,.22)}
+html body .fx-bar a{color:#fff;font-weight:700;background:rgba(255,255,255,.14);padding:6px 14px;border-radius:99px}
+html body .fx-cb .fx-btn a.fx-wa{background:linear-gradient(135deg,#34d399,#059669);color:#fff;box-shadow:0 8px 20px rgba(5,150,105,.45)}
+html body .fx-cb .fx-btn a:not(.fx-wa){background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35)}
+html body .fx-nt{background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.25)!important}
+html body .mq{background:linear-gradient(90deg,#1d3a8a,#2f55b8,#1d3a8a)}
+html body .sec-hd,html body .ip-hero{background:linear-gradient(135deg,#0f1f4d,#1d3a8a)!important}
+
+/* ===================== PRO THEME v8: profile colours, add-to-cart, scroll ===================== */
+html{scroll-behavior:auto!important}
+/* ---- add-to-cart: fixed-size box, tick badge top-right, premium indigo when added ---- */
+html body .acts{display:flex!important;gap:10px}
+html body .acts>button{flex:1 1 0!important;min-width:0!important;height:52px;padding:0 10px!important;white-space:nowrap;overflow:visible}
+html body #addb{position:relative}
+html body #addb .ab-t{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;font-size:clamp(12.5px,3.7vw,15px);font-weight:800}
+html body #addb.added{background:linear-gradient(135deg,#4f46e5,#6d28d9)!important;color:#fff!important;border-color:#4338ca!important;box-shadow:0 10px 22px -10px rgba(79,70,229,.8)!important}
+html body #addb .ab-i{position:absolute;top:-9px;right:-7px;width:24px;height:24px;padding:5px;border-radius:50%;background:#fff;color:#059669;border:2px solid #059669;box-shadow:0 4px 10px rgba(5,150,105,.35);animation:abPop .3s cubic-bezier(.22,.8,.3,1) both}
+@keyframes abPop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+/* ---- profile: fresh, smart colours ---- */
+html body:has(.pfb){background:linear-gradient(180deg,#e0e7ff 0,#f1f5f9 260px,#f8fafc)}
+html body .pfb .hero{background:radial-gradient(90% 120% at 100% 0,rgba(14,165,233,.55),transparent 60%),radial-gradient(80% 100% at 0 100%,rgba(236,72,153,.35),transparent 60%),linear-gradient(135deg,#4338ca,#6366f1 55%,#7c3aed)!important;box-shadow:0 18px 36px -14px rgba(79,70,229,.65)}
+html body .pfb .hero:before{background:rgba(255,255,255,.14)}
+html body .pfb .hero .av{background:linear-gradient(135deg,#ec4899,#8b5cf6)!important;border:4px solid #fff;box-shadow:0 10px 26px rgba(49,46,129,.45)}
+html body .pfb .hero .vb{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.45)}
+html body .pfb .hs{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3);color:#fff}
+html body .pfb .stt{background:rgba(30,27,75,.35)}
+html body .pfb .qa a{color:#312e81;border-color:#e0e7ff}
+html body .pfb .qa a:nth-child(1) span{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+html body .pfb .qa a:nth-child(2) span{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+html body .pfb .qa a:nth-child(3) span{background:linear-gradient(135deg,#ffedd5,#fed7aa)}
+html body .pfb .qa a:nth-child(4) span{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+html body .pfb h4.sec{color:#6366f1}
+html body .pfb .mt{border-color:#e0e7ff;background:#fff;color:#1e1b4b}
+html body .pfb .mt .mi{background:linear-gradient(135deg,#eef2ff,#e0e7ff)}
+html body .pfb .mt-orders .mi{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+html body .pfb .mt-cart .mi{background:linear-gradient(135deg,#ffedd5,#fed7aa)}
+html body .pfb .mt-edit .mi{background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
+html body .pfb .mt-set .mi{background:linear-gradient(135deg,#e2e8f0,#cbd5e1)}
+html body .pfb .mt-help .mi{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+html body .pfb .mt-share .mi{background:linear-gradient(135deg,#cffafe,#a5f3fc)}
+html body .pfb .mt .ch{color:#a5b4fc}
+html body .pfb .sup .cl{background:linear-gradient(135deg,#6366f1,#4338ca)}
+html body .pfb>.r{background:linear-gradient(135deg,#fb7185,#e11d48)!important}
+.pfb .pcx{background:#fff;border:1px solid #e0e7ff;border-radius:18px;padding:14px 16px;margin:0 0 18px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 6px 18px rgba(79,70,229,.08)}
+.pfb .pcx div{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#1e1b4b}.pfb .pcx span{font-weight:800;color:#4f46e5}
+.pfb .pcx i{display:block;height:9px;border-radius:99px;background:#e0e7ff;margin:10px 0 2px;overflow:hidden}
+.pfb .pcx u{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6366f1,#0ea5e9);text-decoration:none}
+.pfb .pcx a{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;color:#4f46e5;cursor:pointer}
+/* profile inner pages */
+html body .lg-c.on{border-color:#6366f1!important;background:#eef2ff!important}
+html body .tabs button.on{color:#4338ca}
+html body .bkb{background:#e0e7ff;color:#3730a3}
+
+/* ===================== PRO THEME v9: admin quick actions & polish ===================== */
+.gxq{margin:0 0 16px}.gxq-g{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:2px 4px 12px;font-size:13px;color:#475569}
+.gxq-g b{font-size:15px;color:#1e1b4b}.gxq-g span{background:#e0e7ff;color:#3730a3;border-radius:99px;padding:4px 12px;font-weight:700;font-size:12px;white-space:nowrap}
+.gxq-t{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gxq-t a{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 4px;background:#fff;border:1px solid #e0e7ff;border-radius:18px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 6px 16px rgba(79,70,229,.07);font-size:12.5px;font-weight:800;color:#1e1b4b;text-align:center;line-height:1.35}
+.gxq-t a span{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:21px}
+.gxq-t a:nth-child(1) span{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}.gxq-t a:nth-child(2) span{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.gxq-t a:nth-child(3) span{background:linear-gradient(135deg,#ede9fe,#ddd6fe)}.gxq-t a:nth-child(4) span{background:linear-gradient(135deg,#ffedd5,#fed7aa)}
+.gxq-t a:nth-child(5) span{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}.gxq-t a:nth-child(6) span{background:linear-gradient(135deg,#cffafe,#a5f3fc)}
+@media(min-width:700px){.gxq-t{grid-template-columns:repeat(6,1fr)}}
+.gxq-n{margin:12px 0 0;background:linear-gradient(135deg,#eef2ff,#e0f2fe);border:1px solid #c7d2fe;border-radius:16px;padding:12px 14px;font-size:13px;color:#312e81;line-height:1.6}
+.gxd{display:none;position:fixed;left:14px;bottom:22px;z-index:6;padding:11px 18px;border-radius:99px;background:linear-gradient(135deg,#4f46e5,#6d28d9);color:#fff;font-weight:800;font-size:13.5px;box-shadow:0 12px 24px -8px rgba(79,70,229,.7)}
+body.adm.gxs .gxd{display:inline-flex;align-items:center;gap:6px}
+html body.adm .fl{color:#334155;font-weight:700}
+html body.adm input:not([type=checkbox]):not([type=radio]),html body.adm select,html body.adm textarea{background:#f8fafc;border:1.5px solid #e2e8f0}
+html body.adm input:focus,html body.adm select:focus,html body.adm textarea:focus{background:#fff;border-color:#6366f1;box-shadow:0 0 0 4px rgba(99,102,241,.14)}
+html body.adm .ad-top{background:linear-gradient(135deg,#4338ca,#6366f1 60%,#7c3aed)}
+html body.adm .db-k:not(.db-rev){border-radius:18px}
+
+/* ===================== PRO THEME v10: unified colours, admin tools ===================== */
+html body:not(.adm){background:#f1f5fb}
+html body.adm .gxd,html body.adm .wafab,html body.adm .gx-top{display:none!important}
+html body.adm main{padding-bottom:120px}
+html body.adm .dx-hd small{color:#e0e7ff!important}html body.adm .dx-hd h2{color:#fff!important}
+html body.adm .dx-lo{background:rgba(255,255,255,.18)!important;color:#fff!important;border:1px solid rgba(255,255,255,.45)!important}
+html body.adm .oc2 .on{background:linear-gradient(135deg,#eef2ff,#e0e7ff)!important;color:#3730a3!important;border:1px solid #c7d2fe!important;box-shadow:none!important}
+html body.adm .oc2 button{background:linear-gradient(135deg,#4f46e5,#6d28d9)!important;color:#fff!important;border:0!important}
+html body a[href^="mailto"] b{font-size:13.5px;overflow-wrap:anywhere}
+.gxr{background:#fff;border:1px solid #e0e7ff;border-radius:20px;padding:16px;margin:0 0 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 20px rgba(79,70,229,.08)}
+.gxr h3{margin:0 0 2px;font-size:16px;color:#1e1b4b}.gxr>small{color:#64748b;font-size:12.5px}
+.gxr-c{display:flex;align-items:flex-end;gap:8px;height:130px;margin:14px 0 6px}
+.gxr-c div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:5px;min-width:0}
+.gxr-c i{display:block;width:100%;max-width:34px;border-radius:9px 9px 4px 4px;background:linear-gradient(180deg,#6366f1,#4338ca);min-height:4px}
+.gxr-c div.z i{background:#e2e8f0}.gxr-c small{font-size:11px;color:#64748b;white-space:nowrap}
+.gxr-s{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.gxr-s div{background:#f5f7ff;border-radius:14px;padding:10px 8px;text-align:center}.gxr-s b{display:block;font-size:14px;color:#312e81}.gxr-s small{font-size:11px;color:#64748b}
+.gxf{background:#fff;border:1px solid #e0e7ff;border-radius:18px;padding:12px;margin:0 0 14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 6px 16px rgba(79,70,229,.07)}
+.gxf input{margin:0 0 10px!important}
+.gxf-c{display:flex;gap:6px;flex-wrap:wrap}.gxf-c button{padding:7px 13px;border-radius:99px;background:#eef2ff;color:#3730a3;font-size:12.5px;font-weight:700}
+.gxf-c button.on{background:linear-gradient(135deg,#4f46e5,#6d28d9);color:#fff}
+.gxf-n{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12.5px;color:#64748b}
+.gxf-n a{color:#4f46e5;font-weight:800}
+
+/* v10b: stronger overrides */
+html body #app .oc2 .on,html body #app .db-rm b{background:linear-gradient(135deg,#eef2ff,#e0e7ff)!important;color:#3730a3!important;border:1px solid #c7d2fe!important;box-shadow:none!important;text-shadow:none!important}
+html body #app .oc2 .dk{background:linear-gradient(135deg,#4f46e5,#6d28d9)!important;color:#fff!important;border:0!important;box-shadow:0 8px 16px -8px rgba(79,70,229,.7)!important}
+
+/* v10c: selected states in one premium indigo */
+html body #app .chip.on{background:linear-gradient(135deg,#4f46e5,#6d28d9)!important;color:#fff!important;border-color:#4338ca!important;box-shadow:0 8px 16px -8px rgba(79,70,229,.7)!important}
+html body #app .qs-ar button.on{background:linear-gradient(135deg,#4f46e5,#6d28d9)!important;color:#fff!important;border-color:#4338ca!important}
+html body #app .qs-t{background:linear-gradient(135deg,#312e81,#4f46e5)!important}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/cart" class="hx-ct" id="hct" onclick="return gate(event,'/cart')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><i class="hx-cn" id="hcn" hidden>0</i></a><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -1420,8 +1669,11 @@ html body .desk-hdr{}
 <a class="fx-ci" href="https://wa.me/8801725233759" target="_blank" rel="noopener"><span class="fx-i" data-i="wa"></span><span><small>হোয়াটসঅ্যাপ</small><b>01725233759</b></span></a>
 <a class="fx-ci" href="mailto:mashiurrahman.bus@gmail.com"><span class="fx-i" data-i="ml"></span><span><small>ইমেইল</small><b>mashiurrahman.bus@gmail.com</b></span></a></div>
 </div>
-<div class="fx-bar"><span>© <span id="yr"></span> Mohon Store. সর্বস্বত্ব সংরক্ষিত।</span><a href="#" onclick="scrollTo({top:0,behavior:'smooth'});return false">উপরে যান ↑</a></div></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<div class="fx-bar"><span>© <span id="yr"></span> Mohon Store. সর্বস্বত্ব সংরক্ষিত।</span><a href="#" onclick="return goTop(event)">উপরে যান ↑</a></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script><script>function gxPc(m,u){return Math.round([m&&m.name,m&&m.mobile,u&&u.email,m&&m.avatar].filter(Boolean).length/4*100)}
+function gxShare(){var u=location.href.split("#")[0],d={title:document.title,text:document.title,url:u};
+if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){try{toast("লিংক কপি হয়েছে")}catch(_){}})}}
+</script>
 <script>
 const _authStore=(()=>{let dbp;const idb=()=>dbp||(dbp=new Promise(r=>{try{const q=indexedDB.open("mhn_auth",1);q.onupgradeneeded=()=>q.result.createObjectStore("kv");q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)}catch(_){r(null)}}));
 const io=async(m,k,v)=>{const d=await idb();if(!d)return null;return new Promise(r=>{try{const tx=d.transaction("kv",m==="get"?"readonly":"readwrite"),st=tx.objectStore("kv"),q=m==="get"?st.get(k):m==="set"?st.put(v,k):st.delete(k);q.onsuccess=()=>r(q.result??null);q.onerror=()=>r(null)}catch(_){r(null)}})};
@@ -1814,14 +2066,22 @@ function bk(){return `<button class="bkb" onclick="pback()">← ${L("প্র�
 function fi(x){x=(x||"").trim();if(!x)return"";try{return[...new Intl.Segmenter(undefined,{granularity:"grapheme"}).segment(x)][0].segment.toUpperCase()}catch(_){return Array.from(x)[0].toUpperCase()}}
 function avH(m){return m.avatar?`<img class="av" src="${m.avatar}" alt="">`:`<div class="av"><span>${e(fi(m.name)||fi(ME&&ME.email)||"?")}</span></div>`}
 function meV(){if(pv=="odet")return OD?oDet():pOrders();if(pv=="orders")return pOrders();if(pv=="cart")return pCart();if(pv=="edit")return pEdit();if(pv=="help")return pHelp();if(pv=="set")return pSet();
- const m=ME.user_metadata||{},tl=(i,k,tx,sub)=>`<button class="mt" onclick="pgo('${k}')"><span class="mi">${i}</span><span class="mx"><b>${tx}</b><small>${sub}</small></span><span class="ch">›</span></button>`;
+ const m=ME.user_metadata||{},tl=(i,k,tx,sub)=>`<button class="mt mt-${k}" onclick="pgo('${k}')"><span class="mi">${i}</span><span class="mx"><b>${tx}</b><small>${sub}</small></span><span class="ch">›</span></button>`;
  $("app").innerHTML=`<div class="box auth pfb">${made?`<div class="sm" style="background:#dcfce7;color:#166534;text-align:center">${t("okc")}</div>`:""}
- <div class="hero">${avH(m)}<h2>${e(m.name||"")}</h2><div class="hch"><span class="hs">📱 ${e(m.mobile||"-")}</span><span class="hs">✉️ ${e(ME.email||"-")}</span></div><div class="stt"><div><b>${cart.length}</b><small>${L("কার্টে","In cart")}</small></div><div><b>${ME.created_at?new Date(ME.created_at).toLocaleDateString(lang=="bn"?"bn-BD":"en-US",{month:"short",year:"numeric"}):"-"}</b><small>${L("সদস্য হয়েছেন","Member since")}</small></div></div></div>
+ <div class="hero">${avH(m)}<div class="vb" style="margin-top:10px">✔ ${L("সক্রিয় অ্যাকাউন্ট","Active account")}</div><h2 style="margin-top:4px">${e(m.name||"")}</h2><div class="hch"><span class="hs">📱 ${e(m.mobile||"-")}</span><span class="hs">✉️ ${e(ME.email||"-")}</span></div><div class="stt"><div><b>${cart.length}</b><small>${L("কার্টে","In cart")}</small></div><div><b>${ME.created_at?new Date(ME.created_at).toLocaleDateString(lang=="bn"?"bn-BD":"en-US",{month:"short",year:"numeric"}):"-"}</b><small>${L("সদস্য হয়েছেন","Member since")}</small></div></div></div>
+ <div class="qa"><a href="#/track"><span>🔎</span>${L("ট্র্যাক","Track")}</a><a href="#/payment"><span>💳</span>${L("পেমেন্ট","Payment")}</a><a href="#/delivery"><span>🚚</span>${L("ডেলিভারি","Delivery")}</a><a href="#/returns"><span>↩️</span>${L("রিটার্ন","Returns")}</a></div>
+ <div class="pcx"><div><b>${L("প্রোফাইল সম্পূর্ণতা","Profile completeness")}</b><span>${gxPc(m,ME)}%</span></div><i><u style="width:${gxPc(m,ME)}%"></u></i>${gxPc(m,ME)<100?`<a onclick="pgo('edit')">${L("ছবি ও তথ্য যোগ করুন ›","Add photo & details ›")}</a>`:""}</div>
+ <h4 class="sec">${L("আমার অ্যাকাউন্ট","My account")}</h4>
  ${tl("📦","orders",L("আমার অর্ডার","My Orders"),L("পেন্ডিং, প্রসেসিং ও সাকসেস অর্ডার","Pending, processing & success"))}
  ${tl("🛒","cart",L("কার্ট","Cart"),cart.length+" "+L("টি প্রোডাক্ট","items"))}
  ${tl("✏️","edit",L("এডিট প্রোফাইল","Edit Profile"),L("নাম ও প্রোফাইল ছবি পরিবর্তন","Change name & photo"))}
  ${tl("⚙️","set",L("সেটিংস","Settings"),L("ভাষা পরিবর্তন করুন","Change language"))}
  ${tl("🎧","help",L("হেল্প সেন্টার","Help Center"),L("আমাদের সাথে যোগাযোগ করুন","Contact us"))}
+ <h4 class="sec">${L("সহায়তা ও তথ্য","Support & info")}</h4>
+ <div class="sup"><a class="wa" href="https://wa.me/8801725233759" target="_blank" rel="noopener">💬 WhatsApp</a><a class="cl" href="tel:01725233759">📞 ${L("কল করুন","Call us")}</a></div>
+ <button class="mt mt-share" type="button" onclick="gxShare()"><span class="mi">🔗</span><span class="mx"><b>${L("স্টোর শেয়ার করুন","Share the store")}</b><small>${L("বন্ধু ও পরিবারকে লিংক পাঠান","Send the link to friends & family")}</small></span><span class="ch">›</span></button>
+ <a class="mt" href="#/privacy"><span class="mi">🔒</span><span class="mx"><b>${L("প্রাইভেসি পলিসি","Privacy Policy")}</b><small>${L("আপনার তথ্য কীভাবে সুরক্ষিত থাকে","How your data stays safe")}</small></span><span class="ch">›</span></a>
+ <a class="mt" href="#/terms"><span class="mi">📄</span><span class="mx"><b>${L("শর্তাবলি","Terms")}</b><small>${L("কেনাকাটার নিয়মকানুন","Shopping rules")}</small></span><span class="ch">›</span></a>
  <button class="r" style="width:100%;margin-top:14px;margin-bottom:16px" onclick="sb.auth.signOut().then(()=>{ME=null;cart=[];localStorage.c='[]';chrome();mode='up';pv='home';profV()})">${t("lgo")}</button></div>`;made=false}
 function pSet(){const o=[["bn","বাংলা","Bengali","বা"],["en","English","ইংরেজি","En"]];
  $("app").innerHTML=`<div class="box auth">${bk()}<h3 style="margin:6px 0 4px">${L("সেটিংস","Settings")}</h3><p class="lg-p">${L("আপনার পছন্দের ভাষা বেছে নিন। ওয়েবসাইটের ডিফল্ট ভাষা বাংলা।","Choose your preferred language. Bengali is the default language of the website.")}</p><div class="lg-o" role="radiogroup" aria-label="${L("ভাষা","Language")}">${o.map(x=>`<button type="button" role="radio" aria-checked="${lang==x[0]}" class="lg-c${lang==x[0]?" on":""}" onclick="setLang('${x[0]}')"><span class="lg-k">${x[3]}</span><span class="lg-t"><b>${x[1]}</b><small>${x[2]}</small></span><span class="lg-ck">✓</span></button>`).join("")}</div></div>`}
@@ -2462,4 +2722,89 @@ try{history.scrollRestoration="manual"}catch(_){}window.addEventListener("pagesh
  setInterval(()=>{if(document.visibilityState!=="visible")return;tk++;if(!live||tk%5==0)refresh()},6000);
 })();
 window.onhashchange=route;chrome();boot();
+</script><script>
+(function(){try{history.scrollRestoration="manual"}catch(_){}
+var P={},seq=0,restoring=false,rt=null;try{P=JSON.parse(sessionStorage.gxp||"{}")}catch(_){}
+function id(){return history.state&&history.state.gx}
+function nid(){return Date.now()+"_"+(++seq)}
+function ensure(){if(id()==null){try{history.replaceState(Object.assign({},history.state,{gx:nid()}),"")}catch(_){}}}
+function save(){var k=id();if(k!=null&&!restoring)P[k]=window.scrollY}
+function persist(){try{sessionStorage.gxp=JSON.stringify(P)}catch(_){}}
+var ps=history.pushState;history.pushState=function(s,t,u){save();s=Object.assign({},s||{},{gx:nid()});return ps.call(history,s,t,u)};
+function stop(){clearInterval(rt);restoring=false}
+function restore(y){clearInterval(rt);if(!(y>0))return;restoring=true;var n=0;
+function tick(){n++;window.scrollTo(0,y);if((n>10&&Math.abs(window.scrollY-y)<2)||n>60)stop()}
+tick();rt=setInterval(tick,40)}
+["touchstart","wheel","keydown","mousedown"].forEach(function(e){addEventListener(e,function(){if(restoring)stop()},{passive:true})});
+addEventListener("scroll",save,{passive:true});
+document.addEventListener("click",function(){save();persist()},true);
+addEventListener("pagehide",persist);document.addEventListener("visibilitychange",persist);
+addEventListener("popstate",function(){ensure();var y=P[id()];restore(y)});
+addEventListener("hashchange",function(){ensure()});
+ensure();
+})();
+</script><script>function goTop(ev){if(ev&&ev.preventDefault)ev.preventDefault();var h=location.hash;if(h&&h!=="#"&&h!=="#/"){location.hash="#/"}
+var d=document.documentElement,b=document.body;d.style.scrollBehavior="auto";window.scrollTo(0,0);d.scrollTop=0;b.scrollTop=0;
+setTimeout(function(){window.scrollTo(0,0);d.scrollTop=0;b.scrollTop=0},60);return false}</script><script>(function(){
+var A=document.getElementById("app");if(!A)return;
+function en(){try{return localStorage.l==="en"}catch(_){return false}}
+function L(b,e){return en()?e:b}
+function html(){return '<div class="gx" id="gxw"><h3>'+L("কীভাবে অর্ডার করবেন?","How to order")+'</h3><p>'+L("মাত্র ৪টি সহজ ধাপে আপনার পছন্দের পণ্য আপনার দরজায়।","Your favourite product at your door in 4 easy steps.")+'</p><div class="gx-st">'
++'<div><i>1</i><b>'+L("পণ্য বাছুন","Pick a product")+'</b><small>'+L("সার্চ বা ক্যাটাগরি থেকে পছন্দের পণ্য খুলুন।","Search or browse categories.")+'</small></div>'
++'<div><i>2</i><b>'+L("কার্টে যোগ করুন","Add to cart")+'</b><small>'+L("সাইজ, রং ও পরিমাণ ঠিক করে কার্টে দিন।","Choose size, colour and quantity.")+'</small></div>'
++'<div><i>3</i><b>'+L("তথ্য দিন","Enter details")+'</b><small>'+L("নাম, মোবাইল ও ঠিকানা লিখে অর্ডার কনফার্ম করুন।","Add name, phone and address.")+'</small></div>'
++'<div><i>4</i><b>'+L("ডেলিভারি নিন","Receive it")+'</b><small>'+L("পণ্য হাতে পেয়ে টাকা দিন বা bKash/Nagad করুন।","Pay on delivery or via bKash/Nagad.")+'</small></div></div>'
++'<h3 style="margin-top:28px">'+L("কেন Mohon Store?","Why Mohon Store?")+'</h3><p>'+L("আপনার নিশ্চিন্ত কেনাকাটার জন্য আমাদের অঙ্গীকার।","Our promise for worry-free shopping.")+'</p><div class="gx-wy">'
++'<div><span>🚚</span><b>'+L("সারা দেশে ডেলিভারি","Nationwide delivery")+'</b><small>'+L("বাংলাদেশের যেকোনো জায়গায়।","Anywhere in Bangladesh.")+'</small></div>'
++'<div><span>💵</span><b>'+L("ক্যাশ অন ডেলিভারি","Cash on delivery")+'</b><small>'+L("পণ্য দেখে টাকা দিন।","Pay when you receive.")+'</small></div>'
++'<div><span>🔒</span><b>'+L("নিরাপদ পেমেন্ট","Safe payment")+'</b><small>'+L("bKash ও Nagad সুবিধা।","bKash and Nagad supported.")+'</small></div>'
++'<div><span>🎧</span><b>'+L("দ্রুত সাপোর্ট","Fast support")+'</b><small>'+L("WhatsApp ও কলে পাশে আছি।","On WhatsApp and phone.")+'</small></div></div>'
++'<h3 style="margin-top:28px">'+L("সাধারণ প্রশ্ন","FAQ")+'</h3><p>'+L("যা সবাই জানতে চান।","What most people ask.")+'</p>'
++'<details><summary>'+L("অর্ডার কোথায় ট্র্যাক করব?","Where can I track my order?")+'</summary><p>'+L("নিচের মেনুর ট্র্যাক অপশনে অর্ডার নম্বর ও মোবাইল দিন।","Open Track in the bottom menu and enter your order number and phone.")+'</p></details>'
++'<details><summary>'+L("ডেলিভারিতে কত সময় লাগে?","How long does delivery take?")+'</summary><p>'+L("বিস্তারিত ডেলিভারি তথ্য পেজে দেখুন বা আমাদের জিজ্ঞাসা করুন।","See the Delivery page for details, or ask us.")+'</p></details>'
++'<details><summary>'+L("পণ্য পছন্দ না হলে কী করব?","What if I don’t like the product?")+'</summary><p>'+L("রিটার্ন ও রিফান্ড নীতি পেজে নিয়ম দেওয়া আছে।","The Returns & Refund page explains the rules.")+'</p></details>'
++'<div class="gx-cta"><a class="a" href="https://wa.me/8801725233759" target="_blank" rel="noopener">💬 WhatsApp</a><a class="b" href="#/help">🎧 '+L("হেল্প সেন্টার","Help Center")+'</a></div></div>'}
+function add(){var h=location.hash.slice(1);if(h!==""&&h!=="/"){var o=document.getElementById("gxw");if(o)o.remove();return}
+if(!A.querySelector(".trust")||document.getElementById("gxw"))return;A.insertAdjacentHTML("beforeend",html())}
+new MutationObserver(add).observe(A,{childList:true});window.addEventListener("hashchange",function(){setTimeout(add,60)});setTimeout(add,300);
+var b=document.createElement("button");b.className="gx-top";b.type="button";b.setAttribute("aria-label","Top");b.textContent="↑";b.onclick=function(e){goTop(e)};document.body.appendChild(b);
+addEventListener("scroll",function(){b.classList.toggle("on",scrollY>600)},{passive:true});
+})();</script><script>(function(){var A=document.getElementById("app");if(!A)return;
+function en(){try{return localStorage.l==="en"}catch(_){return false}}
+function L(b,e){return en()?e:b}
+function q(){var d=document.getElementById("dbr");if(!d||document.getElementById("gxq"))return;var top=d.querySelector(".ad-top");if(!top)return;
+var n=new Date(),h=n.getHours(),g=h<5?"শুভ রাত্রি":h<12?"শুভ সকাল":h<16?"শুভ দুপুর":h<18?"শুভ বিকেল":"শুভ সন্ধ্যা";
+var ds=n.toLocaleDateString("bn-BD",{weekday:"long",day:"numeric",month:"long"});
+top.insertAdjacentHTML("afterend",'<div class="gxq" id="gxq"><div class="gxq-g"><b>'+g+' 👋</b><span>'+ds+'</span></div><div class="gxq-t">'
++'<a href="#/admin/add"><span>➕</span>নতুন প্রোডাক্ট</a><a href="#/admin/orders"><span>📦</span>অর্ডার দেখুন</a><a href="#/admin/manage"><span>🛠️</span>প্রোডাক্ট ম্যানেজ</a>'
++'<a href="#/admin/cats"><span>🏷️</span>ক্যাটাগরি</a><a href="#/admin/sections"><span>🗂️</span>সেকশন</a><a href="#" onclick="return gxExport(event)"><span>📥</span>অর্ডার এক্সপোর্ট</a></div>'
++'<div class="gxq-n">💡 <b>টিপস:</b> নতুন অর্ডার এলে "Pending অর্ডার" কার্ডে ট্যাপ করুন। অর্ডার কনফার্ম করলে কাস্টমার নিজেই ট্র্যাকিং পেজে অবস্থা দেখতে পারবে।</div></div>')}
+function nav(){var h=location.hash.slice(1),a=/^\/admin\/./.test(h);document.body.classList.toggle("gxs",a)}
+
+new MutationObserver(function(){q();nav()}).observe(A,{childList:true,subtree:true});
+addEventListener("hashchange",function(){setTimeout(function(){q();nav()},80)});nav();q();})();</script><script>
+function gxCsv(rows){var cols=["order_no","status","created_at","customer_name","mobile","email","address","subtotal","delivery_charge"];
+var q=function(v){v=v==null?"":String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+return "\ufeff"+cols.join(",")+"\n"+rows.map(function(r){return cols.map(function(c){return q(r[c])}).join(",")}).join("\n")}
+function gxExport(ev){if(ev&&ev.preventDefault)ev.preventDefault();
+sb.from("orders").select("*").order("created_at",{ascending:false}).then(function(r){var d=r.data||[];if(!d.length){try{toast("এক্সপোর্ট করার মতো অর্ডার নেই")}catch(_){}return}
+var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([gxCsv(d)],{type:"text/csv;charset=utf-8"}));a.download="orders-"+new Date().toISOString().slice(0,10)+".csv";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);try{toast("✓ অর্ডার এক্সপোর্ট হয়েছে")}catch(_){}}).catch(function(){});return false}
+(function(){var A=document.getElementById("app");if(!A)return;
+var bn=function(n){return Number(n).toLocaleString("bn-BD")},M=function(n){return "৳"+bn(Math.round(n||0))};
+function rep(){var k=document.querySelector("#dbr .db-kpi");if(!k||document.getElementById("gxr"))return;
+k.insertAdjacentHTML("afterend",'<div class="gxr" id="gxr"><h3>📈 গত ৭ দিনের বিক্রি</h3><small>লোড হচ্ছে...</small></div>');
+sb.from("orders").select("created_at,status,subtotal,delivery_charge").then(function(r){var el=document.getElementById("gxr");if(!el)return;var o=r.data||[];
+var days=[],i,d;for(i=6;i>=0;i--){d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-i);days.push({d:d,s:0,c:0})}
+var tot=0,cnt=0,can=0;o.forEach(function(x){if(x.status==="cancelled"){can++;}var dt=new Date(x.created_at);dt.setHours(0,0,0,0);
+days.forEach(function(y){if(y.d.getTime()===dt.getTime()){y.c++;if(x.status!=="cancelled"){y.s+=(+x.subtotal||0)+(+x.delivery_charge||0)}}})});
+days.forEach(function(y){tot+=y.s;cnt+=y.c});var mx=Math.max.apply(null,days.map(function(y){return y.s}))||1;
+el.innerHTML='<h3>📈 গত ৭ দিনের বিক্রি</h3><small>বাতিল অর্ডার বাদে</small><div class="gxr-c">'+days.map(function(y){return '<div class="'+(y.s?'':'z')+'"><i style="height:'+Math.max(4,y.s/mx*100)+'%"></i><small>'+y.d.toLocaleDateString("bn-BD",{weekday:"short"})+'</small></div>'}).join("")+'</div>'
++'<div class="gxr-s"><div><b>'+M(tot)+'</b><small>৭ দিনের বিক্রি</small></div><div><b>'+bn(cnt)+'</b><small>৭ দিনের অর্ডার</small></div><div><b>'+M(cnt?tot/cnt:0)+'</b><small>গড় অর্ডার</small></div></div>'}).catch(function(){})}
+function flt(){var ol=document.getElementById("ol");if(!ol||document.getElementById("gxf"))return;var cs=ol.querySelectorAll(".oc2");if(!cs.length)return;
+var st=[];cs.forEach(function(c){var b=c.querySelector(".stb");var s=b?b.textContent.trim():"";if(s&&st.indexOf(s)<0)st.push(s)});
+ol.insertAdjacentHTML("beforebegin",'<div class="gxf" id="gxf"><input id="gxs" type="search" placeholder="🔍 অর্ডার নম্বর, নাম বা মোবাইল দিয়ে খুঁজুন"><div class="gxf-c"><button type="button" class="on" data-s="">সব</button>'+st.map(function(s){return '<button type="button" data-s="'+s+'">'+s+'</button>'}).join("")+'</div><div class="gxf-n"><span id="gxn"></span><a href="#" onclick="return gxExport(event)">📥 CSV এক্সপোর্ট</a></div></div>');
+var cur="";function ap(){var q=document.getElementById("gxs").value.trim().toLowerCase(),n=0;cs.forEach(function(c){var b=c.querySelector(".stb"),s=b?b.textContent.trim():"";var ok=(!cur||s===cur)&&(!q||c.textContent.toLowerCase().indexOf(q)>-1);c.style.display=ok?"":"none";if(ok)n++});document.getElementById("gxn").textContent=bn(n)+" টি অর্ডার"}
+document.getElementById("gxs").addEventListener("input",ap);
+document.querySelectorAll("#gxf .gxf-c button").forEach(function(b){b.addEventListener("click",function(){cur=b.dataset.s;document.querySelectorAll("#gxf .gxf-c button").forEach(function(x){x.classList.toggle("on",x===b)});ap()})});ap()}
+new MutationObserver(function(){rep();flt()}).observe(A,{childList:true,subtree:true});rep();flt()})();
 </script></body></html>
