@@ -1747,7 +1747,7 @@ function home(){F.sec="";F.cat="";F.q="";const S=[["linear-gradient(135deg,#0e17
  ${secTiles()}<h3 class="sec-h">${L("সব প্রোডাক্ট","All Products")}</h3><div class="grid" id="gr"></div>`;
  clearInterval(window.tm);list()}
 const DEFSEC=[{k:"fashion",kind:"fashion",bn:"ফ্যাশন",en:"Fashion",ic:"👕",db:"শার্ট, টি-শার্ট, পাঞ্জাবি, প্যান্ট, টাউজার ও আরও",de:"Shirts, T-shirts, Panjabi, Pants, Trousers & more",c:"linear-gradient(135deg,#0f2557,#2a4a9c)"},{k:"electronics",kind:"electronics",bn:"ইলেকট্রনিক্স",en:"Electronics",ic:"📺",db:"ফ্যান, টিভি, ফ্রিজ ও আরও ইলেকট্রনিক জিনিস",de:"Fans, TVs, Fridges & more electronics",c:"linear-gradient(135deg,#b45309,#f59e0b)"}];
-let SEC=DEFSEC,SECOK=false,SECN=0;const isEl=k=>{if(k=="fashion")return false;if(k=="electronics")return true;const x=SEC.find(y=>y.k==k);return x?x.kind=="electronics":false};
+let SEC=DEFSEC,SECOK=false,SECN=0;const isJw=k=>{const x=SEC.find(y=>y.k==k);return !!x&&(x.kind=="jewellery"||/জুয়েল|jewel|গহনা|অলংকার|অলঙ্কার/i.test((x.bn||"")+" "+(x.en||"")))};const isEl=k=>{if(k=="fashion")return false;if(k=="electronics")return true;if(isJw(k))return true;const x=SEC.find(y=>y.k==k);return x?x.kind=="electronics":false};
 const secN=k=>P.filter(p=>(p.section||"fashion")==k).length;
 function fxSecs(){try{const h=document.querySelector('footer .fx-grid>div a.fx-l[href="#/"]');if(!h)return;h.parentElement.querySelectorAll("a[data-sec]").forEach(a=>a.remove());h.insertAdjacentHTML("afterend",SEC.map(s=>`<a class="fx-l" data-sec="1" href="#/section/${encodeURIComponent(s.k)}">${e(L(s.bn,s.en))}</a>`).join(""))}catch(_){}}
 function secTiles(){return`<div class="sec-g">${SEC.map(s=>`<a class="sec-t" href="#/section/${s.k}" style="background:${s.c}"><span class="sec-i">${s.ic}</span><span class="sec-x"><b>${L(s.bn,s.en)}</b><em>${bd(secN(s.k))} ${L("টি প্রোডাক্ট","items")}</em></span><span class="sec-go">›</span></a>`).join("")}</div>`}
@@ -2352,7 +2352,7 @@ function aSecEdit(k){const x=k?SEC.find(y=>y.k==k):{bn:"",en:"",ic:"🛍️",db:
  <label class="fl">ছোট বিবরণ (বাংলা)</label><input id="sdb" value="${e(x.db)}" placeholder="যেমন: স্নিকার, স্যান্ডেল ও আরও">
  <label class="fl">Short description (English)</label><input id="sde" value="${e(x.de)}" placeholder="e.g. Sneakers, sandals & more">
  <label class="fl">রঙ</label><div class="swr">${SWS.map(c=>`<button type="button" class="${c==SCC?"on":""}" style="background:${c}" onclick="secCol(this,'${c}')" aria-label="রঙ"></button>`).join("")}</div>
- <label class="fl">প্রোডাক্ট ফর্মের ধরন</label><select id="skd" ${bi?"disabled":""}><option value="fashion" ${kk!="electronics"?"selected":""}>সাধারণ (সাইজ, রঙ)</option><option value="electronics" ${kk=="electronics"?"selected":""}>টেকনিক্যাল (ব্র্যান্ড, মডেল, ওয়ারেন্টি, স্পেসিফিকেশন)</option></select>
+ <label class="fl">প্রোডাক্ট ফর্মের ধরন</label><select id="skd" ${bi?"disabled":""}><option value="fashion" ${kk!="electronics"?"selected":""}>সাধারণ (সাইজ, রঙ)</option><option value="electronics" ${kk=="electronics"?"selected":""}>টেকনিক্যাল (ব্র্যান্ড, মডেল, ওয়ারেন্টি, স্পেসিফিকেশন)</option><option value="jewellery" ${kk=="jewellery"?"selected":""}>জুয়েলারি (ধাতু, ক্যারেট, ওজন, পাথর, মেকিং চার্জ)</option></select>
  <button type="button" class="g" id="ssv" style="width:100%;margin-top:12px" onclick="secSave('${k||""}')">✓ সেভ করুন</button></div>`}
 function secPv(){$("spi").textContent=$("sic").value||"🛍️";$("spb").textContent=$("sbn").value||"সেকশনের নাম";$("spe").textContent=$("sen").value||"Section name"}
 function secCol(b,c){SCC=c;$("spv").style.background=c;document.querySelectorAll(".swr button").forEach(z=>z.classList.toggle("on",z==b))}
@@ -2899,5 +2899,38 @@ window.cats=function(){C0.apply(this,arguments);try{var el=document.getElementBy
 el.querySelectorAll(".chip").forEach(function(ch){var c=ch.dataset.c;if(!c)return;
 var n=P.filter(function(p){return p.category==c&&(!F.sec||(p.section||"fashion")==F.sec)}).length;
 if(!n){ch.remove();return}ch.textContent=c+" ("+bd(n)+")"})}catch(_){}}})();
+</script>
+<style>.jwp{background:#fffaf0;border:1px solid #f0dfb6;border-radius:14px;padding:12px;margin:12px 0}.jwp h4{margin:0 0 6px;color:#92400e;font-size:15px}.jwp small.t{display:block;color:#92400e;margin-bottom:8px}</style>
+<script>(function(){
+var JF=[["ধরন","sel",["আংটি","নেকলেস / হার","চেইন","লকেট / পেন্ডেন্ট","কানের দুল","চুড়ি / বালা","ব্রেসলেট","নাকফুল / নোলক","টিকলি / মাথার গহনা","গহনার সেট","অন্যান্য"]],
+["ধাতু","sel",["সোনা","রূপা","প্লাটিনাম","ডায়মন্ড","গোল্ড প্লেটেড","ইমিটেশন / আর্টিফিশিয়াল"]],
+["ক্যারেট / বিশুদ্ধতা","txt","22K / 21K / 18K / 925"],
+["ওজন","txt","যেমন: ১ ভরি / 11.66 গ্রাম"],
+["পাথর / ডায়মন্ড","txt","যেমন: ১টি রুবি, ছোট ডায়মন্ড"],
+["পাথরের ওজন","txt","যেমন: 0.25 ক্যারেট"],
+["মাপ / দৈর্ঘ্য","txt","যেমন: ১৮ ইঞ্চি / রিং সাইজ 8"],
+["মেকিং চার্জ","txt","যেমন: ভরিতে ৮০০ টাকা / ১০%"],
+["হলমার্ক / সার্টিফিকেট","sel",["হলমার্ক আছে","সার্টিফিকেট আছে","হলমার্ক ও সার্টিফিকেট দুটোই আছে","নেই"]],
+["কাদের জন্য","sel",["মহিলা","পুরুষ","শিশু","ইউনিসেক্স"]],
+["এক্সচেঞ্জ / বাইব্যাক","sel",["এক্সচেঞ্জ আছে","বাইব্যাক আছে","এক্সচেঞ্জ ও বাইব্যাক দুটোই আছে","নেই"]]];
+var X=function(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return "&#"+c.charCodeAt(0)+";"})};
+function lab(id,t){var i=document.getElementById(id),l=i&&i.previousElementSibling;if(l&&l.tagName=="LABEL")l.textContent=t}
+function jw(P){var tx=document.getElementById(P+"sp");if(!tx||document.getElementById("jwp"))return;
+var pre=P?"m":"",id=function(n){return pre+n};
+lab(P?"mbr":"br","ব্র্যান্ড / জুয়েলার্স");lab(P?"mmd":"md","ডিজাইন কোড");lab(P?"mwr":"wr","গ্যারান্টি / ওয়ারেন্টি (যেমন: আজীবন সার্ভিসিং)");
+lab(P?"mco":"co","রঙ / ফিনিশ (যেমন: সোনালি, রূপালি, রোজ গোল্ড)");lab(P?"msz":"sz2","সাইজ (যেমন: আংটির মাপ 7, 8, 9 / চুড়ির মাপ 2.4, 2.6)");
+var h=document.querySelector("#"+(P?"mf":"aw")+" h3");if(h&&!P)h.textContent="জুয়েলারি প্রোডাক্ট যোগ করুন";
+var f=JF.map(function(x,i){return '<label class="fl">'+x[0]+'</label>'+(x[1]=="sel"?'<select data-jf="'+i+'"><option value="">— বাছুন —</option>'+x[2].map(function(o){return '<option>'+o+'</option>'}).join("")+'</select>':'<input data-jf="'+i+'" placeholder="'+X(x[2])+'">')}).join("");
+var lb=tx.previousElementSibling;var box=document.createElement("div");box.className="jwp";box.id="jwp";
+box.innerHTML='<h4>💎 জুয়েলারির বিস্তারিত তথ্য</h4><small class="t">যেটা প্রযোজ্য সেটাই পূরণ করুন, বাকি ফাঁকা রাখুন। এগুলো প্রোডাক্ট পেজে স্পেসিফিকেশন হিসেবে দেখাবে।</small>'+f+'<label class="fl">অতিরিক্ত তথ্য (প্রতি লাইনে একটি — নাম: মান)</label><textarea data-jx rows="3" placeholder="যেমন: ফিনিশ: পলিশড"></textarea>';
+tx.parentNode.insertBefore(box,lb&&lb.tagName=="LABEL"?lb:tx);if(lb&&lb.tagName=="LABEL")lb.style.display="none";tx.style.display="none";
+var jx=box.querySelector("[data-jx]"),F=box.querySelectorAll("[data-jf]");
+tx.value.split("\n").forEach(function(l){l=l.trim();if(!l)return;var k=l.search(/[:：]/),n=k>0?l.slice(0,k).trim():l,v=k>0?l.slice(k+1).trim():"✓",m=-1;JF.forEach(function(x,i){if(x[0]==n)m=i});
+ if(m>-1){var c=F[m];if(c.tagName=="SELECT"&&![].some.call(c.options,function(o){return o.value==v})){var o=document.createElement("option");o.textContent=v;c.appendChild(o)}c.value=v}else jx.value+=(jx.value?"\n":"")+l});
+function sync(){var L=[];F.forEach(function(c,i){if(c.value.trim())L.push(JF[i][0]+": "+c.value.trim())});jx.value.split("\n").forEach(function(l){if(l.trim())L.push(l.trim())});tx.value=L.join("\n")}
+box.addEventListener("input",sync);box.addEventListener("change",sync);sync()}
+var a=window.aForm;if(a)window.aForm=function(){var r=a.apply(this,arguments);try{if(isJw(AS))jw("")}catch(_){}return r};
+var m=window.mDraw;if(m)window.mDraw=function(){var r=m.apply(this,arguments);try{if(isJw(MP.section||"fashion"))jw("m")}catch(_){}return r};
+})();
 </script>
 </body></html>
