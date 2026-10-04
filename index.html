@@ -1053,6 +1053,35 @@ html body #addb.added{background:linear-gradient(135deg,#10b981,#047857)!importa
 .mx-ed{background:linear-gradient(135deg,#0f2557,#173578)!important;color:#fff!important;border:1.5px solid #d4a24c!important}
 .mx-dl{background:#fff!important;color:#b91c1c!important;border:1.5px solid #fca5a5!important}
 .mx-em{text-align:center;padding:30px 16px!important;color:#667290}.mx-em b{display:block;color:#081633;font-size:16px}.mx-em p{margin:6px 0 14px}.mx-ei{font-size:40px;line-height:1;margin-bottom:8px}
+
+/* ===== product gallery (no frame): stage + arrows + thumbnails ===== */
+.pgx{max-width:540px;margin:0 auto 14px;background:none;border:0;box-shadow:none;padding:0}
+.pgx-st{position:relative;width:100%;aspect-ratio:1/1;max-height:62vh;overflow:hidden;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.pgx-i{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:none;border-radius:0;opacity:0;pointer-events:none;transition:opacity .4s cubic-bezier(.22,.8,.3,1),transform .4s cubic-bezier(.22,.8,.3,1);-webkit-user-drag:none}
+.pgx-i.bf{transform:translateX(-26px)}
+.pgx-i.af{transform:translateX(26px)}
+.pgx-i.on{opacity:1;transform:none;pointer-events:auto}
+.pgx-ph{position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;font-size:20px;font-weight:700;color:var(--mut);background:#eef1f8;border-radius:16px}
+.pgx .pgx-a{position:absolute;top:0;bottom:0;margin:auto 0;width:42px;height:42px;padding:0;border-radius:50%;display:grid;place-items:center;z-index:2;background:rgba(255,255,255,.94);color:#0f2557;border:1px solid rgba(15,37,87,.10);box-shadow:0 6px 18px rgba(8,22,51,.20),0 1px 3px rgba(8,22,51,.10);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s,color .2s,scale .15s}
+.pgx .pgx-a.pv{left:8px}.pgx .pgx-a.nx{right:8px}
+.pgx .pgx-a svg{width:20px;height:20px}
+.pgx .pgx-a:active{scale:.92}
+.pgx .pgx-a:focus-visible,.pgx .pgx-t button:focus-visible{outline:2px solid var(--gold,#d4a24c);outline-offset:2px}
+@media (hover:hover){.pgx .pgx-a:hover{background:#0f2557;color:#fff;translate:none;filter:none}}
+.pgx-c{position:absolute;right:10px;bottom:10px;z-index:2;padding:3px 10px;border-radius:99px;background:rgba(8,22,51,.72);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.3px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.pgx .pgx-t{display:flex;gap:8px;width:fit-content;max-width:100%;margin:10px auto 0;padding:3px 2px 5px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.pgx .pgx-t::-webkit-scrollbar{display:none}
+.pgx .pgx-t button{flex:0 0 auto;width:46px;height:46px;padding:0;overflow:hidden;border-radius:10px;border:1.5px solid transparent;background:#fff;opacity:.6;box-shadow:0 1px 3px rgba(8,22,51,.14);transition:opacity .2s,border-color .2s,translate .2s}
+.pgx .pgx-t button img{display:block;width:100%;height:100%;object-fit:cover}
+.pgx .pgx-t button.on{opacity:1;border-color:#0f2557;translate:0 -1px;box-shadow:0 4px 10px rgba(15,37,87,.22)}
+@media (hover:hover){.pgx .pgx-t button:hover{opacity:1;translate:none;filter:none}}
+@media (min-width:700px){.pgx .pgx-t button{width:52px;height:52px}}
+/* ===== quantity inside order summary (centered) ===== */
+.qrow{display:block!important}
+.qrow .qs{width:100%;box-sizing:border-box}
+.qs-q{display:flex;flex-direction:column;align-items:center;gap:6px;margin:7px 0 6px;padding:9px 0;border-top:1px dashed #cdd6ec;border-bottom:1px dashed #cdd6ec}
+.qs-ql{font-size:12.5px;font-weight:700;color:#46506b}
+.qs-q .qt{margin:0;justify-content:center}
 </style></head><body><div id="boot"><div class="bt"><b>Mohon Store</b><i></i></div></div><script>setTimeout(function(){var b=document.getElementById("boot");if(b)b.remove()},9000)</script>
 <header><button type="button" class="hx-mb" id="mnb" aria-haspopup="menu" aria-expanded="false" aria-controls="hxd" onclick="hxToggle(event)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="19" r="1.8" fill="currentColor"/></svg></button><a href="#/" class="hx-logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></a><b id="sn" onclick="goHome()">Mohon Store</b><a href="#/profile" class="hx-pf" id="su" onclick="return gate(event,'/profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></header>
 <div class="hx-ov" id="hxo" onclick="hxClose()"></div><div class="hx-dd" id="hxd" role="menu"></div>
@@ -1064,7 +1093,7 @@ html body #addb.added{background:linear-gradient(135deg,#10b981,#047857)!importa
 <div class="fx-tp"><a href="#/track">অর্ডার ট্র্যাকিং</a><a href="#/delivery">ডেলিভারি তথ্য</a><a href="#/payment">পেমেন্ট গাইড</a><a href="#/returns">রিটার্ন ও রিফান্ড</a></div>
 </div></div>
 <div class="fx-grid">
-<div><h4>কেনাকাটা</h4><a class="fx-l" href="#/">হোম</a><a class="fx-l" href="#/section/fashion">ফ্যাশন</a><a class="fx-l" href="#/section/electronics">ইলেকট্রনিক্স</a><a class="fx-l" href="#/track">অর্ডার ট্র্যাক করুন</a></div>
+<div><h4>কেনাকাটা</h4><a class="fx-l" href="#/">হোম</a><a class="fx-l" data-sec="1" href="#/section/fashion">ফ্যাশন</a><a class="fx-l" data-sec="1" href="#/section/electronics">ইলেকট্রনিক্স</a><a class="fx-l" href="#/track">অর্ডার ট্র্যাক করুন</a></div>
 <div><h4>কাস্টমার সেবা</h4><a class="fx-l" href="#/shipping">ডেলিভারি ও পেমেন্ট</a><a class="fx-l" href="#/returns">রিটার্ন ও রিফান্ড</a><a class="fx-l" href="#/help">হেল্প সেন্টার</a></div>
 <div class="fx-lg"><h4>আইনি তথ্য</h4><a class="fx-l" href="#/privacy">প্রাইভেসি পলিসি</a><a class="fx-l" href="#/terms">শর্তাবলি</a><a class="fx-l" href="#/returns">রিটার্ন ও রিফান্ড নীতি</a><a class="fx-l" href="#/shipping">ডেলিভারি ও পেমেন্ট নীতি</a><a class="fx-nt" href="#/payment"><span class="fx-sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="fx-tx"><b>পণ্য দেখে নিয়ে বাকি টাকা দিন</b><small>আগে শুধু ডেলিভারি চার্জ</small></span></a></div>
 <div class="fx-sf"><h4>নিরাপদ কেনাকাটা</h4>
@@ -1104,7 +1133,7 @@ function mergeC(u){const k=c=>c.slug+"|"+c.size+"|"+c.color,r=(u.user_metadata&&
 function chrome(){const ab=$("ab");if(ab)ab.textContent=t("ab");hxLabels();document.querySelectorAll("[data-i]").forEach(x=>x.innerHTML=hxSvg(HXI[x.dataset.i]));const y=$("yr");if(y)y.textContent=new Date().getFullYear()}
 function setLang(x){x=x=="en"?"en":"bn";if(lang==x)return;lang=x;try{localStorage.l=x}catch(_){}document.documentElement.lang=x;chrome();route()}
 function setL(){setLang(lang=="bn"?"en":"bn")}
-async function load(){const E=window.__E;window.__E=null;const pk=async(k,t,col,asc)=>{const d=E?await E[k]:null;return d?{data:d,error:null}:sb.from(t).select("*").order(col,{ascending:asc})};const[r,c,sx]=await Promise.all([pk("p","products","created_at",false),pk("c","categories","created_at",true),pk("s","sections","pos",true)]);SECOK=!sx.error;if(SECOK){SECN=(sx.data||[]).length;if(SECN)SEC=sx.data.map(x=>({k:x.k,bn:x.bn,en:x.en||x.bn,ic:x.ic||"🛍️",db:x.db||"",de:x.de||"",c:x.c||SWS[0],kind:x.kind||"fashion"}))}if(!r.error||!P.length)P=r.data||[];if(!c.error&&c.data)C=c.data;else if(!C.length||C.some(x=>x.fb))C=[...new Set(P.map(p=>p.category).filter(Boolean))].map(n=>({name:n,fb:1}));window.ADL=Date.now();if(!r.error&&P.length){try{localStorage.mhn_cache=JSON.stringify({P,C,S:SEC,SECOK,SECN})}catch(_){}}}
+async function load(){const E=window.__E;window.__E=null;const pk=async(k,t,col,asc)=>{const d=E?await E[k]:null;return d?{data:d,error:null}:sb.from(t).select("*").order(col,{ascending:asc})};const[r,c,sx]=await Promise.all([pk("p","products","created_at",false),pk("c","categories","created_at",true),pk("s","sections","pos",true)]);SECOK=!sx.error;if(SECOK){SECN=(sx.data||[]).length;if(SECN)SEC=sx.data.map(x=>({k:x.k,bn:x.bn,en:x.en||x.bn,ic:x.ic||"🛍️",db:x.db||"",de:x.de||"",c:x.c||SWS[0],kind:x.kind||"fashion"}))}if(!r.error||!P.length)P=r.data||[];if(!c.error&&c.data)C=c.data;else if(!C.length||C.some(x=>x.fb))C=[...new Set(P.map(p=>p.category).filter(Boolean))].map(n=>({name:n,fb:1}));window.ADL=Date.now();try{fxSecs()}catch(_){}if(!r.error&&P.length){try{localStorage.mhn_cache=JSON.stringify({P,C,S:SEC,SECOK,SECN})}catch(_){}}}
 let _rf=null,_rt=0;
 function busy(){const a=document.activeElement;return !!(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))}
 function swr(h,ok){if(_rf||Date.now()-_rt<1500)return;_rf=(async()=>{const sig=JSON.stringify([P,C,SEC]);try{await load();
@@ -1132,6 +1161,7 @@ function home(){F.sec="";F.cat="";F.q="";const S=[["linear-gradient(135deg,#0e17
 const DEFSEC=[{k:"fashion",kind:"fashion",bn:"ফ্যাশন",en:"Fashion",ic:"👕",db:"শার্ট, টি-শার্ট, পাঞ্জাবি, প্যান্ট, টাউজার ও আরও",de:"Shirts, T-shirts, Panjabi, Pants, Trousers & more",c:"linear-gradient(135deg,#0f2557,#2a4a9c)"},{k:"electronics",kind:"electronics",bn:"ইলেকট্রনিক্স",en:"Electronics",ic:"📺",db:"ফ্যান, টিভি, ফ্রিজ ও আরও ইলেকট্রনিক জিনিস",de:"Fans, TVs, Fridges & more electronics",c:"linear-gradient(135deg,#b45309,#f59e0b)"}];
 let SEC=DEFSEC,SECOK=false,SECN=0;const isEl=k=>{if(k=="fashion")return false;if(k=="electronics")return true;const x=SEC.find(y=>y.k==k);return x?x.kind=="electronics":false};
 const secN=k=>P.filter(p=>(p.section||"fashion")==k).length;
+function fxSecs(){try{const h=document.querySelector('footer .fx-grid>div a.fx-l[href="#/"]');if(!h)return;h.parentElement.querySelectorAll("a[data-sec]").forEach(a=>a.remove());h.insertAdjacentHTML("afterend",SEC.map(s=>`<a class="fx-l" data-sec="1" href="#/section/${encodeURIComponent(s.k)}">${e(L(s.bn,s.en))}</a>`).join(""))}catch(_){}}
 function secTiles(){return`<div class="sec-g">${SEC.map(s=>`<a class="sec-t" href="#/section/${s.k}" style="background:${s.c}"><span class="sec-i">${s.ic}</span><span class="sec-x"><b>${L(s.bn,s.en)}</b><em>${bd(secN(s.k))} ${L("টি প্রোডাক্ট","items")}</em></span><span class="sec-go">›</span></a>`).join("")}</div>`}
 function secV(k){F.q="";const s=SEC.find(x=>x.k==k);if(!s)return home();if(F.sec!=k){F.sec=k;F.cat=""}clearInterval(window.tm);
  $("app").innerHTML=`<button class="bkb" onclick="goBack()">← ${L("পেছনে","Back")}</button><div class="sec-hd" style="background:${s.c}"><span>${s.ic}</span><div><h2>${L(s.bn,s.en)}</h2><p>${L(s.db,s.de)}</p></div></div><div class="bar"><input id="q" placeholder="${t("search")}" value="${e(F.q)}" enterkeyhint="search" onkeydown="if(event.key==='Enter')doSearch(this.value)"><button type="button" class="sbx" aria-label="${t("search")}" onclick="srchGo()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button><select onchange="F.s=this.value;list()"><option value="new">${t("new")}</option><option value="old" ${F.s=="old"?"selected":""}>${t("old")}</option><option value="lo" ${F.s=="lo"?"selected":""}>${t("lo")}</option><option value="hi" ${F.s=="hi"?"selected":""}>${t("hi")}</option></select></div><div id="cats"></div><div class="grid" id="gr"></div>`;cats();list()}
@@ -1157,18 +1187,21 @@ async function prod(slug){let p=P.find(x=>x.slug==slug);if(!p){try{await load()}
  sel={size:p.sizes[0],color:p.colors[0],qty:1,p};
   const ch=(k,a)=>a.length?`<div class="lbl">${(k=="size"&&isEl(p.section)?L("ভ্যারিয়েন্ট","Variant"):t(k=="size"?"size":"color"))}:</div>`+a.map(v=>`<span class="chip ${sel[k]==v?"on":""}" onclick="pick('${k}',this)">${e(v)}</span>`).join(""):"";
  const off=p.old_price&&p.old_price>p.price?Math.round((p.old_price-p.price)/p.old_price*100):0;
- $("app").innerHTML=`<div class="box pg"><div class="gframe"><div class="gal">${p.images.length?p.images.map(i=>`<img src="${e(i)}" alt="">`).join(""):`<div class="im">${e(nm(p))}</div>`}</div></div>${p.images.length>1?`<div class="nums" id="nums">${p.images.map((_,i)=>`<span class="${i?"":"on"}" onclick="goImg(${i})">${i+1}</span>`).join("")}</div>`:""}</div>
+ $("app").innerHTML=`<div class="pgx">${p.images.length?`<div class="pgx-st">${p.images.map((i,k)=>`<img class="pgx-i ${k?"af":"on"}" src="${e(i)}" alt="${e(nm(p))}"${k?' loading="lazy"':""} decoding="async" draggable="false">`).join("")}${p.images.length>1?`<button type="button" class="pgx-a pv" onclick="gNext(-1)" aria-label="${L("আগের ছবি","Previous image")}">${GCH.l}</button><button type="button" class="pgx-a nx" onclick="gNext(1)" aria-label="${L("পরের ছবি","Next image")}">${GCH.r}</button><span class="pgx-c" id="pgc">${bd(1)} / ${bd(p.images.length)}</span>`:""}</div>${p.images.length>1?`<div class="pgx-t">${p.images.map((i,k)=>`<button type="button" class="${k?"":"on"}" onclick="gSet(${k})" aria-label="${L("ছবি","Image")} ${k+1}"><img src="${e(i)}" alt="" loading="lazy" decoding="async" draggable="false"></button>`).join("")}</div>`:""}`:`<div class="pgx-st"><div class="pgx-ph">${e(nm(p))}</div></div>`}</div>
  <div class="box pi">${p.category?`<span class="cat">${e(p.category)}</span>`:""}<h1 class="pn">${e(nm(p))}</h1><div class="pp"><span class="now">${tk(p.price)}</span>${p.old_price?`<span class="old">${tk(p.old_price)}</span>`:""}${off?`<span class="off">${off}% ${t("save")}</span>`:""}</div><button type="button" class="shb" onclick="shOpen()" aria-label="${L("শেয়ার","Share")}">${SHI.share}<span>${L("শেয়ার করুন","Share")}</span></button></div>
- <div class="box po"><div id="sz">${ch("size",p.sizes)}</div><div id="cl">${ch("color",p.colors)}</div><div class="qrow"><div class="qa"><div class="lbl">${t("qty")}:</div><div class="qt"><button type="button" class="w" onclick="qty(-1)" aria-label="−">−</button><input id="qi" type="number" inputmode="numeric" min="1" value="1" oninput="sel.qty=Math.max(1,parseInt(this.value)||1);psum()" onblur="this.value=sel.qty"><button type="button" class="w" onclick="qty(1)" aria-label="+">+</button></div></div><div class="qs"><div class="qs-h"><b>${L("অর্ডার সামারি","Order summary")}</b><em id="ps_cnt"></em></div><div class="qs-r"><span>${L("পণ্যের মূল্য","Price")}<small id="ps_unit"></small></span><b id="ps_sub"></b></div><div class="qs-ar"><button type="button" data-v="60" onclick="psArea(60)">${L("ঢাকার ভেতরে","Inside Dhaka")}</button><button type="button" data-v="120" onclick="psArea(120)">${L("ঢাকার বাইরে","Outside Dhaka")}</button></div><div class="qs-r"><span>${L("ডেলিভারি চার্জ","Delivery")}</span><b id="ps_dc"></b></div><div class="qs-r qs-t"><span>${L("সর্বমোট","Total")}</span><b id="ps_tot"></b></div></div></div>
+ <div class="box po"><div id="sz">${ch("size",p.sizes)}</div><div id="cl">${ch("color",p.colors)}</div><div class="qrow"><div class="qs"><div class="qs-h"><b>${L("অর্ডার সামারি","Order summary")}</b><em id="ps_cnt"></em></div><div class="qs-r"><span>${L("পণ্যের মূল্য","Price")}<small id="ps_unit"></small></span><b id="ps_sub"></b></div><div class="qs-q"><div class="qs-ql">${t("qty")}</div><div class="qt"><button type="button" class="w" onclick="qty(-1)" aria-label="−">−</button><input id="qi" type="number" inputmode="numeric" min="1" value="1" oninput="sel.qty=Math.max(1,parseInt(this.value)||1);psum()" onblur="this.value=sel.qty"><button type="button" class="w" onclick="qty(1)" aria-label="+">+</button></div></div><div class="qs-ar"><button type="button" data-v="60" onclick="psArea(60)">${L("ঢাকার ভেতরে","Inside Dhaka")}</button><button type="button" data-v="120" onclick="psArea(120)">${L("ঢাকার বাইরে","Outside Dhaka")}</button></div><div class="qs-r"><span>${L("ডেলিভারি চার্জ","Delivery")}</span><b id="ps_dc"></b></div><div class="qs-r qs-t"><span>${L("সর্বমোট","Total")}</span><b id="ps_tot"></b></div></div></div>
  ${p.in_stock?`<div class="acts"><button class="g" onclick="buy()">${t("buy")}</button><button class="o" id="addb" type="button" onclick="addC()"><span class="ab-t">${t("add")}</span></button></div>`:`<b style="color:#dc2626">${t("out")}</b>`}</div>
- ${specH(p)}${p.description?`<div class="box pd"><h3>${t("desc")}</h3><div class="tx">${e(p.description)}</div></div>`:""}`;const g=document.querySelector(".gal");if(g)g.addEventListener("scroll",galSync,{passive:true});psum();addSync()}
+ ${specH(p)}${p.description?`<div class="box pd"><h3>${t("desc")}</h3><div class="tx">${e(p.description)}</div></div>`:""}`;gInit();psum();addSync()}
 function qty(d){sel.qty=Math.max(1,(sel.qty||1)+d);$("qi").value=sel.qty;psum()}
 function psum(){if(!sel||!sel.p)return;const q=sel.qty||1,p=+sel.p.price||0,d=window.AREA==120?120:60,S=(i,v)=>{const x=$(i);if(x)x.textContent=v};
  S("ps_cnt",bd(q)+" "+L("টি পণ্য","items"));S("ps_unit",tk(p)+" × "+bd(q));S("ps_sub",tk(p*q));S("ps_dc",tk(d));S("ps_tot",tk(p*q+d));
  document.querySelectorAll(".qs-ar button").forEach(b=>b.classList.toggle("on",+b.dataset.v==d))}
 function psArea(v){window.AREA=v;psum()}
-function goImg(i){const g=document.querySelector(".gal");g.scrollTo({left:g.clientWidth*i+i*8,behavior:"smooth"})}
-function galSync(){const g=document.querySelector(".gal"),n=$("nums");if(!g||!n)return;const i=Math.round(g.scrollLeft/(g.clientWidth+8));[...n.children].forEach((c,k)=>c.classList.toggle("on",k==i))}
+const GCH={l:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',r:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'};
+let GI=0;
+function gSet(i){const s=document.querySelectorAll(".pgx-i");if(!s.length)return;const n=s.length;GI=((i%n)+n)%n;s.forEach((el,k)=>{el.className="pgx-i "+(k==GI?"on":k<GI?"bf":"af")});const tb=document.querySelector(".pgx-t");if(tb){[...tb.children].forEach((b,k)=>b.classList.toggle("on",k==GI));const th=tb.children[GI];if(th&&tb.scrollWidth>tb.clientWidth)tb.scrollTo({left:th.offsetLeft-(tb.clientWidth-th.offsetWidth)/2,behavior:"smooth"})}const c=$("pgc");if(c)c.textContent=bd(GI+1)+" / "+bd(n)}
+function gNext(d){gSet(GI+d)}
+function gInit(){GI=0;const st=document.querySelector(".pgx-st");if(!st)return;let x0=null,y0=0;st.addEventListener("touchstart",ev=>{const t=ev.touches[0];x0=t.clientX;y0=t.clientY},{passive:true});st.addEventListener("touchend",ev=>{if(x0==null)return;const t=ev.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.3)gNext(dx<0?1:-1)},{passive:true});if(!window._gk){window._gk=1;document.addEventListener("keydown",ev=>{if(!document.querySelector(".pgx-a"))return;const t=ev.target;if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))return;if(ev.key=="ArrowLeft")gNext(-1);else if(ev.key=="ArrowRight")gNext(1)})}}
 function pick(k,el){sel[k]=el.textContent;[...el.parentElement.querySelectorAll(".chip")].forEach(c=>c.classList.toggle("on",c==el));addSync()}
 const item=()=>({img:(sel.p.images||[])[0]||"",slug:sel.p.slug,name:sel.p.name_bn,size:sel.size||"",color:sel.color||"",qty:sel.qty,price:sel.p.price});
 const cKey=c=>c.slug+"|"+(c.size||"")+"|"+(c.color||"");
@@ -1616,10 +1649,12 @@ const secPick=(base,t,fb)=>adT(t,fb)+sqlW()+`<div class="box ad-secs"><div class
 async function aProducts(){if(!await admOK())return admLogin();
  if(!P.length)await load();
  $("app").innerHTML=adT("ম্যানেজ","/admin")+`<button class="ad-big" onclick="location.hash='#/admin/add'"><span class="ic">➕</span><span><b>নতুন প্রোডাক্ট যোগ করুন</b><small>সেকশন বেছে নতুন প্রোডাক্ট যোগ করুন</small></span></button><button class="ad-big alt" onclick="location.hash='#/admin/cats'"><span class="ic">🏷️</span><span><b>ক্যাটাগরি</b><small>ক্যাটাগরি তৈরি ও ম্যানেজ করুন</small></span></button><button class="ad-big alt2" onclick="location.hash='#/admin/manage'"><span class="ic">🛠️</span><span><b>ম্যানেজ প্রোডাক্ট</b><small>${bn(P.length)} টি প্রোডাক্ট · এডিট ও ডিলেট করুন</small></span></button>`}
-async function aRt(h){if(!await admOK())return admLogin();
+let _aTok=0;
+async function aRt(h){const my=++_aTok;if(!await admOK())return admLogin();
  const p=h.split("/").slice(2).map(x=>{try{return decodeURIComponent(x)}catch(_){return x}}),k=p[0],sc=p[1],cn=p[2];
  $("app").innerHTML=adT("Manage Product","/admin/products")+'<div class="box">Loading...</div>';
  await Promise.all([load(),chkAll()]);
+ if(my!==_aTok||(location.hash.slice(1)||"/")!==h)return;
  if(k=="sections")return aSecList();if(k=="section")return aSecEdit(sc);if(k=="secnew")return aSecEdit("");
  if(sc&&!SEC.some(x=>x.k==sc))return location.replace("#/admin/products");
  AS=sc||null;ACF=null;
@@ -1675,16 +1710,24 @@ create table if not exists sections (
  id uuid primary key default gen_random_uuid(),
  k text unique not null, bn text not null, en text, ic text, db text, de text, c text,
  kind text default 'fashion', pos int default 0, created_at timestamptz default now());
+alter table sections add column if not exists en text;
+alter table sections add column if not exists ic text;
+alter table sections add column if not exists db text;
+alter table sections add column if not exists de text;
+alter table sections add column if not exists c text;
+alter table sections add column if not exists kind text default 'fashion';
+alter table sections add column if not exists pos int default 0;
 alter table sections enable row level security;
 drop policy if exists "sections read" on sections;
 create policy "sections read" on sections for select using (true);
 drop policy if exists "sections admin" on sections;
-create policy "sections admin" on sections for all to authenticated using (${ad}) with check (${ad});`};
-const secSqlW=()=>{if(SECOK&&window.ADM_TBL!==false)return "";const t=SECOK?["🔒 সিকিউরিটি আপডেট দরকার","এডমিন পেজ ও ডাটাবেস সুরক্ষিত করতে Supabase → SQL Editor-এ নিচের কোডটি একবার Run করুন। এতে শুধু আপনার অ্যাকাউন্ট এডমিন হিসেবে নিবন্ধিত হবে। Run করার পর পেজটি রিলোড করুন, এই বক্স আর আসবে না।"]:["⚠️ একবার ডাটাবেসে SQL চালাতে হবে","সেকশন নিজে বানাতে ও এডিট করতে এবং এডমিন সুরক্ষিত করতে Supabase → SQL Editor-এ নিচের কোডটি Run করুন। Run করার পর পেজটি রিলোড করুন।"];return `<div class="ad-warn"><b>${t[0]}</b><p>${t[1]}</p><pre class="sqlb">${e(secSql())}</pre><button type="button" class="cpb" data-v="${e(secSql())}" onclick="cp(this)">কপি</button></div>`};
+create policy "sections admin" on sections for all to authenticated using (${ad}) with check (${ad});
+notify pgrst, 'reload schema';`};
+const secSqlW=()=>{if(SECOK&&window.ADM_TBL!==false&&!window.SEC_BAD)return "";const t=window.SEC_BAD?["⚠️ ডাটাবেস টেবিল আপডেট দরকার","সেকশন টেবিলের কিছু কলাম ডাটাবেসে নেই, তাই সেভ হচ্ছে না। Supabase → SQL Editor-এ নিচের কোডটি একবার Run করুন, তারপর পেজ রিলোড করে আবার সেভ করুন।"]:SECOK?["🔒 সিকিউরিটি আপডেট দরকার","এডমিন পেজ ও ডাটাবেস সুরক্ষিত করতে Supabase → SQL Editor-এ নিচের কোডটি একবার Run করুন। এতে শুধু আপনার অ্যাকাউন্ট এডমিন হিসেবে নিবন্ধিত হবে। Run করার পর পেজটি রিলোড করুন, এই বক্স আর আসবে না।"]:["⚠️ একবার ডাটাবেসে SQL চালাতে হবে","সেকশন নিজে বানাতে ও এডিট করতে এবং এডমিন সুরক্ষিত করতে Supabase → SQL Editor-এ নিচের কোডটি Run করুন। Run করার পর পেজটি রিলোড করুন।"];return `<div class="ad-warn"><b>${t[0]}</b><p>${t[1]}</p><pre class="sqlb">${e(secSql())}</pre><button type="button" class="cpb" data-v="${e(secSql())}" onclick="cp(this)">কপি</button></div>`};
 async function aSecList(){
  if(SECOK&&!SECN){const r=await sb.from("sections").insert(DEFSEC.map((x,i)=>({k:x.k,bn:x.bn,en:x.en,ic:x.ic,db:x.db,de:x.de,c:x.c,kind:x.kind,pos:i})));if(!r.error)await load()}
  $("app").innerHTML=adT("🗂️ সেকশন ম্যানেজ","/admin")+secSqlW()+(SECOK?`<button type="button" class="g" style="width:100%;margin:0 0 12px;font-size:16px" onclick="location.hash='#/admin/secnew'">＋ নতুন সেকশন</button>`:"")+SEC.map((x,i)=>`<div class="box sct"><div class="sch" style="background:${x.c}"><span>${x.ic}</span><div><b>${e(x.bn)}</b><small>${e(x.en)}</small></div></div><div class="scm">${bn(secP(x.k).length)} টি প্রোডাক্ট · ${bn(secC(x.k).length)} টি ক্যাটাগরি</div>${SECOK?`<div class="pca"><button type="button" class="w" ${i?"":"disabled"} onclick="secMove('${x.k}',-1)" aria-label="উপরে">↑</button><button type="button" class="w" ${i<SEC.length-1?"":"disabled"} onclick="secMove('${x.k}',1)" aria-label="নিচে">↓</button><button type="button" class="mgb" onclick="location.hash='#/admin/section/${enc(x.k)}'">✏️ এডিট</button><button type="button" class="r" onclick="secDel('${x.k}')">🗑</button></div>`:""}</div>`).join("")}
-const secMsg=x=>{const m=(x&&x.message)||"";return /row-level security|permission denied|policy/i.test(m)?"অনুমতি নেই: আপনার এডমিন অ্যাকাউন্ট ডাটাবেসে নিবন্ধিত নয়। সেকশন পেজের SQL কোডটি Supabase-এ একবার Run করুন।":(m||"কাজটি সম্পন্ন হয়নি")};
+const secMsg=x=>{const m=(x&&x.message)||"";if(/column|schema cache/i.test(m)){window.SEC_BAD=1;setTimeout(()=>{if(!document.querySelector(".ad-warn")){const a=document.querySelector(".ad-top");if(a)a.insertAdjacentHTML("afterend",secSqlW())}},0);return "ডাটাবেসের সেকশন টেবিলে কিছু কলাম নেই, তাই সেভ হয়নি। পেজে দেখানো SQL কোডটি Supabase → SQL Editor-এ একবার Run করুন, তারপর পেজ রিলোড করে আবার সেভ করুন।"}return /row-level security|permission denied|policy/i.test(m)?"অনুমতি নেই: আপনার এডমিন অ্যাকাউন্ট ডাটাবেসে নিবন্ধিত নয়। সেকশন পেজের SQL কোডটি Supabase-এ একবার Run করুন।":(m||"কাজটি সম্পন্ন হয়নি")};
 const secOk=(r,rows)=>{if(r.error){alert(secMsg(r.error));return false}if(rows&&(!r.data||!r.data.length)){alert("পরিবর্তন সেভ হয়নি — ডাটাবেস অনুমতি দিচ্ছে না। সেকশন পেজের SQL কোডটি Supabase-এ একবার Run করুন, তারপর আবার চেষ্টা করুন।");return false}return true};
 const secBg=()=>load().then(()=>{if((location.hash.slice(1)||"/")=="/admin/sections")aSecList()}).catch(()=>{});
 async function secMove(k,d){const i=SEC.findIndex(x=>x.k==k),j=i+d;if(j<0||j>=SEC.length)return;
@@ -1722,7 +1765,7 @@ async function secSave(k){if(!SECOK)return alert("আগে উপরের SQL 
  try{let r;
   if(k){r=await sb.from("sections").update(row).eq("k",k).select("k");if(!secOk(r,true))return;SEC=SEC.map(x=>x.k==k?Object.assign({},x,row):x)}
   else{const sl=(v("sen")||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"sec";row.k=sl+"-"+Date.now().toString(36);row.pos=SEC.length;r=await sb.from("sections").insert(row).select("k");if(!secOk(r,true))return;SEC=SEC.concat([{k:row.k,bn:row.bn,en:row.en,ic:row.ic,db:row.db,de:row.de,c:row.c,kind:row.kind}])}
-  mxCache();toast("✓ সেকশন সেভ হয়েছে");load().catch(()=>{});abk("/admin/sections")}
+  mxCache();toast("✓ সেকশন সেভ হয়েছে");try{await load()}catch(_){}abk("/admin/sections")}
  catch(err){alert(secMsg(err))}
  finally{const b2=$("ssv");if(b2)b2.disabled=false}}
 /* ADMIN: MANAGE PRODUCT (সব সেকশনে একই) */
@@ -2054,7 +2097,7 @@ function admSt(k,n){const el=$("sa_"+k);if(!el)return;const t0=performance.now()
 (function(){const NAV=[["/admin","Dashboard",'<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'],["/admin/orders","অর্ডার",HXI.box],["/admin/add","",'<path d="M12 5v14M5 12h14"/>',1],["/admin/products","ম্যানেজ",'<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>'],["/admin/sections","সেকশন",'<path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>']];
 document.body.insertAdjacentHTML("beforeend",'<nav id="adnav">'+NAV.map(x=>'<a href="#'+x[0]+'" data-p="'+x[0]+'"'+(x[3]?' class="pl" aria-label="নতুন প্রোডাক্ট"':'')+'>'+hxSvg(x[2])+x[1]+'</a>').join("")+'</nav>');
 const act=()=>{const h=location.hash.slice(1)||"/";let k="/";if(/^\/admin\/order/.test(h))k="/admin/orders";else if(/^\/admin\/(add|addp)(\/|$)/.test(h))k="/admin/add";else if(/^\/admin\/(products?|manage|cats?|catedit)(\/|$)/.test(h))k="/admin/products";else if(/^\/admin\/(sections?|secnew)(\/|$)/.test(h))k="/admin/sections";else if(h.startsWith("/admin"))k="/admin";document.querySelectorAll("#adnav a").forEach(a=>a.classList.toggle("on",a.dataset.p==k))};
-const r0=route;route=function(){document.body.classList.toggle("noan",!!window._kct);act();return r0.apply(this,arguments)};
+const r0=route;route=function(){document.body.classList.toggle("noan",!!window._kct);act();try{fxSecs()}catch(_){}return r0.apply(this,arguments)};
 document.addEventListener('click',ev=>{const a=ev.target.closest&&ev.target.closest('#adnav a');if(a&&location.hash==a.getAttribute('href')){ev.preventDefault();_rt=0;route()}});
 })();
 try{history.scrollRestoration="manual"}catch(_){}window.addEventListener("pageshow",ev=>{if(ev.persisted)route()});
